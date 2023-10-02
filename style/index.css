@@ -12,15 +12,17 @@
 }
 .header__container {
     display: flex;
-    padding: 0 24px;
+    align-items:center;
+    padding: 16px 24px;
     margin: 0 auto;
     max-width: 1400px;
+
 }
 .header__menu-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 48px;
+    min-width: 48px;
     height: 48px;
     padding: 12px 10px;
     border-radius: 8px;
@@ -31,8 +33,9 @@
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
-    
+    box-sizing:border-box;
 }
+
 
 /*-------header logo-----------*/
 .header__logo{
@@ -43,5 +46,84 @@
    color:#fff;   
    font-variant: all-small-caps;
    width: 107px;
-   margin:0 32px 0 16px;
+   margin:0 32px 3px 16px;
 }
+/*----header search--------*/
+.header__search{
+   display:flex;
+   justify-content: center;
+   align-items:center;
+   gap: 8px;
+   border-radius: 36px;    
+   background-color:#8551B9;
+   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   width: 970px;
+   height: 48px;
+   padding:10px 20px;
+   box-sizing:border-box;
+}
+.header__search-input{
+   background-color:inherit;
+   border:none;
+   width: 100%;
+   color:#fff;
+}
+.header__search-input:focus-visible{
+border:none;
+padding: 0;
+outline: none;
+}
+.header__search-input::placeholder{
+font-size: 18px;
+opacity: 0.5;
+color:#fff;
+font-weight: 400;
+}
+.header__search-button{
+   background-color:inherit;
+   border:none;
+   width: 24px;
+   height: 24px;
+   cursor: pointer;
+}
+/*-----header icons-------*/
+.header__item{
+   display: flex;
+   justify-content: center;
+   align-items:center;
+   flex-direction: column;   
+   
+}
+.header__user{
+   margin: 0 40px 0 32px;
+}
+.header__item-img{
+   width: 28px;
+height: 28px;
+margin-bottom: 7px;
+}
+.header__item-text{
+   font-size: 13px;
+   line-height: 16px;
+   color:#fff;
+}
+.header__cart{
+   position: relative;
+}
+.header__cart-count{
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items:center;
+   top:-4px;
+   right:2px;
+   width:16px;
+   height: 16px;
+   border-radius:50%;
+   background-color:#F55123;
+   color:#fff;
+   font-size: 10px;
+   font-weight: 700;
+   line-height: 18px;
+
+} 
