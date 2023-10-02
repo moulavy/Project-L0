@@ -1,0 +1,33 @@
+@import url("./normalize.css");
+
+.page {
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.header {
+    background-color: #6725a8;
+}
+.header__container {
+    display: flex;
+    padding: 0 24px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+.header__menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 12px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background-color: inherit;
+    background-image: url("../images/burger-menu.svg");
+    background-size: 28px 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
