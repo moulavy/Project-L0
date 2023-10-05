@@ -620,6 +620,9 @@ line-height: 16px
     color:#0CB477;
 }
 /*------pay-------*/
+.pay{
+    margin-bottom:16px;
+}
 .pay__card{
     display: flex;    
     margin-bottom: 8px;
@@ -633,4 +636,63 @@ line-height: 16px
 .pay__info{
     color: var(--system-gray, #9797AF);
 font-size: 13px;
+}
+
+/*--------получатель------------*/
+.recipient__inputs{
+    margin-top:16px;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+}
+.recipient__top{
+    display: flex;
+    gap:24px;
+}
+.recipient__bottom{
+    display: flex;
+    gap:24px;
+}
+.recipient__input{
+    width: 100%;
+   border:none;
+   height: 24px;
+   line-height: 24px;
+   border-bottom:1px solid rgba(0, 0, 0, 0.20);
+}
+.recipient__input::placeholder{
+  color:#9797AF;
+}
+.recipient__input-error{
+    color:#F55123;
+     border-bottom:1px solid #F55123;
+}
+.recipient__container{
+    display: flex;
+    flex-direction: column;
+}
+.recipient__label{
+   height:16px; 
+   color:#9797AF;
+   font-size: 13px;
+   line-height: 16px; 
+}
+.recipient__error{
+height: 14px;
+font-size: 12px;
+line-height: 14px; 
+color:#F55123;
+}
+.recipient__top .recipient__container{
+    width: 283px;
+    
+}
+.recipient__bottom .recipient__container{
+    width: 180px;
+}
+.recipient__inn-info{
+    color: var(--text-black, #000);
+font-size: 12px;
+font-weight: 400;
+line-height: 14px;
 }

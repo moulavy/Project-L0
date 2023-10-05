@@ -666,11 +666,90 @@
                             </button>
                         </div>
                         <div class="pay__card">
-                            <img src="./images/card-mir.svg" alt="Карта Мир" class="pay__card-img">
+                            <img
+                                src="./images/card-mir.svg"
+                                alt="Карта Мир"
+                                class="pay__card-img"
+                            />
                             <p class="pay__card-number">1234 56•• •••• 1234</p>
                             <p class="pay__card-date">01/30</p>
                         </div>
-                        <p class="pay__info">Спишем оплату с карты при получении</p>
+                        <p class="pay__info">
+                            Спишем оплату с карты при получении
+                        </p>
+                    </div>
+                    <div class="cart-main__recipient recipient block">
+                        <div class="pay__title block-title">
+                            <p class="pay__title-text block-title__text">
+                                Получатель
+                            </p>
+                        </div>
+                        <div class="recipient__inputs">
+                            <div class="recipient__top">
+                                <div
+                                    class="recipient__name-container recipient__container"
+                                >
+                                    <label class="recipient__label" for="name"></label>
+                                    <input
+                                        id="name"
+                                        type="text"
+                                        class="recipient__name recipient__input"
+                                        placeholder="Имя"
+                                    />
+                                    <p class="recipient__error"></p>
+                                </div>
+                                <div
+                                    class="recipient__surname-container recipient__container"
+                                >
+                                    <label class="recipient__label" for="surname"></label>
+                                    <input
+                                        type="text"
+                                        class="recipient__surname recipient__input"
+                                        placeholder="Фамилия"
+                                    />
+                                    <p class="recipient__error"></p>
+                                </div>
+                            </div>
+                            <div class="recipient__bottom">
+                                <div
+                                    class="recipient__email-container recipient__container"
+                                >
+                                    <label class="recipient__label" for="email"></label>
+                                    <input
+                                        type="text"
+                                        id="email"
+                                        class="recipient__email recipient__input"
+                                        placeholder="Почта"
+                                    />
+                                    <p class="recipient__error"></p>
+                                </div>
+                                <div
+                                    class="recipient__phone-container recipient__container"
+                                >
+                                    <label class="recipient__label" for="phone"></label>
+                                    <input
+                                        type="text"
+                                        id="phone"
+                                        class="recipient__phone recipient__input"
+                                        placeholder="Телефон"
+                                    />
+                                    <p class="recipient__error"></p>
+                                </div>
+                                <div
+                                    class="recipient__email-container recipient__container"
+                                >
+                                    <label class="recipient__label" for="inn"></label>
+                                    <input
+                                        id="inn"
+                                        type="text"
+                                        class="recipient__inn recipient__input"
+                                        placeholder="ИНН"
+                                    />
+                                    <p class="recipient__error"></p>
+                                    <p class="recipient__inn-info"></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
