@@ -211,6 +211,9 @@
 .cart-main {
     width: 891px;
 }
+.cart-main__active{
+    margin-bottom: 40px;
+}
 .cart-main__title {
     font-size: 28px;
     font-weight: 700;
@@ -479,3 +482,21 @@ word-spacing: -1px;
    top:17px;
    left:0;
 } 
+
+/*-------товары отсутсвуют------*/
+.cart-main__miss-text,.cart-main__miss-count{
+font-size: 16px;
+font-weight: 600;
+line-height: 24px; 
+}
+.product__img-inactive{
+    margin-left: 0;
+    filter: grayscale(100%);
+}
+.product__title-inactive{
+    color:#9797AF;
+    max-width: 309px;
+}
+.product__params-inactive{
+    color:#9797AF;
+}

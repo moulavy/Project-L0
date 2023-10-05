@@ -50,290 +50,478 @@
             <div class="cart__container">
                 <div class="cart-main">
                     <h2 class="cart-main__title">Корзина</h2>
-                    <div class="cart-main__choose">
-                        <div
-                            class="cart-main__checkbox-container checkbox-container"
-                        >
-                            <label class="checkbox-label" for="choose-all">
-                                <input
-                                    type="checkbox"
-                                    class="cart-main__checkbox checkbox"
-                                    id="choose-all"
-                                    name="choose-all"
-                                    value="yes"
+                    <div class="cart-main__active">
+                        <div class="cart-main__choose">
+                            <div
+                                class="cart-main__checkbox-container checkbox-container"
+                            >
+                                <label class="checkbox-label" for="choose-all">
+                                    <input
+                                        type="checkbox"
+                                        class="cart-main__checkbox checkbox"
+                                        id="choose-all"
+                                        name="choose-all"
+                                        value="yes"
+                                    />
+                                    <span class="checkbox-fake"></span>
+                                    <span
+                                        class="cart-main__choose-text checkbox-text"
+                                        >Выбрать все</span
+                                    >
+                                </label>
+                            </div>
+                            <button class="cart-main__hide-button">
+                                <img
+                                    class="cart-main__hide-img"
+                                    src="./images/hide-button.svg"
+                                    alt="кнопка скрыть"
                                 />
-                                <span class="checkbox-fake"></span>
-                                <span
-                                    class="cart-main__choose-text checkbox-text"
-                                    >Выбрать все</span
-                                >
-                            </label>
+                            </button>
                         </div>
-                        <button class="cart-main__hide-button">
-                            <img
-                                class="cart-main__hide-img"
-                                src="./images/hide-button.svg"
-                                alt="кнопка скрыть"
-                            />
-                        </button>
-                    </div>
-                    <ul class="cart-main__list products-list">
-                        <li class="product">
-                            <div class="product__left">
-                                <div
-                                    class="product__checkbox-container checkbox-container"
-                                >
-                                    <label class="checkbox-label" for="item-1">
-                                        <input
-                                            type="checkbox"
-                                            class="product__checkbox checkbox"
-                                            id="item-1"
-                                            name="item-1"
+                        <ul class="cart-main__list products-list">
+                            <li class="product">
+                                <div class="product__left">
+                                    <div
+                                        class="product__checkbox-container checkbox-container"
+                                    >
+                                        <label
+                                            class="checkbox-label"
+                                            for="item-1"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                class="product__checkbox checkbox"
+                                                id="item-1"
+                                                name="item-1"
+                                            />
+                                            <span class="checkbox-fake"></span>
+                                        </label>
+                                        <img
+                                            src="./images/item-1-img.svg"
+                                            alt="Изображение товара"
+                                            class="product__img"
                                         />
-                                        <span class="checkbox-fake"></span>
-                                    </label>
+                                    </div>
+                                    <div class="product__info">
+                                        <h3 class="product__title">
+                                            Футболка UZcotton мужская
+                                        </h3>
+                                        <ul class="product__params">
+                                            <li
+                                                class="product__param product__color"
+                                            >
+                                                <span class="product__param-key"
+                                                    >Цвет: </span
+                                                ><span
+                                                    class="product__param-value"
+                                                    >белый</span
+                                                >
+                                            </li>
+                                            <li
+                                                class="product__param product__size"
+                                            >
+                                                <span class="product__param-key"
+                                                    >Размер: </span
+                                                ><span
+                                                    class="product__param-value"
+                                                    >56</span
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p class="product__storage">
+                                            Коледино WB
+                                        </p>
+                                        <div class="product__company">
+                                            <p class="product__company-text">
+                                                OOO Вайлдберриз
+                                            </p>
+                                            <img
+                                                src="./images/info-icon.svg"
+                                                alt="Подробнее"
+                                                class="product__company-info"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product__right">
+                                    <div class="product__actions">
+                                        <div class="product__quantity-input">
+                                            <button
+                                                disabled
+                                                class="product__quantity-btn product__minus-btn"
+                                            >
+                                                −
+                                            </button>
+                                            <input
+                                                type="number"
+                                                class="product__quantity-field"
+                                                value="1"
+                                                min="0"
+                                            />
+                                            <button
+                                                class="product__quantity-btn product__plus-btn"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                        <p class="product__remains">
+                                            Осталось 2 шт.
+                                        </p>
+                                        <div class="product__buttons">
+                                            <button
+                                                class="product__like"
+                                            ></button>
+                                            <button
+                                                class="product__delete"
+                                            ></button>
+                                        </div>
+                                    </div>
+                                    <div class="product__prices">
+                                        <p class="product__active-price">
+                                            522 <span>сом</span>
+                                        </p>
+                                        <p class="product__old-price">
+                                            1051 <span>сом</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product">
+                                <div class="product__left">
+                                    <div
+                                        class="product__checkbox-container checkbox-container"
+                                    >
+                                        <label
+                                            class="checkbox-label"
+                                            for="item-2"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                class="product__checkbox checkbox"
+                                                id="item-2"
+                                                name="item-2"
+                                            />
+                                            <span class="checkbox-fake"></span>
+                                        </label>
+                                        <img
+                                            src="./images/item-2-img.svg"
+                                            alt="Изображение товара"
+                                            class="product__img"
+                                        />
+                                    </div>
+                                    <div class="product__info">
+                                        <h3 class="product__title">
+                                            Силиконовый чехол картхолдер
+                                            (отверстия) для карт, прозрачный
+                                            кейс бампер на Apple iPhone XR,
+                                            MobiSafe
+                                        </h3>
+                                        <ul class="product__params">
+                                            <li
+                                                class="product__param product__color"
+                                            >
+                                                <span class="product__param-key"
+                                                    >Цвет: </span
+                                                ><span
+                                                    class="product__param-value"
+                                                    >прозрачный</span
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p class="product__storage">
+                                            Коледино WB
+                                        </p>
+                                        <div class="product__company">
+                                            <p class="product__company-text">
+                                                OOO Мегапрофстиль
+                                            </p>
+                                            <img
+                                                src="./images/info-icon.svg"
+                                                alt="Подробнее"
+                                                class="product__company-info"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product__right">
+                                    <div class="product__actions">
+                                        <div class="product__quantity-input">
+                                            <button
+                                                class="product__quantity-btn product__minus-btn"
+                                            >
+                                                −
+                                            </button>
+                                            <input
+                                                type="number"
+                                                class="product__quantity-field"
+                                                value="200"
+                                            />
+                                            <button
+                                                class="product__quantity-btn product__plus-btn"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                        <div class="product__buttons">
+                                            <button
+                                                class="product__like"
+                                            ></button>
+                                            <button
+                                                class="product__delete"
+                                            ></button>
+                                        </div>
+                                    </div>
+                                    <div class="product__prices">
+                                        <p
+                                            class="product__active-price product__long-price"
+                                        >
+                                            2 100 047 <span>сом</span>
+                                        </p>
+                                        <p class="product__old-price">
+                                            2 300 047 <span>сом</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product">
+                                <div class="product__left">
+                                    <div
+                                        class="product__checkbox-container checkbox-container"
+                                    >
+                                        <label
+                                            class="checkbox-label"
+                                            for="item-3"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                class="product__checkbox checkbox"
+                                                id="item-3"
+                                                name="item-3"
+                                            />
+                                            <span class="checkbox-fake"></span>
+                                        </label>
+                                        <img
+                                            src="./images/item-3-img.svg"
+                                            alt="Изображение товара"
+                                            class="product__img"
+                                        />
+                                    </div>
+                                    <div class="product__info">
+                                        <h3 class="product__title">
+                                            Карандаши цветные Faber-Castell
+                                            "Замок", набор 24 цвета, заточенные,
+                                            шестигранные,Faber-Castell
+                                        </h3>
+                                        <p class="product__storage">
+                                            Коледино WB
+                                        </p>
+                                        <div class="product__company">
+                                            <p class="product__company-text">
+                                                OOO Вайлдберриз
+                                            </p>
+                                            <img
+                                                src="./images/info-icon.svg"
+                                                alt="Подробнее"
+                                                class="product__company-info"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product__right">
+                                    <div class="product__actions">
+                                        <div class="product__quantity-input">
+                                            <button
+                                                class="product__quantity-btn product__minus-btn"
+                                            >
+                                                −
+                                            </button>
+                                            <input
+                                                type="number"
+                                                class="product__quantity-field"
+                                                value="2"
+                                            />
+                                            <button
+                                                class="product__quantity-btn product__plus-btn"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                        <p class="product__remains">
+                                            Осталось 2 шт.
+                                        </p>
+                                        <div class="product__buttons">
+                                            <button
+                                                class="product__like"
+                                            ></button>
+                                            <button
+                                                class="product__delete"
+                                            ></button>
+                                        </div>
+                                    </div>
+                                    <div class="product__prices">
+                                        <p class="product__active-price">
+                                            494 <span>сом</span>
+                                        </p>
+                                        <p class="product__old-price">
+                                            950 <span>сом</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cart-main__inactive">
+                        <div class="cart-main__choose cart-main__miss-line">
+                            <div class="cart-main__miss">
+                                <span class="cart-main__miss-text"
+                                    >Отсутствуют ·
+                                </span>
+                                <span class="cart-main__miss-count"
+                                    >3 товара</span
+                                >
+                            </div>
+                            <button class="cart-main__hide-button">
+                                <img
+                                    class="cart-main__hide-img"
+                                    src="./images/hide-button.svg"
+                                    alt="кнопка скрыть"
+                                />
+                            </button>
+                        </div>
+                        <ul class="cart-main__list products-list">
+                            <li class="product">
+                                <div class="product__left">
                                     <img
                                         src="./images/item-1-img.svg"
                                         alt="Изображение товара"
-                                        class="product__img"
+                                        class="product__img product__img-inactive"
                                     />
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__title">
-                                        Футболка UZcotton мужская
-                                    </h3>
-                                    <ul class="product__params">
-                                        <li
-                                            class="product__param product__color"
+
+                                    <div class="product__info">
+                                        <h3
+                                            class="product__title product__title-inactive"
                                         >
-                                            <span class="product__param-key"
-                                                >Цвет: </span
-                                            ><span class="product__param-value"
-                                                >белый</span
+                                            Футболка UZcotton мужская
+                                        </h3>
+                                        <ul
+                                            class="product__params product__params-inactive"
+                                        >
+                                            <li
+                                                class="product__param product__color"
                                             >
-                                        </li>
-                                        <li
-                                            class="product__param product__size"
-                                        >
-                                            <span class="product__param-key"
-                                                >Размер: </span
-                                            ><span class="product__param-value"
-                                                >56</span
+                                                <span class="product__param-key"
+                                                    >Цвет: </span
+                                                ><span
+                                                    class="product__param-value"
+                                                    >белый</span
+                                                >
+                                            </li>
+                                            <li
+                                                class="product__param product__size"
                                             >
-                                        </li>
-                                    </ul>
-                                    <p class="product__storage">Коледино WB</p>
-                                    <div class="product__company">
-                                        <p class="product__company-text">
-                                            OOO Вайлдберриз
-                                        </p>
-                                        <img
-                                            src="./images/info-icon.svg"
-                                            alt="Подробнее"
-                                            class="product__company-info"
-                                        />
+                                                <span class="product__param-key"
+                                                    >Размер: </span
+                                                ><span
+                                                    class="product__param-value"
+                                                    >56</span
+                                                >
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="product__right">
-                                <div class="product__actions">
-                                    <div class="product__quantity-input">
-                                        <button disabled
-                                            class="product__quantity-btn product__minus-btn"
-                                        >
-                                            −
-                                        </button>
-                                        <input
-                                            type="number"
-                                            class="product__quantity-field"
-                                            value="1"
-                                            min="0"
-                                        />
-                                        <button
-                                            class="product__quantity-btn product__plus-btn"
-                                        >
-                                            +
-                                        </button>
+                                <div class="product__right">
+                                    <div class="product__actions">
+                                        <div class="product__buttons">
+                                            <button
+                                                class="product__like"
+                                            ></button>
+                                            <button
+                                                class="product__delete"
+                                            ></button>
+                                        </div>
                                     </div>
-                                    <p class="product__remains">
-                                        Осталось 2 шт.
-                                    </p>
-                                    <div class="product__buttons">
-                                        <button class="product__like"></button>
-                                        <button
-                                            class="product__delete"
-                                        ></button>
-                                    </div>
+                                    <div class="product__prices"></div>
                                 </div>
-                                <div class="product__prices">
-                                    <p class="product__active-price">522 <span>сом</span></p>
-                                    <p class="product__old-price">1051 <span>сом</span></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="product">
-                            <div class="product__left">
-                                <div
-                                    class="product__checkbox-container checkbox-container"
-                                >
-                                    <label class="checkbox-label" for="item-2">
-                                        <input
-                                            type="checkbox"
-                                            class="product__checkbox checkbox"
-                                            id="item-2"
-                                            name="item-2"
-                                        />
-                                        <span class="checkbox-fake"></span>
-                                    </label>
+                            </li>
+                            <li class="product">
+                                <div class="product__left">
                                     <img
                                         src="./images/item-2-img.svg"
                                         alt="Изображение товара"
-                                        class="product__img"
+                                        class="product__img product__img-inactive"
                                     />
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__title">
-                                        Силиконовый чехол картхолдер (отверстия)
-                                        для карт, прозрачный кейс бампер на
-                                        Apple iPhone XR, MobiSafe
-                                    </h3>
-                                    <ul class="product__params">
-                                        <li
-                                            class="product__param product__color"
+
+                                    <div class="product__info">
+                                        <h3
+                                            class="product__title product__title-inactive"
                                         >
-                                            <span class="product__param-key"
-                                                >Цвет: </span
-                                            ><span class="product__param-value"
-                                                >прозрачный</span
+                                            Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe
+                                        </h3>
+                                        <ul
+                                            class="product__params product__params-inactive"
+                                        >
+                                            <li
+                                                class="product__param product__color"
                                             >
-                                        </li>
-                                    </ul>
-                                    <p class="product__storage">Коледино WB</p>
-                                    <div class="product__company">
-                                        <p class="product__company-text">
-                                            OOO Мегапрофстиль
-                                        </p>
-                                        <img
-                                            src="./images/info-icon.svg"
-                                            alt="Подробнее"
-                                            class="product__company-info"
-                                        />
+                                                <span class="product__param-key"
+                                                    >Цвет: </span
+                                                ><span
+                                                    class="product__param-value"
+                                                    >прозрачный</span
+                                                >
+                                            </li>                                            
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="product__right">
-                                <div class="product__actions">
-                                    <div class="product__quantity-input">
-                                        <button
-                                            class="product__quantity-btn product__minus-btn"
-                                        >
-                                            −
-                                        </button>
-                                        <input
-                                            type="number"
-                                            class="product__quantity-field"
-                                            value="200"
-                                        />
-                                        <button
-                                            class="product__quantity-btn product__plus-btn"
-                                        >
-                                            +
-                                        </button>
+                                <div class="product__right">
+                                    <div class="product__actions">
+                                        <div class="product__buttons">
+                                            <button
+                                                class="product__like"
+                                            ></button>
+                                            <button
+                                                class="product__delete"
+                                            ></button>
+                                        </div>
                                     </div>
-                                    <div class="product__buttons">
-                                        <button class="product__like"></button>
-                                        <button
-                                            class="product__delete"
-                                        ></button>
-                                    </div>
+                                    <div class="product__prices"></div>
                                 </div>
-                                <div class="product__prices">
-                                    <p class="product__active-price product__long-price">
-                                        2 100 047 <span>сом</span>
-                                    </p>
-                                    <p class="product__old-price">
-                                        2 300 047 <span>сом</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <!------------------------------------------------------->
-                        <li class="product">
-                            <div class="product__left">
-                                <div
-                                    class="product__checkbox-container checkbox-container"
-                                >
-                                    <label class="checkbox-label" for="item-3">
-                                        <input
-                                            type="checkbox"
-                                            class="product__checkbox checkbox"
-                                            id="item-3"
-                                            name="item-3"
-                                        />
-                                        <span class="checkbox-fake"></span>
-                                    </label>
+                            </li>
+                            <li class="product">
+                                <div class="product__left">
                                     <img
                                         src="./images/item-3-img.svg"
                                         alt="Изображение товара"
-                                        class="product__img"
+                                        class="product__img product__img-inactive"
                                     />
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__title">
-                                        Карандаши цветные Faber-Castell "Замок",
-                                        набор 24 цвета, заточенные,
-                                        шестигранные,Faber-Castell
-                                    </h3>
-                                    <p class="product__storage">Коледино WB</p>
-                                    <div class="product__company">
-                                        <p class="product__company-text">
-                                            OOO Вайлдберриз
-                                        </p>
-                                        <img
-                                            src="./images/info-icon.svg"
-                                            alt="Подробнее"
-                                            class="product__company-info"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product__right">
-                                <div class="product__actions">
-                                    <div class="product__quantity-input">
-                                        <button
-                                            class="product__quantity-btn product__minus-btn"
+
+                                    <div class="product__info">
+                                        <h3
+                                            class="product__title product__title-inactive"
                                         >
-                                            −
-                                        </button>
-                                        <input
-                                            type="number"
-                                            class="product__quantity-field"
-                                            value="2"
-                                        />
-                                        <button
-                                            class="product__quantity-btn product__plus-btn"
-                                        >
-                                            +
-                                        </button>
-                                    </div>
-                                    <p class="product__remains">
-                                        Осталось 2 шт.
-                                    </p>
-                                    <div class="product__buttons">
-                                        <button class="product__like"></button>
-                                        <button
-                                            class="product__delete"
-                                        ></button>
+                                            Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell
+                                        </h3>
+                                        
                                     </div>
                                 </div>
-                                <div class="product__prices">
-                                    <p class="product__active-price">494 <span>сом</span></p>
-                                    <p class="product__old-price">950 <span>сом</span></p>
+                                <div class="product__right">
+                                    <div class="product__actions">
+                                        <div class="product__buttons">
+                                            <button
+                                                class="product__like"
+                                            ></button>
+                                            <button
+                                                class="product__delete"
+                                            ></button>
+                                        </div>
+                                    </div>
+                                    <div class="product__prices"></div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div class="cart-total"></div>
             </div>
         </main>
