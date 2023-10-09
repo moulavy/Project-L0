@@ -210,7 +210,7 @@
     align-items: stretch;
 }
 .cart-main {
-    width: 891px;
+    max-width: 891px;
     align-self: flex-start;
 }
 .cart-main__active {
@@ -496,7 +496,15 @@
 .product__currency {
     font-size: 16px;
 }
+@media screen and (max-width: 1140px) {
+.cart__container{
+    max-width:1024px ;
+}
+.cart-main{
+    max-width: 640px;
+}
 
+}
 /*-------товары отсутствуют------*/
 .cart-main__miss-text,
 .cart-main__miss-count {
@@ -721,10 +729,12 @@
     align-self: flex-start;
     margin-left: 32px;
     max-width: 429px;
+    min-width: 280px;
     box-sizing: border-box;
     box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
         0px 2px 10px 0px rgba(0, 0, 0, 0.15);
 }
+
 .total__price {
     display: flex;
     justify-content: space-between;
