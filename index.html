@@ -689,7 +689,10 @@
                                 <div
                                     class="recipient__name-container recipient__container"
                                 >
-                                    <label class="recipient__label" for="name"></label>
+                                    <label
+                                        class="recipient__label"
+                                        for="name"
+                                    ></label>
                                     <input
                                         id="name"
                                         type="text"
@@ -701,7 +704,10 @@
                                 <div
                                     class="recipient__surname-container recipient__container"
                                 >
-                                    <label class="recipient__label" for="surname"></label>
+                                    <label
+                                        class="recipient__label"
+                                        for="surname"
+                                    ></label>
                                     <input
                                         type="text"
                                         class="recipient__surname recipient__input"
@@ -714,7 +720,10 @@
                                 <div
                                     class="recipient__email-container recipient__container"
                                 >
-                                    <label class="recipient__label" for="email"></label>
+                                    <label
+                                        class="recipient__label"
+                                        for="email"
+                                    ></label>
                                     <input
                                         type="text"
                                         id="email"
@@ -726,7 +735,10 @@
                                 <div
                                     class="recipient__phone-container recipient__container"
                                 >
-                                    <label class="recipient__label" for="phone"></label>
+                                    <label
+                                        class="recipient__label"
+                                        for="phone"
+                                    ></label>
                                     <input
                                         type="text"
                                         id="phone"
@@ -738,7 +750,10 @@
                                 <div
                                     class="recipient__email-container recipient__container"
                                 >
-                                    <label class="recipient__label" for="inn"></label>
+                                    <label
+                                        class="recipient__label"
+                                        for="inn"
+                                    ></label>
                                     <input
                                         id="inn"
                                         type="text"
@@ -753,7 +768,124 @@
                     </div>
                 </div>
 
-                <div class="cart-total"></div>
+                <div class="total block">
+                    <div class="total__price">
+                        <p class="total__title-key total__key">Итого</p>
+                        <p class="total__title-value total__value">
+                            2 101 063
+                            <span class="total__value-currency">сом</span>
+                        </p>
+                    </div>
+                    <div class="total__detail">
+                        <p class="total__key total__detail-key">203 товара</p>
+                        <p class="total__value total__detail-value">
+                            2 302 048 сом
+                        </p>
+                    </div>
+                    <div class="total__detail">
+                        <p class="total__key total__detail-key">Скидка</p>
+                        <p class="total__value total__detail-value">
+                            −200 985 сом
+                        </p>
+                    </div>
+                    <div class="total__detail">
+                        <p class="total__key total__detail-key">Доставка</p>
+                        <p class="total__value total__detail-value">
+                            Бесплатно
+                        </p>
+                    </div>
+                    <div class="total__delivery">
+                        <div class="total__delivery-title total__title">
+                            <p class="total__delivery-text total__text">
+                                Доставка в пункт выдачи
+                            </p>
+                            <img
+                                src="./images/pencil.svg"
+                                alt="Редактировать"
+                                class="total__delivery-img total__img"
+                            />
+                        </div>
+                        <p class="total__address">
+                            Бишкек, улица Ахматбека Суюмбаева, 12/1
+                        </p>
+                        <p class="total__date">5–8 фев</p>
+                        <div class="total__back delivery__back">
+                            <img
+                                src="./images/back.svg"
+                                alt="обратная доставка"
+                                class="devivery__back-img"
+                            />
+                            <p class="delivery__back-text">
+                                Обратная доставка товаров на склад при отказе —
+                                <span class="delivery__back-free"
+                                    >бесплатно</span
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <div class="total__pay">
+                        <div class="total__pay-title total__title">
+                            <p class="total__pay-text total__text">
+                                Оплата картой
+                            </p>
+                            <img
+                                src="./images/pencil.svg"
+                                alt="Редактировать"
+                                class="total__delivery-img total__img"
+                            />
+                        </div>
+                        <div class="total__card">
+                            <img
+                                src="./images/card-mir.svg"
+                                alt="Карта Мир"
+                                class="total__card-img"
+                            />
+                            <p class="total__card-number">
+                                1234 56•• •••• 1234
+                            </p>
+                        </div>
+                        <div class="total__payment">
+                            <div
+                                class="total__checkbox-container checkbox-container"
+                            >
+                                <label class="checkbox-label" for="pay">
+                                    <input
+                                        type="checkbox"
+                                        class="total__checkbox checkbox"
+                                        id="pay"
+                                        name="pay"
+                                    />
+                                    <span class="checkbox-fake"></span>
+                                    <span
+                                        class="cart-main__choose-text checkbox-text"
+                                        >Списать оплату сразу</span
+                                    >
+                                </label>
+                            </div>
+                            <p class="total__payment-text">
+                                Спишем оплату с карты при получении
+                            </p>
+                        </div>
+                    </div>
+                    <button class="total__submit">Заказать</button>
+                    <div class="total__agreement">
+                        <img
+                            src="./images/mark.svg"
+                            alt="галочка"
+                            class="total__agreement-mark"
+                        />
+                        <p class="total__agreement-text">
+                            Соглашаюсь
+                            <span class="total__agreement-underline"
+                                >с правилами пользования торговой
+                                площадкой</span
+                            >
+                            и <span class="total__agreement-underline"
+                                >возврата</span
+                            >
+                        </p>
+                    </div>
+                </div>
             </div>
         </main>
     </body>
