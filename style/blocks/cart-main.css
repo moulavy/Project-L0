@@ -46,4 +46,21 @@
 .cart-main{
     max-width: 640px;
 }
+
 } 
+@media screen and (max-width: 1010px) {
+.cart__container{
+    max-width:100% ;
+}
+.cart-main{
+    max-width: 100%;
+}
+}
+@media screen and (max-width: 695px) {
+.cart-main__title{
+    margin-top:-9px;
+    font-size: 20px;
+line-height: 28px; 
+letter-spacing: -0.2px;
+}
+}

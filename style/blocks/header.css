@@ -120,7 +120,7 @@
     line-height: 18px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 695px) {
     .header__container {
         padding: 14px 13px;
         justify-content: space-between;
