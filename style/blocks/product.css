@@ -302,6 +302,7 @@
     }
     .product__buttons {
         gap: 24px;
+        margin-right: 12px;
     }
     .product__count{
         display: flex;
