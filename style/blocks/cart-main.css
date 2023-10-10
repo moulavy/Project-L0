@@ -47,12 +47,3 @@
     max-width: 640px;
 }
 } 
-@media screen and (max-width: 1140px) {
-.cart__container{
-    max-width:1024px ;
-}
-.cart-main{
-    max-width: 640px;
-}
-} 
-

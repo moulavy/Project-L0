@@ -5,11 +5,12 @@
 .cart__container {
     display: flex;
     padding: 24px;
-    margin: 0 auto;
-    max-width: 1400px;
+    justify-content: center;
+    margin: 0 auto; 
+     max-width: 1400px;
     align-items: stretch;
 }
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1010px) {
 .cart__container{
    flex-direction: column;
 }
