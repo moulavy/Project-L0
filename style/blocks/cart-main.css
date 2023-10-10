@@ -58,7 +58,7 @@
 }
 @media screen and (max-width: 695px) {
 .cart-main__title{
-    margin-top:-9px;
+    margin-top:0px;
     margin-bottom:16px;
     font-size: 20px;
 line-height: 28px; 
