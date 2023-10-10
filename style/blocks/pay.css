@@ -1,0 +1,18 @@
+.pay {
+    margin-bottom: 16px;
+}
+.pay__card {
+    display: flex;
+    margin-bottom: 8px;
+}
+.pay__card-img {
+    margin-right: 8px;
+}
+.pay__card-number {
+    margin-right: 12px;
+}
+.pay__info {
+    color: var(--system-gray, #9797af);
+    font-size: 13px;
+    line-height: 16px;
+}

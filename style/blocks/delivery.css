@@ -1,0 +1,89 @@
+
+.delivery {
+    margin-bottom: 16px;
+}
+
+.delivery__point {
+    display: flex;
+    margin-bottom: 16px;
+}
+.delivery__key {
+    color: var(--text-black, #000);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    width: 153px;
+    margin-right: 32px;
+}
+.delivery__point-address {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.delivery__point-description {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+}
+.delivery__price {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.delivery__date {
+    display: flex;
+    margin-bottom: 16px;
+}
+.delivery__value-img {
+    display: flex;
+    gap: 8px;
+}
+.delivery__img {
+    width: 40px;
+    height: 56px;
+}
+.delivery__item {
+    position: relative;
+}
+.delivery__img-count {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 6px;
+    top: -6px;
+    right: -5px;
+    border-radius: 16px;
+    background-color: #f55123;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 18px;
+}
+.delivery__back {
+    display: flex;
+    gap: 8px;
+}
+
+.delivery__back-text {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    padding-top: 3px;
+}
+.delivery__back-free {
+    position: relative;
+
+    color: #0cb477;
+}
+.delivery__back-free::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-image: url("../../images/underline-green.svg");
+}
