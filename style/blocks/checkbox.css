@@ -27,7 +27,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
-    background-image: url("../images/checkbox.svg");
+    background-image: url("../../images/checkbox.svg");
     width: 12.48px;
     height: 10.16px;
     opacity: 0;

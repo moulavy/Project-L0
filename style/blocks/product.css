@@ -6,7 +6,6 @@
 .product {
     display: flex;
     justify-content: space-between;
-
     width: 100%;
 }
 .product__left {
@@ -194,7 +193,9 @@
 .product__currency {
     font-size: 16px;
 }
-
+.product__prices-mobile{
+    display: none;
+}
 /*-------товары отсутствуют------*/
 .cart-main__miss-text,
 .cart-main__miss-count {
@@ -212,4 +213,61 @@
 }
 .product__params-inactive {
     color: #9797af;
+}
+
+@media screen and (max-width: 695px) {
+.product{
+    flex-direction: column;
+}
+.product__title {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 100%;
+    /* max-height: 40px; */
+    -webkit-line-clamp:2;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+}
+.product__img{
+    margin-left:0;
+    width: 80px;
+    height: 106px;
+}
+.product__checkbox-container{
+    position: relative;
+}
+.product__checkbox-label{
+    position: absolute;
+    top:4px;
+    left: 4px;
+}
+.product__size{
+    display: none;
+}
+.product__company{
+    display: none;
+}
+.product__prices{
+    display: none;
+}
+.product__prices-mobile{
+    display: flex;
+    gap:5px;
+    align-items:center
+}
+.product__active-price-mobile{
+   font-size: 16px;
+line-height: 24px; 
+}
+.product__currency-mobile{
+    font-size: 16px;
+}
+.product__old-price{
+   line-height: 17px;
+}
+.product__old-price::before {
+    height: 1px;
+    
+}
 }
