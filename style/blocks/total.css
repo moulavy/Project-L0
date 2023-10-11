@@ -137,5 +137,46 @@ line-height: 24px;
 .total{
     max-width: none;
     margin-left: 0;
+    background-color:#F6F6FA;
+    border:none;
+    box-shadow: none;
+    padding: 8px 16px 16px;
 }
 } 
+@media screen and (max-width: 695px) {
+.total__delivery-title{
+    display: none;
+}
+.total__address{
+    display: none;
+}
+.total__date{
+    display: none;
+}
+.total__delivery{
+    margin-top:16px;
+}
+.total__back{
+    background-color:#F0ECF4;
+    margin-bottom: 16px;
+}
+.total__pay-title{
+    display: none;
+}
+.total__card{
+    display: none;
+}
+.total__payment{
+    background-color:#F0ECF4;
+}
+.total__price{
+    font-size: 20px;
+line-height: 28px;
+letter-spacing: -0.2px;
+}
+.total__title-value{
+    font-size: 20px;
+line-height: 28px;
+letter-spacing: -0.2px; 
+}
+}

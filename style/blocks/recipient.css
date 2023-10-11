@@ -59,3 +59,37 @@
     font-weight: 400;
     line-height: 14px;
 }
+@media screen and (max-width: 695px) {
+    .recipient__inputs{
+        gap:15px;
+    }
+.recipient__top{
+    flex-direction: column;
+}
+.recipient__bottom{
+    flex-direction: column;
+    gap:11px;
+}
+.recipient__top{
+    gap:16px;
+}
+.recipient__label{
+    height: 13px;
+}
+.recipient__error{
+    margin-top: 3px;
+    height: 16px;
+}
+.recipient__top .recipient__container{
+    width: 100%;
+}
+.recipient__bottom .recipient__container{
+    width: 100%;
+}
+.recipient{
+    margin-bottom: 16px;
+}
+.recipient__error-inn{
+    height: 10px;
+}
+}

@@ -800,7 +800,7 @@
                                         type="text"
                                         id="email"
                                         class="recipient__email recipient__input"
-                                        placeholder="Почта"
+                                        placeholder="Электронная почта"
                                     />
                                     <p class="recipient__error"></p>
                                 </div>
@@ -832,7 +832,7 @@
                                         class="recipient__inn recipient__input"
                                         placeholder="ИНН"
                                     />
-                                    <p class="recipient__error"></p>
+                                    <p class="recipient__error recipient__error-inn"></p>
                                     <p class="recipient__inn-info"></p>
                                 </div>
                             </div>
@@ -961,6 +961,20 @@
         </main>
         <div class="footer">
             <p class="footer__text">© 2022 ООО «Товары и точка»</p>
+        </div>
+        <div class="menu">
+            <img src="./images/main.svg" alt="Главная" class="menu__main menu__item">
+            <img src="./images/catalog.svg" alt="Каталог" class="menu__catalog menu__item">
+            <div class="menu__cart menu__item">
+                    <img
+                        src="./images/cart-menu.svg"
+                        alt="Корзина"
+                        class="menu__cart-img"
+                    />                    
+                    <p class="menu__cart-count">3</p>                    
+                </div>
+            <img src="./images/favorites.svg" alt="Избранное" class="menu__favorites menu__item">
+            <img src="./images/profile.svg" alt="Профиль" class="menu__profile menu__item">
         </div>
     </body>
 </html>
