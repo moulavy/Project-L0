@@ -87,3 +87,24 @@
     width: 100%;
     background-image: url("../../images/underline-green.svg");
 }
+@media screen and (max-width: 695px) {
+.delivery__point{
+    flex-direction: column;
+}
+.delivery__point-description
+{
+    margin-top:4px;
+}
+.delivery__price{
+    flex-direction: column;
+}
+.delivery__date{
+    flex-direction: column;
+    gap:12px;
+    margin-bottom: 17px;
+}
+.delivery__back{
+    padding: 0 8px;
+}
+
+}

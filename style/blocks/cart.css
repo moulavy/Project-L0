@@ -16,3 +16,8 @@
    padding:15px 16px
 }
 } 
+@media screen and (max-width: 695px) {
+.cart__container{
+   padding:15px 0;
+}
+} 

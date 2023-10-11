@@ -58,13 +58,21 @@
 }
 @media screen and (max-width: 695px) {
 .cart-main__title{
-    margin-top:0px;
-    margin-bottom:16px;
+  
+    margin:0 16px 16px;
     font-size: 20px;
 line-height: 28px; 
 letter-spacing: -0.2px;
+
 }
 .cart-main__active{
+    margin-left: 16px;
+    margin-right: 16px;
     margin-bottom: 48px;
+}
+.cart-main__inactive{
+     margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 32px;
 }
 }
