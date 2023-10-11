@@ -308,6 +308,13 @@
         display: flex;
         gap:16px;
     }
+    .cart-main__inactive .product__actions{
+        justify-content: end;
+    }
+    .product__buttons-inactive {
+    margin-top: 4px;
+    margin-right: 7px;
+}
 }
 
 @media screen and (max-width: 313px) {

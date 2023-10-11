@@ -64,4 +64,7 @@
 line-height: 28px; 
 letter-spacing: -0.2px;
 }
+.cart-main__active{
+    margin-bottom: 48px;
+}
 }
