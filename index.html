@@ -79,386 +79,148 @@
                             </button>
                         </div>
                         <ul class="cart-main__list products-list">
-                            <li class="product">
-                                <div class="product__left">
-                                    <div
-                                        class="product__checkbox-container checkbox-container"
-                                    >
-                                        <label
-                                            class="checkbox-label product__checkbox-label"
-                                            for="item-1"
+                            <template class="product__template">
+                                <li class="product">
+                                    <div class="product__left">
+                                        <div
+                                            class="product__checkbox-container checkbox-container"
                                         >
-                                            <input
-                                                type="checkbox"
-                                                class="product__checkbox checkbox"
-                                                id="item-1"
-                                                name="item-1"
-                                            />
-                                            <span class="checkbox-fake"></span>
-                                        </label>
-                                        <img
-                                            src="./images/item-1-img.svg"
-                                            alt="Изображение товара"
-                                            class="product__img"
-                                        />
-                                    </div>
-                                    <div class="product__info">
-                                        <div class="product__prices-mobile">
-                                            <p
-                                                class="product__active-price product__active-price-mobile"
+                                            <label
+                                                class="checkbox-label product__checkbox-label"
                                             >
-                                                522
+                                                <input
+                                                    type="checkbox"
+                                                    class="product__checkbox checkbox"
+                                                />
                                                 <span
-                                                    class="product__currency product__currency-mobile"
+                                                    class="checkbox-fake"
+                                                ></span>
+                                            </label>
+                                            <img
+                                                alt="Изображение товара"
+                                                class="product__img"
+                                            />
+                                        </div>
+                                        <div class="product__info">
+                                            <div class="product__prices-mobile">
+                                                <p
+                                                    class="product__active-price product__active-price-mobile"
+                                                >
+                                                    <span
+                                                        class="product__active-price-value"
+                                                    >
+                                                    </span>
+                                                    <span
+                                                        class="product__currency product__currency-mobile"
+                                                        >сом</span
+                                                    >
+                                                </p>
+                                                <p
+                                                    class="product__old-price product__old-price-mobile"
+                                                >
+                                                    <span
+                                                        class="product__old-price-value"
+                                                    >
+                                                    </span>
+                                                    <span
+                                                        class="product__old-currency"
+                                                        >сом</span
+                                                    >
+                                                </p>
+                                            </div>
+                                            <h3 class="product__title"></h3>
+                                            <ul class="product__params">
+                                                <li
+                                                    class="product__param product__color"
+                                                >
+                                                    <span
+                                                        class="product__param-key"
+                                                    ></span
+                                                    ><span
+                                                        class="product__param-value"
+                                                    ></span>
+                                                </li>
+                                                <li
+                                                    class="product__param product__size"
+                                                >
+                                                    <span
+                                                        class="product__param-key"
+                                                    ></span
+                                                    ><span
+                                                        class="product__param-value"
+                                                    ></span>
+                                                </li>
+                                            </ul>
+                                            <p class="product__storage"></p>
+                                            <div class="product__company">
+                                                <p
+                                                    class="product__company-text"
+                                                ></p>
+                                                <img
+                                                    src="./images/info-icon.svg"
+                                                    alt="Подробнее"
+                                                    class="product__company-info"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product__right">
+                                        <div class="product__actions">
+                                            <div class="product__count">
+                                                <div
+                                                    class="product__quantity-input"
+                                                >
+                                                    <button
+                                                        disabled
+                                                        class="product__quantity-btn product__minus-btn"
+                                                    >
+                                                        −
+                                                    </button>
+                                                    <input
+                                                        type="number"
+                                                        class="product__quantity-field"
+                                                    />
+                                                    <button
+                                                        class="product__quantity-btn product__plus-btn"
+                                                    >
+                                                        +
+                                                    </button>
+                                                </div>
+                                                <p class="product__remains"></p>
+                                            </div>
+                                            <div class="product__buttons">
+                                                <button
+                                                    class="product__like"
+                                                ></button>
+                                                <button
+                                                    class="product__delete"
+                                                ></button>
+                                            </div>
+                                        </div>
+                                        <div class="product__prices">
+                                            <p class="product__active-price">
+                                                <span
+                                                    class="product__active-price-value"
+                                                >
+                                                </span>
+                                                <span class="product__currency"
                                                     >сом</span
                                                 >
                                             </p>
-                                            <p
-                                                class="product__old-price product__old-price-mobile"
-                                            >
-                                                1051
+                                            <p class="product__old-price">
+                                                <span
+                                                    class="product__old-price-value"
+                                                >
+                                                </span>
                                                 <span
                                                     class="product__old-currency"
                                                     >сом</span
                                                 >
                                             </p>
                                         </div>
-                                        <h3 class="product__title">
-                                            Футболка UZcotton мужская
-                                        </h3>
-                                        <ul class="product__params">
-                                            <li
-                                                class="product__param product__color"
-                                            >
-                                                <span class="product__param-key"
-                                                    >Цвет: </span
-                                                ><span
-                                                    class="product__param-value"
-                                                    >белый</span
-                                                >
-                                            </li>
-                                            <li
-                                                class="product__param product__size"
-                                            >
-                                                <span class="product__param-key"
-                                                    >Размер: </span
-                                                ><span
-                                                    class="product__param-value"
-                                                    >56</span
-                                                >
-                                            </li>
-                                        </ul>
-                                        <p class="product__storage">
-                                            Коледино WB
-                                        </p>
-                                        <div class="product__company">
-                                            <p class="product__company-text">
-                                                OOO Вайлдберриз
-                                            </p>
-                                            <img
-                                                src="./images/info-icon.svg"
-                                                alt="Подробнее"
-                                                class="product__company-info"
-                                            />
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="product__right">
-                                    <div class="product__actions">
-                                        <div class="product__count">
-                                            <div
-                                                class="product__quantity-input"
-                                            >
-                                                <button
-                                                    disabled
-                                                    class="product__quantity-btn product__minus-btn"
-                                                >
-                                                    −
-                                                </button>
-                                                <input
-                                                    type="number"
-                                                    class="product__quantity-field"
-                                                    value="1"
-                                                    min="0"
-                                                />
-                                                <button
-                                                    class="product__quantity-btn product__plus-btn"
-                                                >
-                                                    +
-                                                </button>
-                                            </div>
-                                            <p class="product__remains">
-                                                Осталось 2 шт.
-                                            </p>
-                                        </div>
-                                        <div class="product__buttons">
-                                            <button
-                                                class="product__like"
-                                            ></button>
-                                            <button
-                                                class="product__delete"
-                                            ></button>
-                                        </div>
-                                    </div>
-                                    <div class="product__prices">
-                                        <p class="product__active-price">
-                                            522
-                                            <span class="product__currency"
-                                                >сом</span
-                                            >
-                                        </p>
-                                        <p class="product__old-price">
-                                            1051
-                                            <span class="product__old-currency"
-                                                >сом</span
-                                            >
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product__left">
-                                    <div
-                                        class="product__checkbox-container checkbox-container"
-                                    >
-                                        <label
-                                            class="checkbox-label product__checkbox-label"
-                                            for="item-2"
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                class="product__checkbox checkbox"
-                                                id="item-2"
-                                                name="item-2"
-                                            />
-                                            <span class="checkbox-fake"></span>
-                                        </label>
-                                        <img
-                                            src="./images/item-2-img.svg"
-                                            alt="Изображение товара"
-                                            class="product__img"
-                                        />
-                                    </div>
-                                    <div class="product__info">
-                                        <div class="product__prices-mobile">
-                                            <p
-                                                class="product__active-price product__active-price-mobile"
-                                            >
-                                                2 100 047
-                                                <span
-                                                    class="product__currency product__currency-mobile"
-                                                    >сом</span
-                                                >
-                                            </p>
-                                            <p
-                                                class="product__old-price product__old-price-mobile"
-                                            >
-                                                2 300 047
-                                                <span
-                                                    class="product__old-currency"
-                                                    >сом</span
-                                                >
-                                            </p>
-                                        </div>
-                                        <h3 class="product__title">
-                                            Силиконовый чехол картхолдер
-                                            (отверстия) для карт, прозрачный
-                                            кейс бампер на Apple iPhone XR,
-                                            MobiSafe
-                                        </h3>
-                                        <ul class="product__params">
-                                            <li
-                                                class="product__param product__color"
-                                            >
-                                                <span class="product__param-key"
-                                                    >Цвет: </span
-                                                ><span
-                                                    class="product__param-value"
-                                                    >прозрачный</span
-                                                >
-                                            </li>
-                                        </ul>
-                                        <p class="product__storage">
-                                            Коледино WB
-                                        </p>
-                                        <div class="product__company">
-                                            <p class="product__company-text">
-                                                OOO Мегапрофстиль
-                                            </p>
-                                            <img
-                                                src="./images/info-icon.svg"
-                                                alt="Подробнее"
-                                                class="product__company-info"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product__right">
-                                    <div class="product__actions">
-                                        <div class="product__count">
-                                            <div
-                                                class="product__quantity-input"
-                                            >
-                                                <button
-                                                    class="product__quantity-btn product__minus-btn"
-                                                >
-                                                    −
-                                                </button>
-                                                <input
-                                                    type="number"
-                                                    class="product__quantity-field"
-                                                    value="200"
-                                                />
-                                                <button
-                                                    class="product__quantity-btn product__plus-btn"
-                                                >
-                                                    +
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="product__buttons">
-                                            <button
-                                                class="product__like"
-                                            ></button>
-                                            <button
-                                                class="product__delete"
-                                            ></button>
-                                        </div>
-                                    </div>
-                                    <div class="product__prices">
-                                        <p
-                                            class="product__active-price product__long-price"
-                                        >
-                                            2 100 047
-                                            <span class="product__currency"
-                                                >сом</span
-                                            >
-                                        </p>
-                                        <p class="product__old-price">
-                                            2 300 047
-                                            <span class="product__old-currency"
-                                                >сом</span
-                                            >
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product__left">
-                                    <div
-                                        class="product__checkbox-container checkbox-container"
-                                    >
-                                        <label
-                                            class="checkbox-label product__checkbox-label"
-                                            for="item-3"
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                class="product__checkbox checkbox"
-                                                id="item-3"
-                                                name="item-3"
-                                            />
-                                            <span class="checkbox-fake"></span>
-                                        </label>
-                                        <img
-                                            src="./images/item-3-img.svg"
-                                            alt="Изображение товара"
-                                            class="product__img"
-                                        />
-                                    </div>
-                                    <div class="product__info">
-                                        <div class="product__prices-mobile">
-                                            <p
-                                                class="product__active-price product__active-price-mobile"
-                                            >
-                                                494
-                                                <span
-                                                    class="product__currency product__currency-mobile"
-                                                    >сом</span
-                                                >
-                                            </p>
-                                            <p
-                                                class="product__old-price product__old-price-mobile"
-                                            >
-                                                950
-                                                <span
-                                                    class="product__old-currency"
-                                                    >сом</span
-                                                >
-                                            </p>
-                                        </div>
-                                        <h3 class="product__title">
-                                            Карандаши цветные Faber-Castell
-                                            "Замок", набор 24 цвета, заточенные,
-                                            шестигранные,
-                                            Faber&#8288;&#8211;&#8288;Castell
-                                        </h3>
-                                        <p class="product__storage">
-                                            Коледино WB
-                                        </p>
-                                        <div class="product__company">
-                                            <p class="product__company-text">
-                                                OOO Вайлдберриз
-                                            </p>
-                                            <img
-                                                src="./images/info-icon.svg"
-                                                alt="Подробнее"
-                                                class="product__company-info"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product__right">
-                                    <div class="product__actions">
-                                        <div class="product__count">
-                                            <div
-                                                class="product__quantity-input"
-                                            >
-                                                <button
-                                                    class="product__quantity-btn product__minus-btn"
-                                                >
-                                                    −
-                                                </button>
-                                                <input
-                                                    type="number"
-                                                    class="product__quantity-field"
-                                                    value="2"
-                                                />
-                                                <button
-                                                    class="product__quantity-btn product__plus-btn"
-                                                >
-                                                    +
-                                                </button>
-                                            </div>
-                                            <p class="product__remains">
-                                                Осталось 2 шт.
-                                            </p>
-                                        </div>
-                                        <div class="product__buttons">
-                                            <button
-                                                class="product__like"
-                                            ></button>
-                                            <button
-                                                class="product__delete"
-                                            ></button>
-                                        </div>
-                                    </div>
-                                    <div class="product__prices">
-                                        <p class="product__active-price">
-                                            494
-                                            <span class="product__currency"
-                                                >сом</span
-                                            >
-                                        </p>
-                                        <p class="product__old-price">
-                                            950
-                                            <span class="product__old-currency"
-                                                >сом</span
-                                            >
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            </template>
                         </ul>
                     </div>
                     <div class="cart-main__inactive">
@@ -832,7 +594,9 @@
                                         class="recipient__inn recipient__input"
                                         placeholder="ИНН"
                                     />
-                                    <p class="recipient__error recipient__error-inn"></p>
+                                    <p
+                                        class="recipient__error recipient__error-inn"
+                                    ></p>
                                     <p class="recipient__inn-info"></p>
                                 </div>
                             </div>
@@ -963,19 +727,36 @@
             <p class="footer__text">© 2022 ООО «Товары и точка»</p>
         </div>
         <div class="menu">
-            <img src="./images/main.svg" alt="Главная" class="menu__main menu__item">
-            <img src="./images/catalog.svg" alt="Каталог" class="menu__catalog menu__item">
+            <img
+                src="./images/main.svg"
+                alt="Главная"
+                class="menu__main menu__item"
+            />
+            <img
+                src="./images/catalog.svg"
+                alt="Каталог"
+                class="menu__catalog menu__item"
+            />
             <div class="menu__cart menu__item">
-                    <img
-                        src="./images/cart-menu.svg"
-                        alt="Корзина"
-                        class="menu__cart-img"
-                    />                    
-                    <p class="menu__cart-count">3</p>                    
-                </div>
-            <img src="./images/favorites.svg" alt="Избранное" class="menu__favorites menu__item">
-            <img src="./images/profile.svg" alt="Профиль" class="menu__profile menu__item">
+                <img
+                    src="./images/cart-menu.svg"
+                    alt="Корзина"
+                    class="menu__cart-img"
+                />
+                <p class="menu__cart-count">3</p>
+            </div>
+            <img
+                src="./images/favorites.svg"
+                alt="Избранное"
+                class="menu__favorites menu__item"
+            />
+            <img
+                src="./images/profile.svg"
+                alt="Профиль"
+                class="menu__profile menu__item"
+            />
         </div>
-        <script src="./scripts/index.js"></script>
+
+        <script type="module" src="./scripts/index.js"></script>
     </body>
 </html>

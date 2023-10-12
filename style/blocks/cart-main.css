@@ -1,5 +1,5 @@
 .cart-main {
-    max-width: 891px;
+    width: 891px;
     align-self: flex-start;
 }
 .cart-main__active {
