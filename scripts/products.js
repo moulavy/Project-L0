@@ -1,5 +1,5 @@
 
-export const initialProducts = [
+export let initialProducts = [
    {
       id: 1,
       name: 'Футболка UZcotton мужская',
@@ -47,7 +47,7 @@ export const initialProducts = [
    }
 ]
 
-export const missingProducts = [
+export let missingProducts = [
    {
       id: 1,
       name: 'Футболка UZcotton мужская',

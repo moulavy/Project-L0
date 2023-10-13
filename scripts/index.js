@@ -1,22 +1,5 @@
 import { initialProducts, missingProducts } from "./products.js";
-document.addEventListener('DOMContentLoaded', function () {
-   let likeButtons = document.querySelectorAll('.product__like');
-   let products = document.querySelectorAll('.product');
-
-   products.forEach(function (product) {
-
-      let deleteButton = product.querySelector('.product__delete');
-      deleteButton.addEventListener('click', function () {
-         product.classList.toggle('delete');
-      });
-   });
-
-   likeButtons.forEach(function (button) {
-      button.addEventListener('click', function () {
-         button.classList.toggle('active');
-      });
-   });
-
+document.addEventListener('DOMContentLoaded', function (){
    const productsListActive = document.querySelector('.cart-main__active .products-list');
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
@@ -41,6 +24,21 @@ document.addEventListener('DOMContentLoaded', function () {
          return many;
       }
    } 
+   function clearProducts() {
+      productsListActive.innerHTML = ''; 
+   }
+
+   function deleteProduct(element, array) {
+      const index = array.findIndex(item => item.id === element.id);
+      if (index !== -1) {
+         array.splice(index, 1);
+         clearProducts();
+         array.forEach(function (element) {
+            const productElement = createElementActive(element);
+            productsListActive.append(productElement)
+         })
+      }
+   }
    
    function updateTotalPrice() {
       let totalActivePrice = document.querySelector('.total__title-value-text');
@@ -51,27 +49,35 @@ document.addEventListener('DOMContentLoaded', function () {
       let arrOldPrice = [];
       let arrSalePrice = [];
       let arrCount = [];
-      arrActivePrice = initialProducts.map(product => product.count * parseInt(product.activePrice, 10));
-      arrOldPrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10));
-      arrSalePrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10))
-      arrCount = initialProducts.map(product => product.count );
-      let sumActive = arrActivePrice.reduce(function (prev, item) {
-         return prev + item;
-      })
-      let sumOld = arrOldPrice.reduce(function (prev, item) {
-         return prev + item;
-      })
-      let sumSale = arrSalePrice.reduce(function (prev, item) {
-         return prev + item;
-      })
-      let sumCount = arrCount.reduce(function (prev, item) {
-         return prev + item;
-      })
-      let countWord = declensionOfWord(sumCount, 'товар', 'товара', 'товаров');
-      totalActivePrice.textContent = toPrice(sumActive.toString());
-      totalOldPrice.textContent = toPrice(sumOld.toString());
-      totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
-      totalCount.textContent = sumCount+' '+countWord;
+      if (initialProducts.length === 0) {
+         totalActivePrice.textContent = '0';
+         totalOldPrice.textContent = '0';
+         totalSalePrice.textContent = '0';
+         totalCount.textContent = '0 товаров';
+      }
+      else {
+         arrActivePrice = initialProducts.map(product => product.count * parseInt(product.activePrice, 10));
+         arrOldPrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10));
+         arrSalePrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10))
+         arrCount = initialProducts.map(product => product.count);
+         let sumActive = arrActivePrice.reduce(function (prev, item) {
+            return prev + item;
+         })
+         let sumOld = arrOldPrice.reduce(function (prev, item) {
+            return prev + item;
+         })
+         let sumSale = arrSalePrice.reduce(function (prev, item) {
+            return prev + item;
+         })
+         let sumCount = arrCount.reduce(function (prev, item) {
+            return prev + item;
+         })
+         let countWord = declensionOfWord(sumCount, 'товар', 'товара', 'товаров');
+         totalActivePrice.textContent = toPrice(sumActive.toString());
+         totalOldPrice.textContent = toPrice(sumOld.toString());
+         totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
+         totalCount.textContent = sumCount + ' ' + countWord;
+      }
    }
 
    function createElementActive(productItem) {
@@ -92,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
       let productElementRemains = productElement.querySelector('.product__remains');
       let productElementButtonPlus = productElement.querySelector('.product__plus-btn');
       let productElementButtonMinus = productElement.querySelector('.product__minus-btn');
-
+      let productElementDeleteButton = productElement.querySelector('.product__delete');
       function priceHandler(count) {
          let priceActiveValue = toPrice((productItem.activePrice * count).toString());                 
          let priceOldValue = toPrice((productItem.oldPrice * count).toString());
@@ -104,7 +110,13 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementActivePriceMobile.textContent = priceActiveValue;
          productElementOldPriceMobile.textContent = priceOldValue;         
       }      
+      productElementDeleteButton.addEventListener('click', () => {
+         deleteProduct(productItem, initialProducts);
+         
+         updateTotalPrice();
 
+         console.log(initialProducts);
+      });
       productElementButtonPlus.addEventListener('click', function () {
          if (productElementInput.value < productItem.maxCount) {
             productElementInput.value++;
