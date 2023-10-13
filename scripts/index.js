@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       return arr.join('');
    }
-   
-   initialProducts.forEach(function (productItem) {
+   function createElementActive(productItem) {
       let productElement = productTemplateActive.querySelector('.product').cloneNode(true);
       let productElementTitle = productElement.querySelector('.product__title');
       let productElementImg = productElement.querySelector('.product__img');
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       productElementButtonPlus.addEventListener('click', function () {
-         
+
          if (productElementInput.value < productItem.maxCount) {
             productElementInput.value++;
             productItem.count++;
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                productElementButtonMinus.disabled = false;
             }
          }
-      })     
+      })
 
       productElementButtonMinus.addEventListener('click', function () {
          if (productElementInput.value > productItem.minCount) {
@@ -112,12 +111,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       productElementInput.value = productItem.count;
       priceHandler(productItem.count);
-      
-      productElementRemains.textContent = productItem.remains;
-      productsListActive.append(productElement)
-   })
 
-   missingProducts.forEach(function (productItem) {
+      productElementRemains.textContent = productItem.remains;
+
+      return productElement;
+   }
+   function createElementInactive(productItem) {
       let productElement = productTemplateInactive.querySelector('.product').cloneNode(true);
       let productElementTitle = productElement.querySelector('.product__title');
       let productElementImg = productElement.querySelector('.product__img');
@@ -133,6 +132,16 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementSize.querySelector('.product__param-key').textContent = 'Размер: ';
          productElementSize.querySelector('.product__param-value').textContent = productItem.size;
       }
+      return productElement;
+   }
+
+   initialProducts.forEach(function (productItem) {
+      const productElement = createElementActive(productItem);
+      productsListActive.append(productElement)
+   })
+
+   missingProducts.forEach(function (productItem) {
+      const productElement = createElementInactive(productItem);
       productsListInactive.append(productElement)
    })
 });
