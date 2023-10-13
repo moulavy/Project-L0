@@ -35,12 +35,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
    function updateTotalPrice() {
       let totalActivePrice = document.querySelector('.total__title-value-text');
+      let totalOldPrice = document.querySelector('.total__detail-old');
+      let totalSalePrice = document.querySelector('.total__detail-sale');
       let arrActivePrice = [];
-      arrActivePrice = initialProducts.map(product => product.count*parseInt(product.activePrice, 10));
-      let sum = arrActivePrice.reduce(function (prev, item) {
+      let arrOldPrice = [];
+      let arrSalePrice = [];
+      arrActivePrice = initialProducts.map(product => product.count * parseInt(product.activePrice, 10));
+      arrOldPrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10));
+      arrSalePrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10))
+      let sumActive = arrActivePrice.reduce(function (prev, item) {
          return prev + item;
       })
-      totalActivePrice.textContent = toPrice(sum.toString());
+      let sumOld = arrOldPrice.reduce(function (prev, item) {
+         return prev + item;
+      })
+      let sumSale = arrSalePrice.reduce(function (prev, item) {
+         return prev + item;
+      })
+      totalActivePrice.textContent = toPrice(sumActive.toString());
+      totalOldPrice.textContent = toPrice(sumOld.toString());
+      totalSalePrice.textContent = '−'+ toPrice(sumSale.toString());
    }
 
    function createElementActive(productItem) {
