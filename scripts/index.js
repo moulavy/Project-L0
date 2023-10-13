@@ -32,17 +32,29 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       return arr.join('');
    }
-
+   function declensionOfWord(number, one, few, many) {
+      if (number % 10 === 1 && number % 100 !== 11) {
+         return one;
+      } else if (number % 10 >= 2 && number % 10 <= 4 && (number % 100 < 10 || number % 100 >= 20)) {
+         return few;
+      } else {
+         return many;
+      }
+   } 
+   
    function updateTotalPrice() {
       let totalActivePrice = document.querySelector('.total__title-value-text');
       let totalOldPrice = document.querySelector('.total__detail-old');
       let totalSalePrice = document.querySelector('.total__detail-sale');
+      let totalCount = document.querySelector('.total__detail-count');
       let arrActivePrice = [];
       let arrOldPrice = [];
       let arrSalePrice = [];
+      let arrCount = [];
       arrActivePrice = initialProducts.map(product => product.count * parseInt(product.activePrice, 10));
       arrOldPrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10));
       arrSalePrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10))
+      arrCount = initialProducts.map(product => product.count );
       let sumActive = arrActivePrice.reduce(function (prev, item) {
          return prev + item;
       })
@@ -52,9 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
       let sumSale = arrSalePrice.reduce(function (prev, item) {
          return prev + item;
       })
+      let sumCount = arrCount.reduce(function (prev, item) {
+         return prev + item;
+      })
+      let countWord = declensionOfWord(sumCount, 'товар', 'товара', 'товаров');
       totalActivePrice.textContent = toPrice(sumActive.toString());
       totalOldPrice.textContent = toPrice(sumOld.toString());
-      totalSalePrice.textContent = '−'+ toPrice(sumSale.toString());
+      totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
+      totalCount.textContent = sumCount+' '+countWord;
    }
 
    function createElementActive(productItem) {
