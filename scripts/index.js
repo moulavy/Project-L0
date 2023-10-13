@@ -35,21 +35,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
    function updateTotalPrice() {
       let totalActivePrice = document.querySelector('.total__title-value-text');
-      let nodeListActivePrice = document.querySelectorAll('.product__prices .product__active-price-value');
       let arrActivePrice = [];
-      nodeListActivePrice.forEach(function (element) {
-         arrActivePrice.push(element.textContent);
-      })
-      let numbers = arrActivePrice.map(function (stringNumber) {
-         const stringWithoutSpaces = stringNumber.replace(/\s/g, '');
-         return Number(stringWithoutSpaces);
-      });
-      let sum = numbers.reduce(function (prev, item) {
+      arrActivePrice = initialProducts.map(product => product.count*parseInt(product.activePrice, 10));
+      let sum = arrActivePrice.reduce(function (prev, item) {
          return prev + item;
       })
       totalActivePrice.textContent = toPrice(sum.toString());
    }
-   
+
    function createElementActive(productItem) {
       let productElement = productTemplateActive.querySelector('.product').cloneNode(true);
       let productElementTitle = productElement.querySelector('.product__title');
