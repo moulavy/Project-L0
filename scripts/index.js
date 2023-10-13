@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       return arr.join('');
    }
+   
    initialProducts.forEach(function (productItem) {
       let productElement = productTemplateActive.querySelector('.product').cloneNode(true);
       let productElementTitle = productElement.querySelector('.product__title');
@@ -50,10 +51,24 @@ document.addEventListener('DOMContentLoaded', function () {
       let productElementButtonPlus = productElement.querySelector('.product__plus-btn');
       let productElementButtonMinus = productElement.querySelector('.product__minus-btn');
 
+      function priceHandler(count) {
+         let priceActiveValue = toPrice((productItem.activePrice * count).toString());
+         let priceOldValue = toPrice((productItem.oldPrice * count).toString());
+         if (priceActiveValue.length > 6) {
+            productElementActivePrice.classList.add('product__long-price');
+         }
+         productElementActivePrice.textContent = priceActiveValue;
+         productElementOldPrice.textContent = priceOldValue;
+         productElementActivePriceMobile.textContent = priceActiveValue;
+         productElementOldPriceMobile.textContent = priceOldValue;
+      }
+
       productElementButtonPlus.addEventListener('click', function () {
          
          if (productElementInput.value < productItem.maxCount) {
             productElementInput.value++;
+            productItem.count++;
+            priceHandler(productItem.count);
             if (productElementInput.value >= productItem.maxCount) {
                productElementButtonPlus.disabled = true;
             }
@@ -61,10 +76,13 @@ document.addEventListener('DOMContentLoaded', function () {
                productElementButtonMinus.disabled = false;
             }
          }
-      })
+      })     
+
       productElementButtonMinus.addEventListener('click', function () {
          if (productElementInput.value > productItem.minCount) {
             productElementInput.value--;
+            productItem.count--;
+            priceHandler(productItem.count);
             if (productElementInput.value <= productItem.minCount) {
                productElementButtonMinus.disabled = true;
             }
@@ -93,16 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementButtonMinus.disabled = true;
       }
       productElementInput.value = productItem.count;
+      priceHandler(productItem.count);
       
-      let priceActiveValue = toPrice((productItem.activePrice * productItem.count).toString());
-      let priceOldValue = toPrice((productItem.oldPrice * productItem.count).toString());
-      if (priceActiveValue.length > 6) {
-         productElementActivePrice.classList.add('product__long-price');
-      }
-      productElementActivePrice.textContent = priceActiveValue;
-      productElementOldPrice.textContent = priceOldValue;
-      productElementActivePriceMobile.textContent = priceActiveValue;
-      productElementOldPriceMobile.textContent = priceOldValue;
       productElementRemains.textContent = productItem.remains;
       productsListActive.append(productElement)
    })
