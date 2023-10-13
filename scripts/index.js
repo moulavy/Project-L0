@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
    const productTemplateInactive = document.querySelector('.cart-main__inactive .product__template').content;
+   
    function toPrice(value) {
       let arr = value.split('');
       let initialLength = arr.length;
@@ -31,6 +32,24 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       return arr.join('');
    }
+
+   function updateTotalPrice() {
+      let totalActivePrice = document.querySelector('.total__title-value-text');
+      let nodeListActivePrice = document.querySelectorAll('.product__prices .product__active-price-value');
+      let arrActivePrice = [];
+      nodeListActivePrice.forEach(function (element) {
+         arrActivePrice.push(element.textContent);
+      })
+      let numbers = arrActivePrice.map(function (stringNumber) {
+         const stringWithoutSpaces = stringNumber.replace(/\s/g, '');
+         return Number(stringWithoutSpaces);
+      });
+      let sum = numbers.reduce(function (prev, item) {
+         return prev + item;
+      })
+      totalActivePrice.textContent = toPrice(sum.toString());
+   }
+   
    function createElementActive(productItem) {
       let productElement = productTemplateActive.querySelector('.product').cloneNode(true);
       let productElementTitle = productElement.querySelector('.product__title');
@@ -51,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
       let productElementButtonMinus = productElement.querySelector('.product__minus-btn');
 
       function priceHandler(count) {
-         let priceActiveValue = toPrice((productItem.activePrice * count).toString());
+         let priceActiveValue = toPrice((productItem.activePrice * count).toString());                 
          let priceOldValue = toPrice((productItem.oldPrice * count).toString());
          if (priceActiveValue.length > 6) {
             productElementActivePrice.classList.add('product__long-price');
@@ -59,14 +78,14 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementActivePrice.textContent = priceActiveValue;
          productElementOldPrice.textContent = priceOldValue;
          productElementActivePriceMobile.textContent = priceActiveValue;
-         productElementOldPriceMobile.textContent = priceOldValue;
-      }
+         productElementOldPriceMobile.textContent = priceOldValue;         
+      }      
 
       productElementButtonPlus.addEventListener('click', function () {
-
          if (productElementInput.value < productItem.maxCount) {
             productElementInput.value++;
             productItem.count++;
+            
             priceHandler(productItem.count);
             if (productElementInput.value >= productItem.maxCount) {
                productElementButtonPlus.disabled = true;
@@ -75,12 +94,14 @@ document.addEventListener('DOMContentLoaded', function () {
                productElementButtonMinus.disabled = false;
             }
          }
+         updateTotalPrice();
       })
 
       productElementButtonMinus.addEventListener('click', function () {
          if (productElementInput.value > productItem.minCount) {
             productElementInput.value--;
             productItem.count--;
+            
             priceHandler(productItem.count);
             if (productElementInput.value <= productItem.minCount) {
                productElementButtonMinus.disabled = true;
@@ -89,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
                productElementButtonPlus.disabled = false;
             }
          }
+         updateTotalPrice();
       })
 
       productElementTitle.textContent = productItem.name;
@@ -111,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       productElementInput.value = productItem.count;
       priceHandler(productItem.count);
+      
 
       productElementRemains.textContent = productItem.remains;
 
@@ -138,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
    initialProducts.forEach(function (productItem) {
       const productElement = createElementActive(productItem);
       productsListActive.append(productElement)
+      updateTotalPrice();
    })
 
    missingProducts.forEach(function (productItem) {
