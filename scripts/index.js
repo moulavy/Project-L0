@@ -24,18 +24,33 @@ document.addEventListener('DOMContentLoaded', function (){
          return many;
       }
    } 
-   function clearProducts() {
+   function clearActiveProducts() {
       productsListActive.innerHTML = ''; 
    }
+   function clearInactiveProducts() {
+      productsListInactive.innerHTML = '';
+   }
 
-   function deleteProduct(element, array) {
+   function deleteProductActive(element, array) {
       const index = array.findIndex(item => item.id === element.id);
       if (index !== -1) {
          array.splice(index, 1);
-         clearProducts();
+         clearActiveProducts();
          array.forEach(function (element) {
             const productElement = createElementActive(element);
             productsListActive.append(productElement)
+         })
+      }
+   }
+
+   function deleteProductInactive(element, array) {
+      const index = array.findIndex(item => item.id === element.id);
+      if (index !== -1) {
+         array.splice(index, 1);
+         clearInactiveProducts();
+         array.forEach(function (element) {
+            const productElement = createElementInactive(element);
+            productsListInactive.append(productElement)
          })
       }
    }
@@ -111,11 +126,8 @@ document.addEventListener('DOMContentLoaded', function (){
          productElementOldPriceMobile.textContent = priceOldValue;         
       }      
       productElementDeleteButton.addEventListener('click', () => {
-         deleteProduct(productItem, initialProducts);
-         
+         deleteProductActive(productItem, initialProducts);         
          updateTotalPrice();
-
-         console.log(initialProducts);
       });
       productElementButtonPlus.addEventListener('click', function () {
          if (productElementInput.value < productItem.maxCount) {
@@ -151,36 +163,43 @@ document.addEventListener('DOMContentLoaded', function (){
 
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
+
       if (productItem.color != '') {
          productElementColor.querySelector('.product__param-key').textContent = 'Цвет: ';
          productElementColor.querySelector('.product__param-value').textContent = productItem.color;
       }
+
       if (productItem.size != '') {
          productElementSize.querySelector('.product__param-key').textContent = 'Размер: ';
          productElementSize.querySelector('.product__param-value').textContent = productItem.size;
       }
+
       productElementStorage.textContent = productItem.storage;
       productElementCompany.textContent = productItem.company;
+
       if (productItem.count === productItem.maxCount) {
          productElementButtonPlus.disabled = true;
       }
+
       if (productItem.count === productItem.minCount) {
          productElementButtonMinus.disabled = true;
       }
+
       productElementInput.value = productItem.count;
-      priceHandler(productItem.count);
-      
+      priceHandler(productItem.count);     
 
       productElementRemains.textContent = productItem.remains;
 
       return productElement;
    }
+
    function createElementInactive(productItem) {
       let productElement = productTemplateInactive.querySelector('.product').cloneNode(true);
       let productElementTitle = productElement.querySelector('.product__title');
       let productElementImg = productElement.querySelector('.product__img');
       let productElementColor = productElement.querySelector('.product__color');
       let productElementSize = productElement.querySelector('.product__size');
+      let productElementDeleteButton = productElement.querySelector('.product__delete');
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
       if (productItem.color != '') {
@@ -191,6 +210,9 @@ document.addEventListener('DOMContentLoaded', function (){
          productElementSize.querySelector('.product__param-key').textContent = 'Размер: ';
          productElementSize.querySelector('.product__param-value').textContent = productItem.size;
       }
+      productElementDeleteButton.addEventListener('click', () => {
+         deleteProductInactive(productItem, missingProducts);         
+      });
       return productElement;
    }
 
