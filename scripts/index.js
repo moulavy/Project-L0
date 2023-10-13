@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
       let productElementStorage = productElement.querySelector('.product__storage');
       let productElementCompany = productElement.querySelector('.product__company-text');
       let productElementInput = productElement.querySelector('.product__quantity-field');
-
       let productElementPriceDesktop = productElement.querySelector('.product__prices')
       let productElementActivePrice = productElementPriceDesktop.querySelector('.product__active-price-value');
       let productElementOldPrice = productElementPriceDesktop.querySelector('.product__old-price-value');
@@ -48,6 +47,32 @@ document.addEventListener('DOMContentLoaded', function () {
       let productElementActivePriceMobile = productElementPriceMobile.querySelector('.product__active-price-value');
       let productElementOldPriceMobile = productElementPriceMobile.querySelector('.product__old-price-value');
       let productElementRemains = productElement.querySelector('.product__remains');
+      let productElementButtonPlus = productElement.querySelector('.product__plus-btn');
+      let productElementButtonMinus = productElement.querySelector('.product__minus-btn');
+
+      productElementButtonPlus.addEventListener('click', function () {
+         
+         if (productElementInput.value < productItem.maxCount) {
+            productElementInput.value++;
+            if (productElementInput.value >= productItem.maxCount) {
+               productElementButtonPlus.disabled = true;
+            }
+            if (Number(productElementInput.value) != productItem.minCount) {
+               productElementButtonMinus.disabled = false;
+            }
+         }
+      })
+      productElementButtonMinus.addEventListener('click', function () {
+         if (productElementInput.value > productItem.minCount) {
+            productElementInput.value--;
+            if (productElementInput.value <= productItem.minCount) {
+               productElementButtonMinus.disabled = true;
+            }
+            if (Number(productElementInput.value) != productItem.maxCount) {
+               productElementButtonPlus.disabled = false;
+            }
+         }
+      })
 
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
@@ -61,7 +86,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       productElementStorage.textContent = productItem.storage;
       productElementCompany.textContent = productItem.company;
+      if (productItem.count === productItem.maxCount) {
+         productElementButtonPlus.disabled = true;
+      }
+      if (productItem.count === productItem.minCount) {
+         productElementButtonMinus.disabled = true;
+      }
       productElementInput.value = productItem.count;
+      
       let priceActiveValue = toPrice((productItem.activePrice * productItem.count).toString());
       let priceOldValue = toPrice((productItem.oldPrice * productItem.count).toString());
       if (priceActiveValue.length > 6) {
@@ -72,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
       productElementActivePriceMobile.textContent = priceActiveValue;
       productElementOldPriceMobile.textContent = priceOldValue;
       productElementRemains.textContent = productItem.remains;
-
       productsListActive.append(productElement)
    })
 
@@ -82,8 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
       let productElementImg = productElement.querySelector('.product__img');
       let productElementColor = productElement.querySelector('.product__color');
       let productElementSize = productElement.querySelector('.product__size');
-
-
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
       if (productItem.color != '') {
@@ -94,8 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementSize.querySelector('.product__param-key').textContent = 'Размер: ';
          productElementSize.querySelector('.product__param-value').textContent = productItem.size;
       }
-
-
       productsListInactive.append(productElement)
    })
 });
