@@ -242,145 +242,64 @@
                             </button>
                         </div>
                         <ul class="cart-main__list products-list">
-                            <li class="product">
-                                <div class="product__left">
-                                    <img
-                                        src="./images/item-1-img.svg"
-                                        alt="Изображение товара"
-                                        class="product__img product__img-inactive"
-                                    />
+                            <template class="product__template">
+                                <li class="product">
+                                    <div class="product__left">
+                                        <img
+                                            alt="Изображение товара"
+                                            class="product__img product__img-inactive"
+                                        />
 
-                                    <div class="product__info">
-                                        <h3
-                                            class="product__title product__title-inactive"
-                                        >
-                                            Футболка UZcotton мужская
-                                        </h3>
-                                        <ul
-                                            class="product__params product__params-inactive"
-                                        >
-                                            <li
-                                                class="product__param product__color"
+                                        <div class="product__info">
+                                            <h3
+                                                class="product__title product__title-inactive"
                                             >
-                                                <span class="product__param-key"
-                                                    >Цвет: </span
-                                                ><span
-                                                    class="product__param-value"
-                                                    >белый</span
-                                                >
-                                            </li>
-                                            <li
-                                                class="product__param product__size"
+                                            </h3>
+                                            <ul
+                                                class="product__params product__params-inactive"
                                             >
-                                                <span class="product__param-key"
-                                                    >Размер: </span
-                                                ><span
-                                                    class="product__param-value"
-                                                    >56</span
+                                                <li
+                                                    class="product__param product__color"
                                                 >
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product__right">
-                                    <div class="product__actions">
-                                        <div
-                                            class="product__buttons product__buttons-inactive"
-                                        >
-                                            <button
-                                                class="product__like"
-                                            ></button>
-                                            <button
-                                                class="product__delete"
-                                            ></button>
+                                                    <span
+                                                        class="product__param-key"
+                                                        ></span
+                                                    ><span
+                                                        class="product__param-value"
+                                                        ></span
+                                                    >
+                                                </li>
+                                                <li
+                                                    class="product__param product__size"
+                                                >
+                                                    <span
+                                                        class="product__param-key"
+                                                        ></span
+                                                    ><span
+                                                        class="product__param-value"
+                                                        ></span
+                                                    >
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="product__prices"></div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product__left">
-                                    <img
-                                        src="./images/item-2-img.svg"
-                                        alt="Изображение товара"
-                                        class="product__img product__img-inactive"
-                                    />
-
-                                    <div class="product__info">
-                                        <h3
-                                            class="product__title product__title-inactive"
-                                        >
-                                            Силиконовый чехол картхолдер
-                                            (отверстия) для карт, прозрачный
-                                            кейс бампер на Apple iPhone XR,
-                                            MobiSafe
-                                        </h3>
-                                        <ul
-                                            class="product__params product__params-inactive"
-                                        >
-                                            <li
-                                                class="product__param product__color"
+                                    <div class="product__right">
+                                        <div class="product__actions">
+                                            <div
+                                                class="product__buttons product__buttons-inactive"
                                             >
-                                                <span class="product__param-key"
-                                                    >Цвет: </span
-                                                ><span
-                                                    class="product__param-value"
-                                                    >прозрачный</span
-                                                >
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product__right">
-                                    <div class="product__actions">
-                                        <div
-                                            class="product__buttons product__buttons-inactive"
-                                        >
-                                            <button
-                                                class="product__like"
-                                            ></button>
-                                            <button
-                                                class="product__delete"
-                                            ></button>
+                                                <button
+                                                    class="product__like"
+                                                ></button>
+                                                <button
+                                                    class="product__delete"
+                                                ></button>
+                                            </div>
                                         </div>
+                                        <div class="product__prices"></div>
                                     </div>
-                                    <div class="product__prices"></div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product__left">
-                                    <img
-                                        src="./images/item-3-img.svg"
-                                        alt="Изображение товара"
-                                        class="product__img product__img-inactive"
-                                    />
-
-                                    <div class="product__info">
-                                        <h3
-                                            class="product__title product__title-inactive"
-                                        >
-                                            Карандаши цветные Faber-Castell
-                                            "Замок", набор 24 цвета, заточенные,
-                                            шестигранные, Faber-Castell
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="product__right">
-                                    <div class="product__actions">
-                                        <div
-                                            class="product__buttons product__buttons-inactive"
-                                        >
-                                            <button
-                                                class="product__like"
-                                            ></button>
-                                            <button
-                                                class="product__delete"
-                                            ></button>
-                                        </div>
-                                    </div>
-                                    <div class="product__prices"></div>
-                                </div>
-                            </li>
+                                </li>
+                            </template>                            
                         </ul>
                     </div>
                     <div class=".cart-main__delivery delivery block">

@@ -1,4 +1,4 @@
-import { initialProducts } from "./products.js";
+import { initialProducts, missingProducts } from "./products.js";
 document.addEventListener('DOMContentLoaded', function () {
    let likeButtons = document.querySelectorAll('.product__like');
    let products = document.querySelectorAll('.product');
@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
       });
    });
 
-   const productsList = document.querySelector('.products-list');
-   const productTemplate = document.querySelector('.product__template').content;
-
+   const productsListActive = document.querySelector('.cart-main__active .products-list');
+   const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
+   const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
+   const productTemplateInactive = document.querySelector('.cart-main__inactive .product__template').content;
    function toPrice(value) {
       let arr = value.split('');
       let initialLength = arr.length;
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return arr.join('');
    }
    initialProducts.forEach(function (productItem) {
-      let productElement = productTemplate.querySelector('.product').cloneNode(true);
+      let productElement = productTemplateActive.querySelector('.product').cloneNode(true);
       let productElementTitle = productElement.querySelector('.product__title');
       let productElementImg = productElement.querySelector('.product__img');
       let productElementColor = productElement.querySelector('.product__color');
@@ -72,7 +73,30 @@ document.addEventListener('DOMContentLoaded', function () {
       productElementOldPriceMobile.textContent = priceOldValue;
       productElementRemains.textContent = productItem.remains;
 
-      productsList.append(productElement)
+      productsListActive.append(productElement)
+   })
+
+   missingProducts.forEach(function (productItem) {
+      let productElement = productTemplateInactive.querySelector('.product').cloneNode(true);
+      let productElementTitle = productElement.querySelector('.product__title');
+      let productElementImg = productElement.querySelector('.product__img');
+      let productElementColor = productElement.querySelector('.product__color');
+      let productElementSize = productElement.querySelector('.product__size');
+
+
+      productElementTitle.textContent = productItem.name;
+      productElementImg.src = productItem.img;
+      if (productItem.color != '') {
+         productElementColor.querySelector('.product__param-key').textContent = 'Цвет: ';
+         productElementColor.querySelector('.product__param-value').textContent = productItem.color;
+      }
+      if (productItem.size != '') {
+         productElementSize.querySelector('.product__param-key').textContent = 'Размер: ';
+         productElementSize.querySelector('.product__param-value').textContent = productItem.size;
+      }
+
+
+      productsListInactive.append(productElement)
    })
 });
 
