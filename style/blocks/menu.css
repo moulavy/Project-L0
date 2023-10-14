@@ -1,6 +1,9 @@
 .menu{
    display: none;
 }
+.hide{
+    display: none;
+}
 @media screen and (max-width: 695px) {
 .menu{
    height: 56px;

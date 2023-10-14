@@ -1,28 +1,44 @@
 import { initialProducts, missingProducts } from "./products.js";
 document.addEventListener('DOMContentLoaded', function () {
    const totalCheckbox = document.querySelector('.cart-main__checkbox');
-   const hideActiveProductsButton=document.querySelector('.cart-main__hide-button')
+
+   const hideActiveProductsButton = document.querySelector('.cart-main__active .cart-main__hide-button');
+   const hideInactiveProductsButton = document.querySelector('.cart-main__inactive .cart-main__hide-button')
+   const missCountText = document.querySelector('.cart-main__miss-count');
+   const checkboxMark = document.querySelector('.cart-main__active .checkbox-fake');
+
    const chooseAllText = document.querySelector('.cart-main__choose-text');
    const choosePriceCountText = document.querySelector('.cart-main__price-count');
+   
    const productsListActive = document.querySelector('.cart-main__active .products-list');
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
    const productTemplateInactive = document.querySelector('.cart-main__inactive .product__template').content;
    
+   hideActiveProductsButton.addEventListener('click', function () {
+      productsListActive.classList.toggle('hide');
+      hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
+      hideActiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
+      chooseAllText.classList.toggle('hide');
+      choosePriceCountText.classList.toggle('hide');
+      checkboxMark.classList.toggle('hide');
+
+   })
+   hideInactiveProductsButton.addEventListener('click', function () {
+      productsListInactive.classList.toggle('hide');
+      hideInactiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
+      hideInactiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
+    
+   })
+   missCountText.textContent = missingProducts.length + ' ' + declensionOfWord(missingProducts.length, 'товар', 'товара', 'товаров');
+
    function checkboxAll() {
       let flag = initialProducts.every(function (item) {
          return (item.checked === true);
       })
       return flag;
    }
-   hideActiveProductsButton.addEventListener('click',function () {
-      productsListActive.classList.toggle('hide');
-      hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
-      hideActiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
-      chooseAllText.classList.toggle('hide');
-      choosePriceCountText.classList.toggle('hide');
-
-   })
+   
    totalCheckbox.checked = checkboxAll();
    totalCheckbox.addEventListener('change', function () {
       if (totalCheckbox.checked === true) {
@@ -108,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = '0';
          totalSalePrice.textContent = '0';
          totalCount.textContent = '0 товаров';
-         choosePriceCountText.textContent = '0 товаров  · 0 сом';
       }
       else {
          arrActivePrice = initialProducts.map(product => {
@@ -152,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = toPrice(sumOld.toString());
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
          totalCount.textContent = sumCount + ' ' + countWord;
-         choosePriceCountText.textContent = sumCount + ' ' + countWord + ' · ' + toPrice(sumActive.toString()) +' сом';
+         
       }
    }
    function updateCheckboxPrice() {
@@ -312,7 +327,8 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementSize.querySelector('.product__param-value').textContent = productItem.size;
       }
       productElementDeleteButton.addEventListener('click', () => {
-         deleteProductInactive(productItem, missingProducts);         
+         deleteProductInactive(productItem, missingProducts);  
+         missCountText.textContent = missingProducts.length + ' '+declensionOfWord(missingProducts.length,'товар','товара','товаров');
       });
       return productElement;
    }

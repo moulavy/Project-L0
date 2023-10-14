@@ -44,9 +44,7 @@ line-height: 24px;
     flex-direction: column;
     gap: 15px;
 }
-.hide{
-    display: none;
-}
+
 
 @media screen and (max-width: 1140px) {
 .cart__container{
