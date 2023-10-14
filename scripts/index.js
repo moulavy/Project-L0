@@ -2,7 +2,8 @@ import { initialProducts, missingProducts } from "./products.js";
 document.addEventListener('DOMContentLoaded', function () {
    const totalCheckbox = document.querySelector('.cart-main__checkbox');
    const hideActiveProductsButton=document.querySelector('.cart-main__hide-button')
-   
+   const chooseAllText = document.querySelector('.cart-main__choose-text');
+   const choosePriceCountText = document.querySelector('.cart-main__price-count');
    const productsListActive = document.querySelector('.cart-main__active .products-list');
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
@@ -18,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
       productsListActive.classList.toggle('hide');
       hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
       hideActiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
-
+      chooseAllText.classList.toggle('hide');
+      choosePriceCountText.classList.toggle('hide')
    })
    totalCheckbox.checked = checkboxAll();
    totalCheckbox.addEventListener('change', function () {
@@ -103,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = '0';
          totalSalePrice.textContent = '0';
          totalCount.textContent = '0 товаров';
+         choosePriceCountText.textContent = '0 товаров  · 0 сом';
       }
       else {
          arrActivePrice = initialProducts.map(product => product.count * parseInt(product.activePrice, 10));
@@ -126,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = toPrice(sumOld.toString());
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
          totalCount.textContent = sumCount + ' ' + countWord;
+         choosePriceCountText.textContent = sumCount + ' ' + countWord + ' · ' + toPrice(sumActive.toString()) +' сом';
       }
    }
 

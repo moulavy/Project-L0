@@ -24,6 +24,11 @@
     padding-bottom: 16px;
     border-bottom: #dddde1 1px solid;
 }
+.cart-main__price-count{
+    font-size: 16px;
+font-weight: 600;
+line-height: 24px;
+}
 .cart-main__hide-button {
     width: 20px;
     height: 20px;
