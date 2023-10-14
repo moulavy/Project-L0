@@ -2,6 +2,7 @@
 export let initialProducts = [
    {
       id: 1,
+      checked:true,
       name: 'Футболка UZcotton мужская',
       color: 'белый',
       size: '56',
@@ -17,6 +18,7 @@ export let initialProducts = [
    },
    {
       id: 2,
+      checked: true,
       name: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
       color: 'прозрачный',
       size: '',
@@ -32,6 +34,7 @@ export let initialProducts = [
    },
    {
       id: 3,
+      checked: true,
       name: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell ',
       color: '',
       size: '',

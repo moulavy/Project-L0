@@ -1,11 +1,37 @@
 import { initialProducts, missingProducts } from "./products.js";
 document.addEventListener('DOMContentLoaded', function () {
-   
+   const totalCheckbox = document.querySelector('.cart-main__checkbox');
+
    const productsListActive = document.querySelector('.cart-main__active .products-list');
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
    const productTemplateInactive = document.querySelector('.cart-main__inactive .product__template').content;
    
+   function checkboxAll() {
+      let flag = initialProducts.every(function (item) {
+         return (item.checked === true);
+      })
+      return flag;
+   }
+   totalCheckbox.checked = checkboxAll();
+   totalCheckbox.addEventListener('change', function () {
+      if (totalCheckbox.checked === true) {
+         initialProducts.forEach(function (item) {
+            item.checked = true;
+         })         
+      }
+      else {
+         initialProducts.forEach(function (item) {
+            item.checked = false;
+         })
+      }
+      clearActiveProducts();
+      initialProducts.forEach(function (element) {
+         const productElement = createElementActive(element);
+         productsListActive.append(productElement)
+      })
+   })
+
    function toPrice(value) {
       let arr = value.split('');
       let initialLength = arr.length;
@@ -116,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const productElementButtonMinus = productElement.querySelector('.product__minus-btn');
       const productElementDeleteButton = productElement.querySelector('.product__delete');
       const productElemementLikeButton = productElement.querySelector('.product__like');
+      const productElementCheckbox = productElement.querySelector('.product__checkbox');
       function priceHandler(count) {
          let priceActiveValue = toPrice((productItem.activePrice * count).toString());                 
          let priceOldValue = toPrice((productItem.oldPrice * count).toString());
@@ -166,6 +193,13 @@ document.addEventListener('DOMContentLoaded', function () {
          }
          updateTotalPrice();
       })
+
+      productElementCheckbox.checked = productItem.checked;
+      productElementCheckbox.addEventListener('change', function () {
+         productItem.checked = !productItem.checked;
+         totalCheckbox.checked = checkboxAll();
+         console.log(productItem)
+      })            
 
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
