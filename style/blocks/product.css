@@ -144,7 +144,7 @@
     margin-left: auto;
 }
 .product__like:hover{
-    opacity: 0.6;
+     background-image: url("../../images/like-active.svg");
 }
 .product__like.active {
     background-image: url("../../images/like-active.svg");
@@ -161,7 +161,7 @@
     cursor: pointer;
 }
 .product__delete:hover{
-    opacity: 0.6;
+     background-image: url("../../images/delete-active.svg");
 }
 /*-------------product-price--------------*/
 .product__prices {

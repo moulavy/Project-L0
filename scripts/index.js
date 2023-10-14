@@ -1,5 +1,6 @@
 import { initialProducts, missingProducts } from "./products.js";
-document.addEventListener('DOMContentLoaded', function (){
+document.addEventListener('DOMContentLoaded', function () {
+   
    const productsListActive = document.querySelector('.cart-main__active .products-list');
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
@@ -96,24 +97,25 @@ document.addEventListener('DOMContentLoaded', function (){
    }
 
    function createElementActive(productItem) {
-      let productElement = productTemplateActive.querySelector('.product').cloneNode(true);
-      let productElementTitle = productElement.querySelector('.product__title');
-      let productElementImg = productElement.querySelector('.product__img');
-      let productElementColor = productElement.querySelector('.product__color');
-      let productElementSize = productElement.querySelector('.product__size');
-      let productElementStorage = productElement.querySelector('.product__storage');
-      let productElementCompany = productElement.querySelector('.product__company-text');
-      let productElementInput = productElement.querySelector('.product__quantity-field');
-      let productElementPriceDesktop = productElement.querySelector('.product__prices')
-      let productElementActivePrice = productElementPriceDesktop.querySelector('.product__active-price-value');
-      let productElementOldPrice = productElementPriceDesktop.querySelector('.product__old-price-value');
-      let productElementPriceMobile = productElement.querySelector('.product__prices-mobile')
-      let productElementActivePriceMobile = productElementPriceMobile.querySelector('.product__active-price-value');
-      let productElementOldPriceMobile = productElementPriceMobile.querySelector('.product__old-price-value');
-      let productElementRemains = productElement.querySelector('.product__remains');
-      let productElementButtonPlus = productElement.querySelector('.product__plus-btn');
-      let productElementButtonMinus = productElement.querySelector('.product__minus-btn');
-      let productElementDeleteButton = productElement.querySelector('.product__delete');
+      const productElement = productTemplateActive.querySelector('.product').cloneNode(true);
+      const productElementTitle = productElement.querySelector('.product__title');
+      const productElementImg = productElement.querySelector('.product__img');
+      const productElementColor = productElement.querySelector('.product__color');
+      const productElementSize = productElement.querySelector('.product__size');
+      const productElementStorage = productElement.querySelector('.product__storage');
+      const productElementCompany = productElement.querySelector('.product__company-text');
+      const productElementInput = productElement.querySelector('.product__quantity-field');
+      const productElementPriceDesktop = productElement.querySelector('.product__prices')
+      const productElementActivePrice = productElementPriceDesktop.querySelector('.product__active-price-value');
+      const productElementOldPrice = productElementPriceDesktop.querySelector('.product__old-price-value');
+      const productElementPriceMobile = productElement.querySelector('.product__prices-mobile')
+      const productElementActivePriceMobile = productElementPriceMobile.querySelector('.product__active-price-value');
+      const productElementOldPriceMobile = productElementPriceMobile.querySelector('.product__old-price-value');
+      const productElementRemains = productElement.querySelector('.product__remains');
+      const productElementButtonPlus = productElement.querySelector('.product__plus-btn');
+      const productElementButtonMinus = productElement.querySelector('.product__minus-btn');
+      const productElementDeleteButton = productElement.querySelector('.product__delete');
+      const productElemementLikeButton = productElement.querySelector('.product__like');
       function priceHandler(count) {
          let priceActiveValue = toPrice((productItem.activePrice * count).toString());                 
          let priceOldValue = toPrice((productItem.oldPrice * count).toString());
@@ -124,7 +126,11 @@ document.addEventListener('DOMContentLoaded', function (){
          productElementOldPrice.textContent = priceOldValue;
          productElementActivePriceMobile.textContent = priceActiveValue;
          productElementOldPriceMobile.textContent = priceOldValue;         
-      }      
+      }    
+      productElemementLikeButton.addEventListener('click', function () {
+         productElemementLikeButton.classList.add('active');
+      })
+
       productElementDeleteButton.addEventListener('click', () => {
          deleteProductActive(productItem, initialProducts);         
          updateTotalPrice();
@@ -194,14 +200,18 @@ document.addEventListener('DOMContentLoaded', function (){
    }
 
    function createElementInactive(productItem) {
-      let productElement = productTemplateInactive.querySelector('.product').cloneNode(true);
-      let productElementTitle = productElement.querySelector('.product__title');
-      let productElementImg = productElement.querySelector('.product__img');
-      let productElementColor = productElement.querySelector('.product__color');
-      let productElementSize = productElement.querySelector('.product__size');
-      let productElementDeleteButton = productElement.querySelector('.product__delete');
+      const productElement = productTemplateInactive.querySelector('.product').cloneNode(true);
+      const productElementTitle = productElement.querySelector('.product__title');
+      const productElementImg = productElement.querySelector('.product__img');
+      const productElementColor = productElement.querySelector('.product__color');
+      const productElementSize = productElement.querySelector('.product__size');
+      const productElementDeleteButton = productElement.querySelector('.product__delete');
+      const productElemementLikeButton = productElement.querySelector('.product__like');
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
+      productElemementLikeButton.addEventListener('click', function () {
+         productElemementLikeButton.classList.add('active');
+      })
       if (productItem.color != '') {
          productElementColor.querySelector('.product__param-key').textContent = 'Цвет: ';
          productElementColor.querySelector('.product__param-value').textContent = productItem.color;
