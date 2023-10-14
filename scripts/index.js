@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
       hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
       hideActiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
       chooseAllText.classList.toggle('hide');
-      choosePriceCountText.classList.toggle('hide')
+      choosePriceCountText.classList.toggle('hide');
+
    })
    totalCheckbox.checked = checkboxAll();
    totalCheckbox.addEventListener('change', function () {
@@ -35,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
          })
       }
       clearActiveProducts();
+      updateTotalPrice();
+      updateCheckboxPrice();
       initialProducts.forEach(function (element) {
          const productElement = createElementActive(element);
          productsListActive.append(productElement)
@@ -108,10 +111,30 @@ document.addEventListener('DOMContentLoaded', function () {
          choosePriceCountText.textContent = '0 товаров  · 0 сом';
       }
       else {
-         arrActivePrice = initialProducts.map(product => product.count * parseInt(product.activePrice, 10));
-         arrOldPrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10));
-         arrSalePrice = initialProducts.map(product => product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10))
-         arrCount = initialProducts.map(product => product.count);
+         arrActivePrice = initialProducts.map(product => {
+            if (product.checked === true) {
+              return product.count * parseInt(product.activePrice, 10)
+            }
+            return 0;
+         });
+         arrOldPrice = initialProducts.map(product => {
+            if (product.checked === true) {
+             return  product.count * parseInt(product.oldPrice, 10)
+            }
+            return 0;
+         });
+         arrSalePrice = initialProducts.map(product => {
+            if (product.checked === true) {
+             return  product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10)
+            }
+            return 0;
+         })
+         arrCount = initialProducts.map(product => {
+            if (product.checked === true) {
+             return  product.count
+            }
+            return 0;
+         });
          let sumActive = arrActivePrice.reduce(function (prev, item) {
             return prev + item;
          })
@@ -130,6 +153,25 @@ document.addEventListener('DOMContentLoaded', function () {
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
          totalCount.textContent = sumCount + ' ' + countWord;
          choosePriceCountText.textContent = sumCount + ' ' + countWord + ' · ' + toPrice(sumActive.toString()) +' сом';
+      }
+   }
+   function updateCheckboxPrice() {
+      let arrActivePrice = [];     
+      let arrCount = [];
+      if (initialProducts.length === 0) {         
+         choosePriceCountText.textContent = '0 товаров  · 0 сом';
+      }
+      else {
+         arrActivePrice = initialProducts.map(product => product.count * parseInt(product.activePrice, 10));
+         arrCount = initialProducts.map(product => product.count);
+         let sumActive = arrActivePrice.reduce(function (prev, item) {
+            return prev + item;
+         })
+         let sumCount = arrCount.reduce(function (prev, item) {
+            return prev + item;
+         })
+         let countWord = declensionOfWord(sumCount, 'товар', 'товара', 'товаров');
+         choosePriceCountText.textContent = sumCount + ' ' + countWord + ' · ' + toPrice(sumActive.toString()) + ' сом';
       }
    }
 
@@ -172,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
       productElementDeleteButton.addEventListener('click', () => {
          deleteProductActive(productItem, initialProducts);         
          updateTotalPrice();
+         updateCheckboxPrice();
       });
       productElementButtonPlus.addEventListener('click', function () {
          if (productElementInput.value < productItem.maxCount) {
@@ -187,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
          }
          updateTotalPrice();
+         updateCheckboxPrice();
       })
 
       productElementButtonMinus.addEventListener('click', function () {
@@ -203,13 +247,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
          }
          updateTotalPrice();
+         updateCheckboxPrice();
       })
 
       productElementCheckbox.checked = productItem.checked;
       productElementCheckbox.addEventListener('change', function () {
          productItem.checked = !productItem.checked;
          totalCheckbox.checked = checkboxAll();
-         console.log(productItem)
+         updateTotalPrice();
+         updateCheckboxPrice();
       })            
 
       productElementTitle.textContent = productItem.name;
@@ -275,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const productElement = createElementActive(productItem);
       productsListActive.append(productElement)
       updateTotalPrice();
+      updateCheckboxPrice();
    })
 
    missingProducts.forEach(function (productItem) {
