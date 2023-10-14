@@ -14,7 +14,8 @@ export let initialProducts = [
       oldPrice: '1051',
       count: 1,
       maxCount: 2,
-      minCount: 1
+      minCount: 1,
+      
    },
    {
       id: 2,
@@ -30,7 +31,8 @@ export let initialProducts = [
       oldPrice: '11500',
       count: 200,
       maxCount: 20000,
-      minCount: 1
+      minCount: 1,
+      
    },
    {
       id: 3,
@@ -46,7 +48,8 @@ export let initialProducts = [
       oldPrice: '475',
       count: 2,
       maxCount: 2,
-      minCount: 1
+      minCount: 1,
+      
    }
 ]
 

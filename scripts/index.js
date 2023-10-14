@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
    const productTemplateInactive = document.querySelector('.cart-main__inactive .product__template').content;
-   
+   const deliveryTemplate = document.querySelector('.delivery__product-template').content;
+   const productsListDelivery = document.querySelector('.delivery__value-img');
+
    hideActiveProductsButton.addEventListener('click', function () {
       productsListActive.classList.toggle('hide');
       hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
@@ -31,14 +33,28 @@ document.addEventListener('DOMContentLoaded', function () {
     
    })
    missCountText.textContent = missingProducts.length + ' ' + declensionOfWord(missingProducts.length, 'товар', 'товара', 'товаров');
-
+   function clearActiveProducts() {
+      productsListActive.innerHTML = '';
+      productsListDelivery.innerHTML = '';
+   }
+   function clearInactiveProducts() {
+      productsListInactive.innerHTML = '';
+   }
+   function updateActiveProducts() {
+      clearActiveProducts();
+      initialProducts.forEach(function (element) {
+         const productElement = createElementActive(element);
+         const productDelivery = createDeliveryProduct(element);
+         productsListActive.append(productElement);
+         productsListDelivery.append(productDelivery);
+      })
+   }
    function checkboxAll() {
       let flag = initialProducts.every(function (item) {
          return (item.checked === true);
       })
       return flag;
-   }
-   
+   }   
    totalCheckbox.checked = checkboxAll();
    totalCheckbox.addEventListener('change', function () {
       if (totalCheckbox.checked === true) {
@@ -51,13 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
             item.checked = false;
          })
       }
-      clearActiveProducts();
       updateTotalPrice();
       updateCheckboxPrice();
-      initialProducts.forEach(function (element) {
-         const productElement = createElementActive(element);
-         productsListActive.append(productElement)
-      })
+      updateActiveProducts();
    })
 
    function toPrice(value) {
@@ -79,25 +91,14 @@ document.addEventListener('DOMContentLoaded', function () {
          return many;
       }
    } 
-   function clearActiveProducts() {
-      productsListActive.innerHTML = ''; 
-   }
-   function clearInactiveProducts() {
-      productsListInactive.innerHTML = '';
-   }
-
+   
    function deleteProductActive(element, array) {
       const index = array.findIndex(item => item.id === element.id);
       if (index !== -1) {
          array.splice(index, 1);
-         clearActiveProducts();
-         array.forEach(function (element) {
-            const productElement = createElementActive(element);
-            productsListActive.append(productElement)
-         })
+         updateActiveProducts();
       }
    }
-
    function deleteProductInactive(element, array) {
       const index = array.findIndex(item => item.id === element.id);
       if (index !== -1) {
@@ -108,8 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
             productsListInactive.append(productElement)
          })
       }
-   }
-   
+   }   
    function updateTotalPrice() {
       let totalActivePrice = document.querySelector('.total__title-value-text');
       let totalOldPrice = document.querySelector('.total__detail-old');
@@ -189,7 +189,19 @@ document.addEventListener('DOMContentLoaded', function () {
          choosePriceCountText.textContent = sumCount + ' ' + countWord + ' · ' + toPrice(sumActive.toString()) + ' сом';
       }
    }
-
+   function createDeliveryProduct(productItem) {
+      if (productItem.checked) {
+         const productDelivery = deliveryTemplate.querySelector('.delivery__item').cloneNode(true);
+         const productDeliveryImg = productDelivery.querySelector('.delivery__img');
+         const productDeliveryCount = productDelivery.querySelector('.delivery__img-count');
+         productDeliveryImg.src = productItem.img;
+         if (productItem.count > 1) {
+            productDeliveryCount.textContent = productItem.count;
+         }
+         return productDelivery;
+      }
+      return ''
+   }
    function createElementActive(productItem) {
       const productElement = productTemplateActive.querySelector('.product').cloneNode(true);
       const productElementTitle = productElement.querySelector('.product__title');
@@ -211,6 +223,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const productElementDeleteButton = productElement.querySelector('.product__delete');
       const productElemementLikeButton = productElement.querySelector('.product__like');
       const productElementCheckbox = productElement.querySelector('.product__checkbox');
+
+
       function priceHandler(count) {
          let priceActiveValue = toPrice((productItem.activePrice * count).toString());                 
          let priceOldValue = toPrice((productItem.oldPrice * count).toString());
@@ -271,6 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalCheckbox.checked = checkboxAll();
          updateTotalPrice();
          updateCheckboxPrice();
+         updateActiveProducts();
       })            
 
       productElementTitle.textContent = productItem.name;
@@ -313,6 +328,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const productElementSize = productElement.querySelector('.product__size');
       const productElementDeleteButton = productElement.querySelector('.product__delete');
       const productElemementLikeButton = productElement.querySelector('.product__like');
+
+
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
       productElemementLikeButton.addEventListener('click', function () {
@@ -335,7 +352,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
    initialProducts.forEach(function (productItem) {
       const productElement = createElementActive(productItem);
-      productsListActive.append(productElement)
+      const productDelivery = createDeliveryProduct(productItem);
+      productsListActive.append(productElement);
+      
+      productsListDelivery.append(productDelivery);
+
       updateTotalPrice();
       updateCheckboxPrice();
    })
