@@ -1,7 +1,8 @@
 import { initialProducts, missingProducts } from "./products.js";
 document.addEventListener('DOMContentLoaded', function () {
    const totalCheckbox = document.querySelector('.cart-main__checkbox');
-
+   const hideActiveProductsButton=document.querySelector('.cart-main__hide-button')
+   
    const productsListActive = document.querySelector('.cart-main__active .products-list');
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
@@ -13,6 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       return flag;
    }
+   hideActiveProductsButton.addEventListener('click',function () {
+      productsListActive.classList.toggle('hide');
+      hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
+      hideActiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
+
+   })
    totalCheckbox.checked = checkboxAll();
    totalCheckbox.addEventListener('change', function () {
       if (totalCheckbox.checked === true) {
