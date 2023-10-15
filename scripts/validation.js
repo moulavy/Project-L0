@@ -7,11 +7,20 @@ document.addEventListener('DOMContentLoaded', function () {
    const innInput = form.querySelector('#inn');
    const inputs = [nameInput, surnameInput, emailInput, phoneInput, innInput];
    const errors = form.querySelectorAll('.recipient__error');
+   const labels = form.querySelectorAll('.recipient__label');
    const totalSubmitButton = document.querySelector('.total__submit')
 
    function showError(input, errorElement, errorMessage) {
-      errorElement.textContent = errorMessage;
+      errorElement.textContent = errorMessage;     
       input.classList.add('error');
+   }
+   function showLabel(input,labelElement, labelMessage) {
+      if (input.value.trim() !== '') {
+         labelElement.textContent = labelMessage;
+      }
+      else {
+         labelElement.textContent = '';
+      }
    }
 
    function hideError(input, errorElement) {
@@ -20,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 
    function validateName() {      
-         hideError(nameInput, errors[0]);
-      
+         hideError(nameInput, errors[0]);      
    }
    function validateNameSubmit() {
       const value = nameInput.value.trim();
@@ -135,6 +143,23 @@ document.addEventListener('DOMContentLoaded', function () {
             validatePhone();
          } else if (input === innInput) {
             validateInn();
+         }
+      });
+   });
+   inputs.forEach(input => {
+      input.addEventListener('input', function () {
+         if (input === nameInput) {
+            showLabel(nameInput,labels[0],'Имя')
+         }
+         else if (input === surnameInput) {
+            showLabel(surnameInput,labels[1], 'Фамилия')
+         }
+         else if (input === emailInput) {
+            showLabel(emailInput,labels[2], 'Почта')
+         } else if (input === phoneInput) {
+            showLabel(phoneInput,labels[3], 'Телефон')
+         } else if (input === innInput) {
+            showLabel(innInput,labels[4], 'ИНН')
          }
       });
    });
