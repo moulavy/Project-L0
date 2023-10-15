@@ -21,8 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
    const delivery56 = document.querySelector('.delivery__date-one');
    const deliveryTemplate78 = delivery78.querySelector('.delivery__product-template').content;
    const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
-   let products78 = initialProducts.filter(product => product.count > 184);
-
+   let products78 = [];
+   function createArrayProducts78(){
+      products78 = initialProducts.filter(product => product.count > 184);
+   }
+   createArrayProducts78();
    hideActiveProductsButton.addEventListener('click', function () {
       productsListActive.classList.toggle('hide');
       hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
@@ -43,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
       productsListActive.innerHTML = '';
       productsListDelivery56.innerHTML = '';
       productsListDelivery78.innerHTML = '';
+      delivery56.querySelector('.delivery__date-key').textContent = ''
+      delivery78.querySelector('.delivery__date-key').textContent = ''
    }
    function clearInactiveProducts() {
       productsListInactive.innerHTML = '';
@@ -55,13 +60,15 @@ document.addEventListener('DOMContentLoaded', function () {
          productsListActive.append(productElement);
          productsListDelivery56.append(productDelivery);
       })
-      
-      if (products78.length > 0) {
+      createArrayProducts78();
+      let flag = products78.some(function (item) {
+         return (item.checked === true);
+      });
+      if (products78.length > 0 && flag) {
          delivery78.querySelector('.delivery__date-key').textContent = '7—8 февраля'
          products78.forEach(function (element) {
             const productDelivery = createDeliveryProduct(element, deliveryTemplate78);
-            productsListDelivery78.append(productDelivery);
-
+            productsListDelivery78.append(productDelivery); 
          })
       }
    }
@@ -207,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
    }
    function createDeliveryProduct(productItem, deliveryTemplate) {
       if (productItem.checked) {
+         delivery56.querySelector('.delivery__date-key').textContent = '5—6 февраля'
          const productDelivery = deliveryTemplate.querySelector('.delivery__item').cloneNode(true);
          const productDeliveryImg = productDelivery.querySelector('.delivery__img');
          const productDeliveryCount = productDelivery.querySelector('.delivery__img-count');
@@ -233,12 +241,12 @@ document.addEventListener('DOMContentLoaded', function () {
          return productDelivery;
       }
       else {
+         createArrayProducts78();
          if (products78.length === 0) {
             delivery78.querySelector('.delivery__date-key').textContent = ''
          }
          return ''
       }
-
    }
    function createElementActive(productItem) {
       const productElement = productTemplateActive.querySelector('.product').cloneNode(true);
@@ -283,7 +291,6 @@ document.addEventListener('DOMContentLoaded', function () {
          deleteProductActive(productItem, products78);
          updateTotalPrice();
          updateCheckboxPrice();
-         createDelivery78();
       });
       productElementButtonPlus.addEventListener('click', function () {
          if (productElementInput.value < productItem.maxCount) {
@@ -321,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function () {
          updateCheckboxPrice();
          updateActiveProducts();
          if (productItem.count <= 184) {
-            createDelivery78();
+            createTemplateDelivery78();
             delivery78.querySelector('.delivery__date-key').textContent = ''
          }
       })
@@ -343,16 +350,7 @@ document.addEventListener('DOMContentLoaded', function () {
          else {
             delivery56.querySelector('.delivery__date-key').textContent = '5—6 февраля';
          }
-         if (productItem.count > 184) {
-            if (productItem.checked === false) {
-               deleteProductActive(productItem, products78);
-               createDelivery78();
-            }
-            else {
-               products78 = initialProducts.filter(product => product.count > 184);
-               createDelivery78();
-            }
-         }
+         
          
       })
 
@@ -431,7 +429,8 @@ document.addEventListener('DOMContentLoaded', function () {
    })
 
 
-   function createDelivery78() {
+   function createTemplateDelivery78() {
+      createArrayProducts78();
       if (products78.length > 0) {
          delivery78.querySelector('.delivery__date-key').textContent = '7—8 февраля'
          products78.forEach(function (productItem) {
@@ -446,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       console.log(products78)
    }
-   createDelivery78();
+   createTemplateDelivery78();
 
    missingProducts.forEach(function (productItem) {
       const productElement = createElementInactive(productItem);
