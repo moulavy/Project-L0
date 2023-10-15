@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
          productsListActive.append(productElement);
          productsListDelivery56.append(productDelivery);
       })
-      if (products78) {
+      if (products78.length>0) {
          delivery78.querySelector('.delivery__date-key').textContent = '7—8 февраля'
          products78.forEach(function (element) {
             const productDelivery = createDeliveryProduct(element, deliveryTemplate78);
@@ -340,8 +340,7 @@ document.addEventListener('DOMContentLoaded', function () {
                products78 = initialProducts.filter(product => product.count > 184);
                createDelivery78();
             }
-         }
-         
+         }         
       })            
 
       productElementTitle.textContent = productItem.name;
