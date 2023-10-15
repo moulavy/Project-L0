@@ -14,9 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
    const productTemplateInactive = document.querySelector('.cart-main__inactive .product__template').content;
-   const deliveryTemplate = document.querySelector('.delivery__product-template').content;
-   const productsListDelivery = document.querySelector('.delivery__value-img');
 
+   const deliveryTemplate56 = document.querySelector('.delivery__date-one .delivery__product-template').content;
+   const productsListDelivery56 = document.querySelector('.delivery__date-one .delivery__value-img');
+   const deliveryTemplate78 = document.querySelector('.delivery__date-two .delivery__product-template').content;
+   const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
+   
    hideActiveProductsButton.addEventListener('click', function () {
       productsListActive.classList.toggle('hide');
       hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
@@ -35,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
    missCountText.textContent = missingProducts.length + ' ' + declensionOfWord(missingProducts.length, 'товар', 'товара', 'товаров');
    function clearActiveProducts() {
       productsListActive.innerHTML = '';
-      productsListDelivery.innerHTML = '';
+      productsListDelivery56.innerHTML = '';
+      productsListDelivery78.innerHTML = '';
    }
    function clearInactiveProducts() {
       productsListInactive.innerHTML = '';
@@ -44,9 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
       clearActiveProducts();
       initialProducts.forEach(function (element) {
          const productElement = createElementActive(element);
-         const productDelivery = createDeliveryProduct(element);
+         const productDelivery = createDeliveryProduct(element,deliveryTemplate56);
          productsListActive.append(productElement);
-         productsListDelivery.append(productDelivery);
+         productsListDelivery56.append(productDelivery);
+      })
+      products78.forEach(function (element) {
+         const productDelivery = createDeliveryProduct(element,deliveryTemplate78);
+         productsListDelivery78.append(productDelivery);
       })
    }
    function checkboxAll() {
@@ -189,14 +197,24 @@ document.addEventListener('DOMContentLoaded', function () {
          choosePriceCountText.textContent = sumCount + ' ' + countWord + ' · ' + toPrice(sumActive.toString()) + ' сом';
       }
    }
-   function createDeliveryProduct(productItem) {
-      if (productItem.checked) {
+   function createDeliveryProduct(productItem,deliveryTemplate) {
+      if (productItem.checked ) {
          const productDelivery = deliveryTemplate.querySelector('.delivery__item').cloneNode(true);
          const productDeliveryImg = productDelivery.querySelector('.delivery__img');
          const productDeliveryCount = productDelivery.querySelector('.delivery__img-count');
          productDeliveryImg.src = productItem.img;
          if (productItem.count > 1) {
-            productDeliveryCount.textContent = productItem.count;
+            if (deliveryTemplate === deliveryTemplate56) {
+               if (productItem.count > 184) {
+                  productDeliveryCount.textContent = 184;
+               }
+               else {
+                  productDeliveryCount.textContent = productItem.count;
+               }
+            }
+            else {
+               productDeliveryCount.textContent = productItem.count-184;
+            }
          }
          return productDelivery;
       }
@@ -260,6 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
          }
          updateTotalPrice();
          updateCheckboxPrice();
+         updateActiveProducts();
       })
 
       productElementButtonMinus.addEventListener('click', function () {
@@ -277,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
          }
          updateTotalPrice();
          updateCheckboxPrice();
+         updateActiveProducts();
       })
 
       productElementCheckbox.checked = productItem.checked;
@@ -349,13 +369,24 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       return productElement;
    }
+   
+   const products78 = initialProducts.filter(product => product.count > 184);
 
    initialProducts.forEach(function (productItem) {
       const productElement = createElementActive(productItem);
-      const productDelivery = createDeliveryProduct(productItem);
+      const productDelivery = createDeliveryProduct(productItem,deliveryTemplate56);
       productsListActive.append(productElement);
       
-      productsListDelivery.append(productDelivery);
+      productsListDelivery56.append(productDelivery);
+
+      updateTotalPrice();
+      updateCheckboxPrice();
+   })
+
+   products78.forEach(function (productItem) {
+      const productDelivery = createDeliveryProduct(productItem,deliveryTemplate78);    
+
+      productsListDelivery78.append(productDelivery);
 
       updateTotalPrice();
       updateCheckboxPrice();
