@@ -29,6 +29,9 @@
     color: #f55123;
     border-bottom: 1px solid #f55123;
 }
+.recipient__input-error::placeholder{
+    color:#f55123;
+}
 .recipient__container {
     display: flex;
     flex-direction: column;

@@ -12,7 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
    function showError(input, errorElement, errorMessage) {
       errorElement.textContent = errorMessage;     
-      input.classList.add('error');
+      input.classList.add('recipient__input-error');
+   }
+   function hideError(input, errorElement) {
+      errorElement.textContent = '';
+      input.classList.remove('recipient__input-error');
    }
    function showLabel(input,labelElement, labelMessage) {
       if (input.value.trim() !== '') {
@@ -21,12 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
       else {
          labelElement.textContent = '';
       }
-   }
-
-   function hideError(input, errorElement) {
-      errorElement.textContent = '';
-      input.classList.remove('error');
-   }
+   }   
 
    function validateName() {      
          hideError(nameInput, errors[0]);      
@@ -41,12 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 
    function validateSurname() {
-      const value = surnameInput.value.trim();
-      if (value === '') {
-         showError(surnameInput, errors[1], 'Введите фамилию');
-      } else {
+      
          hideError(surnameInput, errors[1]);
-      }
+      
    }
    function validateSurnameSubmit() {
       const value = surnameInput.value.trim();
@@ -60,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
    function validateEmail() {
       const value = emailInput.value.trim();
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-      if (emailRegex.test(value)) {
+      if (emailRegex.test(value) || value==='') {
          hideError(emailInput, errors[2]);
       }
       else {
@@ -85,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
    function validatePhone() {
       const value = phoneInput.value.replace(/\s/g, ''); 
-      if (!/^\+?\d{1,3}?\s?\d{1,3}?\s?\d{2,3}?\s?\d{2}?\s?\d{2}$/.test(value)) {
+      if (!/^\+?\d{1,3}?\s?\d{1,3}?\s?\d{2,3}?\s?\d{2}?\s?\d{2}$/.test(value) && value!=='') {
          showError(phoneInput, errors[3], 'Формат: +9 999 999 99 99');
       } else {
          hideError(phoneInput, errors[3]);
@@ -104,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
    function validateInn() {
       const value = innInput.value.trim();
-      if (!/^\d{14}$/.test(value)) {
+      if (!/^\d{14}$/.test(value) && value!=='') {
          showError(innInput, errors[4], 'Проверьте ИНН');
       } else {
          hideError(innInput, errors[4]);
