@@ -431,7 +431,7 @@
                             Спишем оплату с карты при получении
                         </p>
                     </div>
-                    <div class="cart-main__recipient recipient block">
+                    <form novalidate class="cart-main__recipient recipient block">
                         <div class="pay__title block-title">
                             <p class="pay__title-text block-title__text">
                                 Получатель
@@ -462,6 +462,7 @@
                                         for="surname"
                                     ></label>
                                     <input
+                                    id="surname"
                                         type="text"
                                         class="recipient__surname recipient__input"
                                         placeholder="Фамилия"
@@ -520,7 +521,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="total block">
                     <div class="total__price">
@@ -686,5 +687,6 @@
         </div>
 
         <script type="module" src="./scripts/index.js"></script>
+        <script  src="./scripts/validation.js"></script>
     </body>
 </html>
