@@ -50,6 +50,9 @@
     line-height: 14px;
     color: #f55123;
 }
+.recipient__error-inn{
+    display: none;
+}
 .recipient__top .recipient__container {
     width: 338px;
 }
@@ -61,6 +64,7 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 14px;
+    margin-top: 4px;
 }
 .recipient__input:focus-visible{
     outline: none;

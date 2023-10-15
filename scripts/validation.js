@@ -5,30 +5,32 @@ document.addEventListener('DOMContentLoaded', function () {
    const emailInput = form.querySelector('#email');
    const phoneInput = form.querySelector('#phone');
    const innInput = form.querySelector('#inn');
+   const innInfo = form.querySelector('.recipient__inn-info');
+   const innError = form.querySelector('.recipient__error-inn');
    const inputs = [nameInput, surnameInput, emailInput, phoneInput, innInput];
    const errors = form.querySelectorAll('.recipient__error');
    const labels = form.querySelectorAll('.recipient__label');
    const totalSubmitButton = document.querySelector('.total__submit')
 
    function showError(input, errorElement, errorMessage) {
-      errorElement.textContent = errorMessage;     
+      errorElement.textContent = errorMessage;
       input.classList.add('recipient__input-error');
    }
    function hideError(input, errorElement) {
       errorElement.textContent = '';
       input.classList.remove('recipient__input-error');
    }
-   function showLabel(input,labelElement, labelMessage) {
+   function showLabel(input, labelElement, labelMessage) {
       if (input.value.trim() !== '') {
          labelElement.textContent = labelMessage;
       }
       else {
          labelElement.textContent = '';
       }
-   }   
+   }
 
-   function validateName() {      
-         hideError(nameInput, errors[0]);      
+   function validateName() {
+      hideError(nameInput, errors[0]);
    }
    function validateNameSubmit() {
       const value = nameInput.value.trim();
@@ -40,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 
    function validateSurname() {
-      
-         hideError(surnameInput, errors[1]);
-      
+      hideError(surnameInput, errors[1]);
    }
    function validateSurnameSubmit() {
       const value = surnameInput.value.trim();
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
    function validateEmail() {
       const value = emailInput.value.trim();
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-      if (emailRegex.test(value) || value==='') {
+      if (emailRegex.test(value) || value === '') {
          hideError(emailInput, errors[2]);
       }
       else {
@@ -80,15 +80,15 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 
    function validatePhone() {
-      const value = phoneInput.value.replace(/\s/g, ''); 
-      if (!/^\+?\d{1,3}?\s?\d{1,3}?\s?\d{2,3}?\s?\d{2}?\s?\d{2}$/.test(value) && value!=='') {
+      const value = phoneInput.value.replace(/\s/g, '');
+      if (!/^\+?\d{1,3}?\s?\d{1,3}?\s?\d{2,3}?\s?\d{2}?\s?\d{2}$/.test(value) && value !== '') {
          showError(phoneInput, errors[3], 'Формат: +9 999 999 99 99');
       } else {
          hideError(phoneInput, errors[3]);
       }
    }
    function validatePhoneSubmit() {
-      const value = phoneInput.value.replace(/\s/g, ''); 
+      const value = phoneInput.value.replace(/\s/g, '');
       if (value === '') {
          showError(phoneInput, errors[3], 'Укажите номер телефона');
       } else if (!/^\+?\d{1,3}?\s?\d{1,3}?\s?\d{2,3}?\s?\d{2}?\s?\d{2}$/.test(value)) {
@@ -100,10 +100,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
    function validateInn() {
       const value = innInput.value.trim();
-      if (!/^\d{14}$/.test(value) && value!=='') {
+      if (!/^\d{14}$/.test(value) && value !== '') {
+         innInfo.textContent = '';
+         errors[4].classList.remove('recipient__error-inn');
          showError(innInput, errors[4], 'Проверьте ИНН');
       } else {
          hideError(innInput, errors[4]);
+         errors[4].classList.add('recipient__error-inn');
+         innInfo.textContent = 'Для таможенного оформления';
       }
    }
    function validateInnSubmit() {
@@ -145,17 +149,17 @@ document.addEventListener('DOMContentLoaded', function () {
    inputs.forEach(input => {
       input.addEventListener('input', function () {
          if (input === nameInput) {
-            showLabel(nameInput,labels[0],'Имя')
+            showLabel(nameInput, labels[0], 'Имя')
          }
          else if (input === surnameInput) {
-            showLabel(surnameInput,labels[1], 'Фамилия')
+            showLabel(surnameInput, labels[1], 'Фамилия')
          }
          else if (input === emailInput) {
-            showLabel(emailInput,labels[2], 'Почта')
+            showLabel(emailInput, labels[2], 'Почта')
          } else if (input === phoneInput) {
-            showLabel(phoneInput,labels[3], 'Телефон')
+            showLabel(phoneInput, labels[3], 'Телефон')
          } else if (input === innInput) {
-            showLabel(innInput,labels[4], 'ИНН')
+            showLabel(innInput, labels[4], 'ИНН')
          }
       });
    });
