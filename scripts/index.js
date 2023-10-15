@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const deliveryTemplate78 = delivery78.querySelector('.delivery__product-template').content;
    const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
    let products78 = initialProducts.filter(product => product.count > 184);
-   
+
    hideActiveProductsButton.addEventListener('click', function () {
       productsListActive.classList.toggle('hide');
       hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
@@ -330,14 +330,18 @@ document.addEventListener('DOMContentLoaded', function () {
          updateTotalPrice();
          updateCheckboxPrice();
          updateActiveProducts();
-         if (productItem.checked === false) {
-            deleteProductActive(productItem, products78);
-            createDelivery78();
+        
+         if (productItem.count > 184) {
+            if (productItem.checked === false) {
+               deleteProductActive(productItem, products78);
+               createDelivery78();
+            }
+            else {
+               products78 = initialProducts.filter(product => product.count > 184);
+               createDelivery78();
+            }
          }
-         else {
-            products78 = initialProducts.filter(product => product.count > 184);
-            createDelivery78();
-         }
+         
       })            
 
       productElementTitle.textContent = productItem.name;
