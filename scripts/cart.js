@@ -1,6 +1,8 @@
 import { initialProducts, missingProducts } from "./products.js";
 document.addEventListener('DOMContentLoaded', function () {
    const totalCheckbox = document.querySelector('.cart-main__checkbox');
+   const totalDebitCheckbox = document.querySelector('.total .total__checkbox');
+   const totalSubmit = document.querySelector('.total__submit');
 
    const hideActiveProductsButton = document.querySelector('.cart-main__active .cart-main__hide-button');
    const hideInactiveProductsButton = document.querySelector('.cart-main__inactive .cart-main__hide-button')
@@ -21,6 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
    const delivery56 = document.querySelector('.delivery__date-one');
    const deliveryTemplate78 = delivery78.querySelector('.delivery__product-template').content;
    const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
+
+   function updateTotalButton() {
+      if (totalDebitCheckbox.checked === true) {
+         totalSubmit.textContent = 'Оплатить ' + document.querySelector('.total__title-value-text').textContent + ' сом';
+      }
+      else {
+         totalSubmit.textContent = 'Заказать'
+      }      
+   }
+   totalDebitCheckbox.addEventListener('change',updateTotalButton)
+  
    let products78 = [];
    function createArrayProducts78(){
       products78 = initialProducts.filter(product => product.count > 184);
@@ -147,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = '0';
          totalSalePrice.textContent = '0';
          totalCount.textContent = '0 товаров';
+         
       }
       else {
          arrActivePrice = initialProducts.map(product => {
@@ -190,8 +204,8 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = toPrice(sumOld.toString());
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
          totalCount.textContent = sumCount + ' ' + countWord;
-
       }
+      updateTotalButton();
    }
    function updateCheckboxPrice() {
       let arrActivePrice = [];
@@ -439,7 +453,6 @@ document.addEventListener('DOMContentLoaded', function () {
       else {
          delivery78.querySelector('.delivery__date-key').textContent = ''
       }
-      console.log(products78)
    }
    createTemplateDelivery78();
 
