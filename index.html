@@ -70,8 +70,7 @@
                                     >
                                     <span
                                         class="cart-main__price-count hide"
-                                        ></span
-                                    >
+                                    ></span>
                                 </label>
                             </div>
                             <button class="cart-main__hide-button">
@@ -80,7 +79,7 @@
                                     src="./images/hide-button.svg"
                                     alt="кнопка скрыть"
                                 />
-                                 <img
+                                <img
                                     class="cart-main__hide-img-down hide"
                                     src="./images/hide-button-down.svg"
                                     alt="кнопка скрыть"
@@ -185,7 +184,7 @@
                                                         −
                                                     </button>
                                                     <input
-                                                    disabled
+                                                        disabled
                                                         type="number"
                                                         class="product__quantity-field"
                                                     />
@@ -238,9 +237,7 @@
                                 <span class="cart-main__miss-text"
                                     >Отсутствуют ·
                                 </span>
-                                <span class="cart-main__miss-count"
-                                    ></span
-                                >
+                                <span class="cart-main__miss-count"></span>
                             </div>
                             <button class="cart-main__hide-button">
                                 <img
@@ -267,8 +264,7 @@
                                         <div class="product__info">
                                             <h3
                                                 class="product__title product__title-inactive"
-                                            >
-                                            </h3>
+                                            ></h3>
                                             <ul
                                                 class="product__params product__params-inactive"
                                             >
@@ -277,22 +273,20 @@
                                                 >
                                                     <span
                                                         class="product__param-key"
-                                                        ></span
+                                                    ></span
                                                     ><span
                                                         class="product__param-value"
-                                                        ></span
-                                                    >
+                                                    ></span>
                                                 </li>
                                                 <li
                                                     class="product__param product__size"
                                                 >
                                                     <span
                                                         class="product__param-key"
-                                                        ></span
+                                                    ></span
                                                     ><span
                                                         class="product__param-value"
-                                                        ></span
-                                                    >
+                                                    ></span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -313,7 +307,7 @@
                                         <div class="product__prices"></div>
                                     </div>
                                 </li>
-                            </template>                            
+                            </template>
                         </ul>
                     </div>
                     <div class=".cart-main__delivery delivery block">
@@ -358,39 +352,26 @@
                             </p>
                             <p class="delivery__value">Бесплатно</p>
                         </div>
-                        <div class=" delivery__date delivery__date-one">
-                            <p class="delivery__date-key delivery__key">                              
-                            </p>
-                            <div
-                                class="delivery__value delivery__value-img"
-                            >
-                            <template class="delivery__product-template">
-                                <div class="delivery__item">
-                                    <img
-                                        class="delivery__img"
-                                    />
-                                     <p class="delivery__img-count"></p>
-                                </div>
-                            </template>
-                                
+                        <div class="delivery__date delivery__date-one">
+                            <p class="delivery__date-key delivery__key"></p>
+                            <div class="delivery__value delivery__value-img">
+                                <template class="delivery__product-template">
+                                    <div class="delivery__item">
+                                        <img class="delivery__img" />
+                                        <p class="delivery__img-count"></p>
+                                    </div>
+                                </template>
                             </div>
                         </div>
-                        <div class=" delivery__date delivery__date-two">
-                            <p class="delivery__date-key delivery__key">
-                            
-                            </p>
-                            <div
-                                class="delivery__value delivery__value-img"
-                            >
-                            <template class="delivery__product-template">
-                                <div class="delivery__item">
-                                    <img
-                                        class="delivery__img"
-                                    />
-                                     <p class="delivery__img-count"></p>
-                                </div>
-                            </template>
-                                
+                        <div class="delivery__date delivery__date-two">
+                            <p class="delivery__date-key delivery__key"></p>
+                            <div class="delivery__value delivery__value-img">
+                                <template class="delivery__product-template">
+                                    <div class="delivery__item">
+                                        <img class="delivery__img" />
+                                        <p class="delivery__img-count"></p>
+                                    </div>
+                                </template>
                             </div>
                         </div>
                         <div class="delivery__back">
@@ -399,13 +380,16 @@
                                 alt="обратная доставка"
                                 class="devivery__back-img"
                             />
-                            <p class="delivery__back-text">
+                            <div class="delivery__back-text">
                                 Обратная доставка товаров на склад при отказе —
                                 <span class="delivery__back-free"
                                     >бесплатно</span
                                 >
-                                <div class="delivery__back-info">Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно</div>
-                            </p>
+                                <div class="delivery__back-info">
+                                    Если товары вам не подойдут, мы вернем
+                                    их обратно на склад — это бесплатно
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="cart-main__pay pay block">
@@ -432,7 +416,10 @@
                             Спишем оплату с карты при получении
                         </p>
                     </div>
-                    <form novalidate class="cart-main__recipient recipient block">
+                    <form
+                        novalidate
+                        class="cart-main__recipient recipient block"
+                    >
                         <div class="pay__title block-title">
                             <p class="pay__title-text block-title__text">
                                 Получатель
@@ -450,7 +437,7 @@
                                     <input
                                         id="name"
                                         type="text"
-                                        class="recipient__name recipient__input "
+                                        class="recipient__name recipient__input"
                                         placeholder="Имя"
                                     />
                                     <p class="recipient__error"></p>
@@ -463,7 +450,7 @@
                                         for="surname"
                                     ></label>
                                     <input
-                                    id="surname"
+                                        id="surname"
                                         type="text"
                                         class="recipient__surname recipient__input"
                                         placeholder="Фамилия"
@@ -518,7 +505,9 @@
                                     <p
                                         class="recipient__error recipient__error-inn"
                                     ></p>
-                                    <p class="recipient__inn-info">Для таможенного оформления</p>
+                                    <p class="recipient__inn-info">
+                                        Для таможенного оформления
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -528,27 +517,22 @@
                     <div class="total__price">
                         <p class="total__title-key total__key">Итого</p>
                         <p class="total__title-value total__value">
-                            <span class="total__title-value-text">
-                            
-                            </span>
+                            <span class="total__title-value-text"> </span>
                             <span class="total__value-currency">сом</span>
                         </p>
                     </div>
                     <div class="total__detail">
                         <p class="total__key total__detail-key">
-                            <span class="total__detail-count">
-                            
-                            </span>
+                            <span class="total__detail-count"> </span>
                         </p>
                         <p class="total__value total__detail-value">
                             <span class="total__detail-old"></span>
-                            <span >сом</span>
-                             
+                            <span>сом</span>
                         </p>
                     </div>
                     <div class="total__detail">
                         <p class="total__key total__detail-key">Скидка</p>
-                        <p class="total__value total__detail-value">                            
+                        <p class="total__value total__detail-value">
                             <span class="total__detail-sale"></span>
                             <span>сом</span>
                         </p>
@@ -580,13 +564,18 @@
                                 alt="обратная доставка"
                                 class="devivery__back-img"
                             />
-                            <p class="delivery__back-text">
+                            <div class="delivery__back-text">
                                 Обратная доставка товаров на склад при отказе —
                                 <span class="delivery__back-free"
                                     >бесплатно</span
                                 >
-                                <div class="delivery__back-info delivery__back-info-total">Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно</div>
-                            </p>
+                                <div
+                                    class="delivery__back-info delivery__back-info-total"
+                                >
+                                    Если товары вам не подойдут, мы вернем
+                                    их обратно на склад — это бесплатно
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="total__pay">
@@ -687,8 +676,134 @@
                 class="menu__profile menu__item"
             />
         </div>
-        <script  src="./scripts/index.js"></script>
+        <div class="popup">
+            <div class="popup-pay popup-container">
+                <div class="popup__header">
+                    <h3 class="popup__title">Способ оплаты</h3>
+                    <button class="popup__button-close">
+                        <img src="./images/close.svg" alt="кнопка закрыть" />
+                    </button>
+                </div>
+                <ul class="popup-pay__list">
+                    <li class="popup-pay__item">
+                        <div
+                            class="popup__radio-container checkbox-container"
+                        >
+                            <label
+                                class="popup__radio-label checkbox-label"
+                            >
+                                <input
+                                    type="radio"
+                                    class="popup__radio-input checkbox"
+                                    name="item"
+                                />
+                                <span
+                                    class="checkbox-fake popup__radio-fake"
+                                ></span>
+                            </label>
+                        </div>
+                        <div class="popup__card">
+                            <img
+                                src="./images/card-mir.svg"
+                                alt="Карта Мир"
+                                class="popup__card-img"
+                            />
+                            <p class="popup__card-number">
+                                1234 56•• •••• 1234
+                            </p>
+                        </div>
+                    </li>
+                    <li class="popup-pay__item">
+                        <div
+                            class="popup__radio-container checkbox-container"
+                        >
+                            <label
+                                class="popup__radio-label checkbox-label"
+                            >
+                                <input
+                                name="item"
+                                    type="radio"
+                                    class="popup__radio-input checkbox"
+                                />
+                                <span
+                                    class="checkbox-fake popup__radio-fake"
+                                ></span>
+                            </label>
+                        </div>
+                        <div class="popup__card">
+                            <img
+                                src="./images/card-mir.svg"
+                                alt="Карта Мир"
+                                class="popup__card-img"
+                                
+                            />
+                            <p class="popup__card-number">
+                                1234 56•• •••• 1234
+                            </p>
+                        </div>
+                    </li>
+                    <li class="popup-pay__item">
+                        <div
+                            class="popup__radio-container checkbox-container"
+                        >
+                            <label
+                                class="popup__radio-label checkbox-label"
+                            >
+                                <input
+                                name="item"
+                                    type="radio"
+                                    class="popup__radio-input checkbox"
+                                />
+                                <span
+                                    class="checkbox-fake popup__radio-fake"
+                                ></span>
+                            </label>
+                        </div>
+                        <div class="popup__card">
+                            <img
+                                src="./images/card-mir.svg"
+                                alt="Карта Мир"
+                                class="popup__card-img"
+                            />
+                            <p class="popup__card-number">
+                                1234 56•• •••• 1234
+                            </p>
+                        </div>
+                    </li>
+                    <li class="popup-pay__item">
+                        <div
+                            class="popup__radio-container checkbox-container"
+                        >
+                            <label
+                                class="popup__radio-label checkbox-label"
+                            >
+                                <input
+                                name="item"
+                                    type="radio"
+                                    class="popup__radio-input checkbox"
+                                />
+                                <span
+                                    class="checkbox-fake popup__radio-fake"
+                                ></span>
+                            </label>
+                        </div>
+                        <div class="popup__card">
+                            <img
+                                src="./images/card-mir.svg"
+                                alt="Карта Мир"
+                                class="popup__card-img"
+                            />
+                            <p class="popup__card-number">
+                                1234 56•• •••• 1234
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <button class="popup-pay__button popup__button">Выбрать</button>
+            </div>
+        </div>
+        <script src="./scripts/index.js"></script>
         <script type="module" src="./scripts/cart.js"></script>
-        <script  src="./scripts/validation.js"></script>
+        <script src="./scripts/validation.js"></script>
     </body>
 </html>
