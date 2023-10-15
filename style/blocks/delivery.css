@@ -1,4 +1,3 @@
-
 .delivery {
     margin-bottom: 16px;
 }
@@ -68,7 +67,7 @@
     gap: 8px;
 }
 
-.delivery__back-text {    
+.delivery__back-text {
     position: relative;
     font-size: 13px;
     font-weight: 400;
@@ -77,23 +76,28 @@
 }
 .delivery__back-free {
     position: relative;
-cursor: pointer;
+    cursor: pointer;
     color: #0cb477;
 }
-.delivery__back-info{
-position: absolute;
-display: none;
-top:24px;
-left: 225px;
-font-size: 13px;
-font-weight: 400;
-line-height: 16px; 
-height: 32px;
-width: 256px;
-border-radius: 8px;
-padding: 10px 16px 14px 16px;
-background: var(--background-white, #FFF);
-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+.delivery__back-info {
+    position: absolute;
+    display: none;
+    top: 24px;
+    left: 225px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    height: 32px;
+    width: 256px;
+    border-radius: 8px;
+    padding: 10px 16px 14px 16px;
+    background: var(--background-white, #fff);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
+        0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+.delivery__back-info-total{
+    top: 40px;
+    left: 0;
 }
 .delivery__back-free::after {
     position: absolute;
@@ -105,30 +109,27 @@ box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 
     background-image: url("../../images/underline-green.svg");
 }
 @media screen and (max-width: 695px) {
-.delivery__point{
-    flex-direction: column;
-}
-.delivery__point-description
-{
-    margin-top:4px;
-}
-.delivery__price{
-    flex-direction: column;
-}
-.delivery__date{
-    flex-direction: column;
-    gap:12px;
-    margin-bottom: 17px;
-}
-.delivery__back{
-    padding: 0 8px;
-}
-
+    .delivery__point {
+        flex-direction: column;
+    }
+    .delivery__point-description {
+        margin-top: 4px;
+    }
+    .delivery__price {
+        flex-direction: column;
+    }
+    .delivery__date {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 17px;
+    }
+    .delivery__back {
+        padding: 0 8px;
+    }
 }
 @media screen and (max-width: 400px) {
-.delivery__back-info{
-
-top:39px;
-left: 0;
-}
+    .delivery__back-info {
+        top: 39px;
+        left: 0;
+    }
 }
