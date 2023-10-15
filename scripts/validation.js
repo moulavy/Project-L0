@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
    const phoneInput = form.querySelector('#phone');
    const innInput = form.querySelector('#inn');
    const innInfo = form.querySelector('.recipient__inn-info');
-   const innError = form.querySelector('.recipient__error-inn');
    const inputs = [nameInput, surnameInput, emailInput, phoneInput, innInput];
    const errors = form.querySelectorAll('.recipient__error');
    const labels = form.querySelectorAll('.recipient__label');
@@ -155,12 +154,14 @@ document.addEventListener('DOMContentLoaded', function () {
             showLabel(surnameInput, labels[1], 'Фамилия')
          }
          else if (input === emailInput) {
-            showLabel(emailInput, labels[2], 'Почта')
+            showLabel(emailInput, labels[2], 'Электронная почта')
          } else if (input === phoneInput) {
             showLabel(phoneInput, labels[3], 'Телефон')
          } else if (input === innInput) {
-            showLabel(innInput, labels[4], 'ИНН')
+            showLabel(innInput, labels[4], 'ИНН для таможни')
          }
       });
    });
+
+
 });
