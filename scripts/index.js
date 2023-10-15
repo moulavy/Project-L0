@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
          productsListActive.append(productElement);
          productsListDelivery56.append(productDelivery);
       })
+      
       if (products78.length > 0) {
          delivery78.querySelector('.delivery__date-key').textContent = '7—8 февраля'
          products78.forEach(function (element) {
@@ -224,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   productDeliveryCount.textContent = productItem.count - 184;
                }
                else {
+                  delivery78.querySelector('.delivery__date-key').textContent = ''
                   return '';
                }
             }
@@ -299,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
          updateTotalPrice();
          updateCheckboxPrice();
          updateActiveProducts();
-
+         
       })
 
       productElementButtonMinus.addEventListener('click', function () {
