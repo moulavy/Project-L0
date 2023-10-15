@@ -326,11 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
          }
          updateTotalPrice();
          updateCheckboxPrice();
-         updateActiveProducts();
-         if (productItem.count <= 184) {
-            createTemplateDelivery78();
-            delivery78.querySelector('.delivery__date-key').textContent = ''
-         }
+         updateActiveProducts();         
       })
 
       productElementCheckbox.checked = productItem.checked;
