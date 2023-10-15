@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
    const chooseAllText = document.querySelector('.cart-main__choose-text');
    const choosePriceCountText = document.querySelector('.cart-main__price-count');
-   
+
    const productsListActive = document.querySelector('.cart-main__active .products-list');
    const productTemplateActive = document.querySelector('.cart-main__active .product__template').content;
    const productsListInactive = document.querySelector('.cart-main__inactive .products-list');
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const deliveryTemplate56 = document.querySelector('.delivery__date-one .delivery__product-template').content;
    const productsListDelivery56 = document.querySelector('.delivery__date-one .delivery__value-img');
    const delivery78 = document.querySelector('.delivery__date-two');
+   const delivery56 = document.querySelector('.delivery__date-one');
    const deliveryTemplate78 = delivery78.querySelector('.delivery__product-template').content;
    const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
    let products78 = initialProducts.filter(product => product.count > 184);
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
       productsListInactive.classList.toggle('hide');
       hideInactiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
       hideInactiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
-    
+
    })
    missCountText.textContent = missingProducts.length + ' ' + declensionOfWord(missingProducts.length, 'товар', 'товара', 'товаров');
    function clearActiveProducts() {
@@ -50,11 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
       clearActiveProducts();
       initialProducts.forEach(function (element) {
          const productElement = createElementActive(element);
-         const productDelivery = createDeliveryProduct(element,deliveryTemplate56);
+         const productDelivery = createDeliveryProduct(element, deliveryTemplate56);
          productsListActive.append(productElement);
          productsListDelivery56.append(productDelivery);
       })
-      if (products78.length>0) {
+      if (products78.length > 0) {
          delivery78.querySelector('.delivery__date-key').textContent = '7—8 февраля'
          products78.forEach(function (element) {
             const productDelivery = createDeliveryProduct(element, deliveryTemplate78);
@@ -68,13 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
          return (item.checked === true);
       })
       return flag;
-   }   
+   }
    totalCheckbox.checked = checkboxAll();
    totalCheckbox.addEventListener('change', function () {
       if (totalCheckbox.checked === true) {
          initialProducts.forEach(function (item) {
             item.checked = true;
-         })         
+         })
       }
       else {
          initialProducts.forEach(function (item) {
@@ -104,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
          return many;
       }
-   } 
-   
+   }
+
    function deleteProductActive(element, array) {
       const index = array.findIndex(item => item.id === element.id);
       if (index !== -1) {
@@ -123,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
             productsListInactive.append(productElement)
          })
       }
-   }   
+   }
    function updateTotalPrice() {
       let totalActivePrice = document.querySelector('.total__title-value-text');
       let totalOldPrice = document.querySelector('.total__detail-old');
@@ -142,25 +143,25 @@ document.addEventListener('DOMContentLoaded', function () {
       else {
          arrActivePrice = initialProducts.map(product => {
             if (product.checked === true) {
-              return product.count * parseInt(product.activePrice, 10)
+               return product.count * parseInt(product.activePrice, 10)
             }
             return 0;
          });
          arrOldPrice = initialProducts.map(product => {
             if (product.checked === true) {
-             return  product.count * parseInt(product.oldPrice, 10)
+               return product.count * parseInt(product.oldPrice, 10)
             }
             return 0;
          });
          arrSalePrice = initialProducts.map(product => {
             if (product.checked === true) {
-             return  product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10)
+               return product.count * parseInt(product.oldPrice, 10) - product.count * parseInt(product.activePrice, 10)
             }
             return 0;
          })
          arrCount = initialProducts.map(product => {
             if (product.checked === true) {
-             return  product.count
+               return product.count
             }
             return 0;
          });
@@ -181,13 +182,13 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = toPrice(sumOld.toString());
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
          totalCount.textContent = sumCount + ' ' + countWord;
-         
+
       }
    }
    function updateCheckboxPrice() {
-      let arrActivePrice = [];     
+      let arrActivePrice = [];
       let arrCount = [];
-      if (initialProducts.length === 0) {         
+      if (initialProducts.length === 0) {
          choosePriceCountText.textContent = '0 товаров  · 0 сом';
       }
       else {
@@ -203,8 +204,8 @@ document.addEventListener('DOMContentLoaded', function () {
          choosePriceCountText.textContent = sumCount + ' ' + countWord + ' · ' + toPrice(sumActive.toString()) + ' сом';
       }
    }
-   function createDeliveryProduct(productItem,deliveryTemplate) {
-      if (productItem.checked ) {
+   function createDeliveryProduct(productItem, deliveryTemplate) {
+      if (productItem.checked) {
          const productDelivery = deliveryTemplate.querySelector('.delivery__item').cloneNode(true);
          const productDeliveryImg = productDelivery.querySelector('.delivery__img');
          const productDeliveryCount = productDelivery.querySelector('.delivery__img-count');
@@ -235,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
          }
          return ''
       }
-      
+
    }
    function createElementActive(productItem) {
       const productElement = productTemplateActive.querySelector('.product').cloneNode(true);
@@ -261,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
       function priceHandler(count) {
-         let priceActiveValue = toPrice((productItem.activePrice * count).toString());                 
+         let priceActiveValue = toPrice((productItem.activePrice * count).toString());
          let priceOldValue = toPrice((productItem.oldPrice * count).toString());
          if (priceActiveValue.length > 6) {
             productElementActivePrice.classList.add('product__long-price');
@@ -269,15 +270,15 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementActivePrice.textContent = priceActiveValue;
          productElementOldPrice.textContent = priceOldValue;
          productElementActivePriceMobile.textContent = priceActiveValue;
-         productElementOldPriceMobile.textContent = priceOldValue;         
-      }    
+         productElementOldPriceMobile.textContent = priceOldValue;
+      }
       productElemementLikeButton.addEventListener('click', function () {
          productElemementLikeButton.classList.add('active');
       })
 
       productElementDeleteButton.addEventListener('click', () => {
-         deleteProductActive(productItem, initialProducts);      
-         deleteProductActive(productItem, products78); 
+         deleteProductActive(productItem, initialProducts);
+         deleteProductActive(productItem, products78);
          updateTotalPrice();
          updateCheckboxPrice();
          createDelivery78();
@@ -286,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
          if (productElementInput.value < productItem.maxCount) {
             productElementInput.value++;
             productItem.count++;
-            
+
             priceHandler(productItem.count);
             if (productElementInput.value >= productItem.maxCount) {
                productElementButtonPlus.disabled = true;
@@ -298,14 +299,14 @@ document.addEventListener('DOMContentLoaded', function () {
          updateTotalPrice();
          updateCheckboxPrice();
          updateActiveProducts();
-         
+
       })
 
       productElementButtonMinus.addEventListener('click', function () {
          if (productElementInput.value > productItem.minCount) {
             productElementInput.value--;
             productItem.count--;
-            
+
             priceHandler(productItem.count);
             if (productElementInput.value <= productItem.minCount) {
                productElementButtonMinus.disabled = true;
@@ -330,7 +331,16 @@ document.addEventListener('DOMContentLoaded', function () {
          updateTotalPrice();
          updateCheckboxPrice();
          updateActiveProducts();
-        
+
+         let noCheked = initialProducts.every(function (item) {
+            return item.checked === false
+         })
+         if (noCheked) {
+            delivery56.querySelector('.delivery__date-key').textContent = '';
+         }
+         else {
+            delivery56.querySelector('.delivery__date-key').textContent = '5—6 февраля';
+         }
          if (productItem.count > 184) {
             if (productItem.checked === false) {
                deleteProductActive(productItem, products78);
@@ -340,8 +350,9 @@ document.addEventListener('DOMContentLoaded', function () {
                products78 = initialProducts.filter(product => product.count > 184);
                createDelivery78();
             }
-         }         
-      })            
+         }
+         
+      })
 
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
@@ -368,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       productElementInput.value = productItem.count;
-      priceHandler(productItem.count);     
+      priceHandler(productItem.count);
 
       productElementRemains.textContent = productItem.remains;
 
@@ -399,20 +410,20 @@ document.addEventListener('DOMContentLoaded', function () {
          productElementSize.querySelector('.product__param-value').textContent = productItem.size;
       }
       productElementDeleteButton.addEventListener('click', () => {
-         deleteProductInactive(productItem, missingProducts);  
-         missCountText.textContent = missingProducts.length + ' '+declensionOfWord(missingProducts.length,'товар','товара','товаров');
+         deleteProductInactive(productItem, missingProducts);
+         missCountText.textContent = missingProducts.length + ' ' + declensionOfWord(missingProducts.length, 'товар', 'товара', 'товаров');
       });
       return productElement;
    }
-   
+
 
    initialProducts.forEach(function (productItem) {
       const productElement = createElementActive(productItem);
-      const productDelivery = createDeliveryProduct(productItem,deliveryTemplate56);
+      const productDelivery = createDeliveryProduct(productItem, deliveryTemplate56);
       productsListActive.append(productElement);
-      
-      productsListDelivery56.append(productDelivery);
 
+      productsListDelivery56.append(productDelivery);
+      delivery56.querySelector('.delivery__date-key').textContent = '5—6 февраля'
       updateTotalPrice();
       updateCheckboxPrice();
    })
