@@ -703,7 +703,7 @@
                 <button class="popup-pay__button popup__button">Выбрать</button>
             </div>
         </div>
-        <div class="popup popup-delivery">
+        <div class="popup popup-delivery ">
             <div class="popup-delivery__container popup__container">
                 <div class="popup__header">
                     <h3 class="popup__title">Способ доставки</h3>
@@ -724,8 +724,12 @@
                     </button>
                 </div>
                 <p class="popup-delivery__adresses-title">Мои адреса</p>
-                <ul class="popup-delivery__list popup-delivery__list-courier hide">
-                    <template class="popup-delivery__template popup-delivery__template-courier">
+                <ul
+                    class="popup-delivery__list popup-delivery__list-courier "
+                >
+                    <template
+                        class="popup-delivery__template popup-delivery__template-courier"
+                    >
                         <li class="popup-delivery__item">
                             <div
                                 class="popup__radio-container checkbox-container"
@@ -744,39 +748,54 @@
                                 </label>
                             </div>
                             <div class="popup__adress">
-                                <p class="popup__adress-text">
-                                </p>
+                                <p class="popup__adress-text"></p>
                                 <button class="popup__delete"></button>
                             </div>
                         </li>
-                    </template>                    
+                    </template>
                 </ul>
-                <ul class="popup-delivery__list popup-delivery__list-point">
-                    <template class="popup-delivery__template popup-delivery__template-point">
-                        <li class="popup-delivery__item">
-                            <div
-                                class="popup__radio-container checkbox-container"
-                            >
-                                <label
-                                    class="popup__radio-label checkbox-label"
+                <ul class="popup-delivery__list popup-delivery__list-point hide">
+                    <template
+                        class="popup-delivery__template popup-delivery__template-point"
+                    >
+                        <li class="popup-delivery__item popup-delivery__item-point">
+                            <div class="popup-delivery__point-block">
+                                <div
+                                    class="popup__radio-container checkbox-container"
                                 >
-                                    <input
-                                        type="radio"
-                                        class="popup__radio-input checkbox"
-                                        name="item"
-                                    />
-                                    <span
-                                        class="checkbox-fake popup__radio-fake"
-                                    ></span>
-                                </label>
+                                    <label
+                                        class="popup__radio-label checkbox-label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="popup__radio-input checkbox"
+                                            name="item2"
+                                        />
+                                        <span
+                                            class="checkbox-fake popup__radio-fake"
+                                        ></span>
+                                    </label>
+                                </div>
+                                <div class="popup__adress">
+                                    <p class="popup__adress-text"></p>
+                                    <button class="popup__delete"></button>
+                                </div>
                             </div>
-                            <div class="popup__adress">
-                                <p class="popup__adress-text">
-                                </p>
-                                <button class="popup__delete"></button>
+                            <div class="popup__point-description">
+                                <div class="popup__rating">
+                                    <img
+                                        src="./images/rating.svg"
+                                        class="popup__rating-img"
+                                        alt="рейтинг"
+                                    />
+                                    <span class="popup__rating-number"
+                                        >4.99</span
+                                    >
+                                </div>
+                                <p class="popup__point-title">Пункт выдачи</p>
                             </div>
                         </li>
-                    </template>                    
+                    </template>
                 </ul>
                 <button class="popup-delivery__button-submit popup__button">
                     Выбрать

@@ -15,14 +15,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
    const buttonCourier = popupDelivery.querySelector('.popup-delivery__courier');
    const buttonPoint = popupDelivery.querySelector('.popup-delivery__point');
-
+   const listDeliveryCourier = popupDelivery.querySelector('.popup-delivery__list-courier');
+   const listDeliveryPoint = popupDelivery.querySelector('.popup-delivery__list-point');
    buttonCourier.addEventListener('click', function () {
       buttonPoint.classList.add('popup-delivery__button-disabled');
       buttonCourier.classList.remove('popup-delivery__button-disabled');
+      listDeliveryPoint.classList.add('hide');
+      listDeliveryCourier.classList.remove('hide');
    })
    buttonPoint.addEventListener('click', function () {
       buttonCourier.classList.add('popup-delivery__button-disabled');
       buttonPoint.classList.remove('popup-delivery__button-disabled');
+      listDeliveryCourier.classList.add('hide');
+      listDeliveryPoint.classList.remove('hide');
    })
 
    function handleClickChangePay() {
