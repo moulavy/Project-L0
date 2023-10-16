@@ -724,8 +724,35 @@
                     </button>
                 </div>
                 <p class="popup-delivery__adresses-title">Мои адреса</p>
-                <ul class="popup-delivery__list popup-delivery__list-courier">
+                <ul class="popup-delivery__list popup-delivery__list-courier hide">
                     <template class="popup-delivery__template popup-delivery__template-courier">
+                        <li class="popup-delivery__item">
+                            <div
+                                class="popup__radio-container checkbox-container"
+                            >
+                                <label
+                                    class="popup__radio-label checkbox-label"
+                                >
+                                    <input
+                                        type="radio"
+                                        class="popup__radio-input checkbox"
+                                        name="item"
+                                    />
+                                    <span
+                                        class="checkbox-fake popup__radio-fake"
+                                    ></span>
+                                </label>
+                            </div>
+                            <div class="popup__adress">
+                                <p class="popup__adress-text">
+                                </p>
+                                <button class="popup__delete"></button>
+                            </div>
+                        </li>
+                    </template>                    
+                </ul>
+                <ul class="popup-delivery__list popup-delivery__list-point">
+                    <template class="popup-delivery__template popup-delivery__template-point">
                         <li class="popup-delivery__item">
                             <div
                                 class="popup__radio-container checkbox-container"

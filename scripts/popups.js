@@ -13,6 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
    const buttonTotalChangeDelivery = document.querySelector('.total__delivery .total__delivery-img')
    const buttonSubmitPopupDelivery = popupDelivery.querySelector('.popup-delivery__button-submit');
 
+   const buttonCourier = popupDelivery.querySelector('.popup-delivery__courier');
+   const buttonPoint = popupDelivery.querySelector('.popup-delivery__point');
+
+   buttonCourier.addEventListener('click', function () {
+      buttonPoint.classList.add('popup-delivery__button-disabled');
+      buttonCourier.classList.remove('popup-delivery__button-disabled');
+   })
+   buttonPoint.addEventListener('click', function () {
+      buttonCourier.classList.add('popup-delivery__button-disabled');
+      buttonPoint.classList.remove('popup-delivery__button-disabled');
+   })
+
    function handleClickChangePay() {
       popupPay.classList.add('popup-opened');
       page.classList.add('popup-opened-body')

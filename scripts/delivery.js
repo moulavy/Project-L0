@@ -3,12 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
    const popupDelivery = document.querySelector('.popup-delivery');
    const deliveryTemplate = popupDelivery.querySelector('.popup-delivery__template-courier').content;
    const deliveryListCourier = popupDelivery.querySelector('.popup-delivery__list-courier');
-
-
    const totalAddress = document.querySelector('.total .total__address');
-   const deliveryAddress = document.querySelector('.delivery__point-address');
-   const deliveryRating = document.querySelector('.delivery__rating-number');   
-   
+   const deliveryAddress = document.querySelector('.delivery__point-address');   
    const buttonSubmitPopup = popupDelivery.querySelector('.popup-delivery__button-submit');
 
    function deleteAddress(element, array) {
@@ -19,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
    }
    function clearAddress() {
       deliveryListCourier.innerHTML = '';
-
    }
    function updateAdress() {
       clearAddress();
@@ -35,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const addressElementDelete = addressElement.querySelector('.popup__delete');
       addressElementName.textContent = addressItem.name;
       addressElementRadio.checked = addressItem.checked;
-
       function updatePage() {
          if (addressItem.checked === true) {
             totalAddress.textContent = addressItem.name;            
@@ -45,19 +39,16 @@ document.addEventListener('DOMContentLoaded', function () {
       addressElementDelete.addEventListener('click', function () {
          deleteAddress(addressItem, addressCourier);
          updateAdress();
-      })
-     
+      })     
       addressElementRadio.addEventListener('change', function () {
          addressCourier.forEach(function (item) {
             item.checked = false;
          })
          addressItem.checked = true;
       });
-
       buttonSubmitPopup.addEventListener('click', function () {
          updatePage();
       });
-
       updatePage();
       return addressElement;
    }

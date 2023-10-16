@@ -130,19 +130,16 @@ export let addressPoint = [
    {
       id: 1,
       name: 'г. Бишкек, микрорайон Джал, улица Ахунбаева Исы, д. 67/1',
-      rating: '4.99',
       checked: true
    },
    {
       id: 2,
       name: 'г. Бишкек, микрорайон Джал, улица Ахунбаева Исы, д. 67/1',
-      rating: '4.86',
       checked: false
    },
    {
       id: 3,
       name: 'г. Бишкек, улица Табышалиева, д. 57',
-      rating: '4.65',
       checked: false
    }
 
