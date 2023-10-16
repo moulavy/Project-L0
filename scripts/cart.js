@@ -285,7 +285,37 @@ document.addEventListener('DOMContentLoaded', function () {
       const productElementDeleteButton = productElement.querySelector('.product__delete');
       const productElemementLikeButton = productElement.querySelector('.product__like');
       const productElementCheckbox = productElement.querySelector('.product__checkbox');
+      const productElementCompanyModal = productElement.querySelector('.product__company-modal');
+      const productElementCompanyInfo = productElement.querySelector('.product__company-info');
+      const productElementCompanyModalTitle = productElement.querySelector('.product__company-title');
+      const productElementCompanyModalOgrn = productElement.querySelector('.product__company-ogrn');
+      const productElementCompanyModalAddress = productElement.querySelector('.product__company-address');
+      const productElementSaleModal = productElement.querySelector('.product__sale');
+      const productElementSaleDefaultPercent = productElement.querySelector('.product__sale-default-key');
+      const productElementSaleDefaultValue = productElement.querySelector('.product__sale-default-value');
+      const productElementSaleBuyerPercent = productElement.querySelector('.product__sale-buyer-key');
+      const productElementSaleBuyerValue = productElement.querySelector('.product__sale-buyer-value');
+     
+      productElementSaleDefaultPercent.textContent = 'Скидка ' + productItem.sale.percentDefault+'%';
+      productElementSaleDefaultValue.textContent = '−' + productItem.sale.valueDefault + ' сом';
+      productElementSaleBuyerPercent.textContent = 'Скидка покупателя ' + productItem.sale.percentBuyer + '%';
+      productElementSaleBuyerValue.textContent = '−' + productItem.sale.valueBuyer + ' сом';
+      productElementCompanyModalTitle.textContent = productItem.infoCompany.name;
+      productElementCompanyModalOgrn.textContent = productItem.infoCompany.ogrn;
+      productElementCompanyModalAddress.textContent = productItem.infoCompany.address;
 
+      productElementCompanyInfo.addEventListener('mouseenter', function () {
+         productElementCompanyModal.classList.add('product__company-modal-active');
+      })
+      productElementCompanyInfo.addEventListener('mouseleave', function () {
+         productElementCompanyModal.classList.remove('product__company-modal-active');
+      })
+      productElementOldPrice.addEventListener('mouseenter', function () {
+         productElementSaleModal.classList.add('product__sale-active')
+      })
+      productElementOldPrice.addEventListener('mouseleave', function () {
+         productElementSaleModal.classList.remove('product__sale-active')
+      })
 
       function priceHandler(count) {
          let priceActiveValue = toPrice((productItem.activePrice * count).toString());

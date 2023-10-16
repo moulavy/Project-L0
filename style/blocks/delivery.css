@@ -81,6 +81,7 @@
 }
 .delivery__back-info {
     position: absolute;
+    z-index: 10;
     display: none;
     top: 24px;
     left: 225px;

@@ -15,7 +15,17 @@ export let initialProducts = [
       count: 1,
       maxCount: 2,
       minCount: 1,
-      
+      infoCompany: {
+         name: 'OOO «ВАЙЛДБЕРРИЗ»',
+         ogrn: 'ОГРН: 5167746237148',
+         address: '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
+      },
+      sale: {
+         percentDefault: 10,
+         valueDefault: 300,
+         percentBuyer: 5,
+         valueBuyer: 200
+      }
    },
    {
       id: 2,
@@ -32,7 +42,17 @@ export let initialProducts = [
       count: 200,
       maxCount: 20000,
       minCount: 1,
-      
+      infoCompany: {
+         name: 'OOO «МЕГАПРОФСТИЛЬ»',
+         ogrn: 'ОГРН: 5167746237148',
+         address:'129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
+      },
+      sale: {
+         percentDefault: 55,
+         valueDefault: 300,
+         percentBuyer: 10,
+         valueBuyer:30
+      }
    },
    {
       id: 3,
@@ -49,7 +69,17 @@ export let initialProducts = [
       count: 2,
       maxCount: 2,
       minCount: 1,
-      
+      infoCompany: {
+         name: 'OOO «ВАЙЛДБЕРРИЗ»',
+         ogrn: 'ОГРН: 5167746237148',
+         address: '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
+      },
+      sale: {
+         percentDefault: 5,
+         valueDefault: 100,
+         percentBuyer: 4,
+         valueBuyer: 200
+      }
    }
 ]
 
