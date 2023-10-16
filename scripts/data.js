@@ -77,3 +77,30 @@ export let missingProducts = [
 
    }
 ]
+
+export let debets = [
+   {
+      id: 1,
+      number: '1234 56•• •••• 1234',
+      date: '01/30',
+      img: '/images/card-mir.svg'
+   },
+   {
+      id: 2,
+      number: '5632 56•• •••• 1244',
+      date: '02/31',
+      img: '/images/card-mir.svg'
+   },
+   {
+      id: 3,
+      number: '8368 56•• •••• 1234',
+      date: '03/28',
+      img: '/images/card-mir.svg'
+   },
+   {
+      id: 4,
+      number: '6325 56•• •••• 1234',
+      date: '06/29',
+      img: '/images/card-mir.svg'
+   },
+]

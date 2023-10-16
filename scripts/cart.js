@@ -1,4 +1,4 @@
-import { initialProducts, missingProducts } from "./products.js";
+import { initialProducts, missingProducts } from "./data.js";
 document.addEventListener('DOMContentLoaded', function () {
    const totalCheckbox = document.querySelector('.cart-main__checkbox');
    const totalDebitCheckbox = document.querySelector('.total .total__checkbox');

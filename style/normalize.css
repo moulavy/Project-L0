@@ -362,6 +362,6 @@ h1,h2,h3,h4,h5,h6,p,button,input{
     background-color: #6725a8;
 }
 
-body.popup-open {
+body.popup-opened-body {
     overflow: hidden;
 }

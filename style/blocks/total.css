@@ -134,6 +134,9 @@ line-height: 24px;
 .total__agreement-underline {
     border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
 }
+.total__delivery-img{
+    cursor: pointer;
+}
 @media screen and (max-width: 1010px) {
 .total{
     max-width: none;
