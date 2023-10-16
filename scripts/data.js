@@ -6,7 +6,7 @@ export let initialProducts = [
       name: 'Футболка UZcotton мужская',
       color: 'белый',
       size: '56',
-      img: '/images/item-1-img.svg',
+      img: './images/item-1-img.svg',
       storage: 'Коледино WB',
       company: 'OOO Вайлдберриз',
       remains: 'Осталось 2 шт.',
@@ -33,7 +33,7 @@ export let initialProducts = [
       name: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
       color: 'прозрачный',
       size: '',
-      img: '/images/item-2-img.svg',
+      img: './images/item-2-img.svg',
       storage: 'Коледино WB',
       company: 'OOO Мегапрофстиль',
       remains: '',
@@ -60,7 +60,7 @@ export let initialProducts = [
       name: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell ',
       color: '',
       size: '',
-      img: '/images/item-3-img.svg',
+      img: './images/item-3-img.svg',
       storage: 'Коледино WB',
       company: 'OOO Вайлдберриз',
       activePrice: '247',
@@ -89,21 +89,21 @@ export let missingProducts = [
       name: 'Футболка UZcotton мужская',
       color: 'белый',
       size: '56',
-      img: '/images/item-1-img.svg'
+      img: './images/item-1-img.svg'
    },
    {
       id: 2,
       name: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
       color: 'прозрачный',
       size: '',
-      img: '/images/item-2-img.svg',
+      img: './images/item-2-img.svg',
    },
    {
       id: 3,
       name: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell ',
       color: '',
       size: '',
-      img: '/images/item-3-img.svg',
+      img: './images/item-3-img.svg',
 
    }
 ]
@@ -113,28 +113,28 @@ export let debets = [
       id: 1,
       number: '1234 56•• •••• 1234',
       date: '01/30',
-      img: '/images/card-mir.svg',
+      img: './images/card-mir.svg',
       checked: true
    },
    {
       id: 2,
       number: '5632 56•• •••• 1244',
       date: '02/31',
-      img: '/images/visa.svg',
+      img: './images/visa.svg',
       checked: false
    },
    {
       id: 3,
       number: '8368 56•• •••• 1234',
       date: '03/28',
-      img: '/images/mastercard.svg',
+      img: './images/mastercard.svg',
       checked: false
    },
    {
       id: 4,
       number: '6325 56•• •••• 1234',
       date: '06/29',
-      img: '/images/maestro.svg',
+      img: './images/maestro.svg',
       checked: false
    },
 ]
