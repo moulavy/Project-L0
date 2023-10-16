@@ -1,6 +1,17 @@
-.popup-delivery__container{
+#popup-delivery__container {
    width: 500px;
    height: 408px;
+}
+::-webkit-scrollbar {
+    width: 5px; 
+}
+::-webkit-scrollbar-thumb {
+    background-color: #CB11AB; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e0dfdf; 
 }
 .popup-delivery__buttons{
    width: 100%;
@@ -101,4 +112,13 @@ line-height: 16px;
 font-size: 13px;
 font-weight: 400;
 line-height: 16px;
+}
+@media screen and (max-width: 695px) {
+   #popup-delivery__container{
+      width: 100%;
+      height: 100%;
+      border-radius:0;
+      padding:16px;
+   }
+   
 }

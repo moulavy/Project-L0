@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
          array.splice(index, 1);
          updateActiveProducts();
       }
-   }
+   }     
    function deleteProductInactive(element, array) {
       const index = array.findIndex(item => item.id === element.id);
       if (index !== -1) {
