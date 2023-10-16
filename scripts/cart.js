@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const deliveryTemplate78 = delivery78.querySelector('.delivery__product-template').content;
    const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
 
+   const headerCount = document.querySelector('.header__cart-count');
    function updateTotalButton() {
       if (totalDebitCheckbox.checked === true) {
          totalSubmit.textContent = 'Оплатить ' + document.querySelector('.total__title-value-text').textContent + ' сом';
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = '0';
          totalSalePrice.textContent = '0';
          totalCount.textContent = '0 товаров';
-         
+         headerCount.textContent='0'
       }
       else {
          arrActivePrice = initialProducts.map(product => {
@@ -203,7 +204,8 @@ document.addEventListener('DOMContentLoaded', function () {
          totalActivePrice.textContent = toPrice(sumActive.toString());
          totalOldPrice.textContent = toPrice(sumOld.toString());
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
-         totalCount.textContent = sumCount + ' ' + countWord;
+         totalCount.textContent = sumCount + ' ' + countWord;         
+         headerCount.textContent =initialProducts.length ;
       }
       updateTotalButton();
    }
