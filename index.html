@@ -6,7 +6,7 @@
         <title>Товары и точка</title>
         <link rel="stylesheet" href="style/index.css" />
     </head>
-    <body class="page ">
+    <body class="page">
         <header class="header">
             <div class="header__container container">
                 <button class="header__menu-button"></button>
@@ -405,12 +405,11 @@
                         </div>
                         <div class="pay__card">
                             <img
-                                src="./images/card-mir.svg"
-                                alt="Карта Мир"
+                                alt="Карта"
                                 class="pay__card-img"
                             />
-                            <p class="pay__card-number">1234 56•• •••• 1234</p>
-                            <p class="pay__card-date">01/30</p>
+                            <p class="pay__card-number"></p>
+                            <p class="pay__card-date"></p>
                         </div>
                         <p class="pay__info">
                             Спишем оплату с карты при получении
@@ -551,7 +550,7 @@
                             <img
                                 src="./images/pencil.svg"
                                 alt="Редактировать"
-                                class="total__delivery-img  total__img"
+                                class="total__delivery-img total__img"
                             />
                         </div>
                         <p class="total__address">
@@ -591,12 +590,10 @@
                         </div>
                         <div class="total__card">
                             <img
-                                src="./images/card-mir.svg"
-                                alt="Карта Мир"
+                                alt="Карта"
                                 class="total__card-img"
                             />
                             <p class="total__card-number">
-                                1234 56•• •••• 1234
                             </p>
                         </div>
                         <div class="total__payment">
@@ -685,126 +682,126 @@
                     </button>
                 </div>
                 <ul class="popup-pay__list">
-                    <li class="popup-pay__item">
-                        <div
-                            class="popup__radio-container checkbox-container"
-                        >
-                            <label
-                                class="popup__radio-label checkbox-label"
+                    <template class="popup-pay__template">
+                        <li class="popup-pay__item">
+                            <div
+                                class="popup__radio-container checkbox-container"
                             >
-                                <input
-                                    type="radio"
-                                    class="popup__radio-input checkbox"
-                                    name="item"
-                                />
-                                <span
-                                    class="checkbox-fake popup__radio-fake"
-                                ></span>
-                            </label>
-                        </div>
-                        <div class="popup__card">
-                            <img
-                                src="./images/card-mir.svg"
-                                alt="Карта Мир"
-                                class="popup__card-img"
-                            />
-                            <p class="popup__card-number">
-                                1234 56•• •••• 1234
-                            </p>
-                        </div>
-                    </li>
-                    <li class="popup-pay__item">
-                        <div
-                            class="popup__radio-container checkbox-container"
-                        >
-                            <label
-                                class="popup__radio-label checkbox-label"
-                            >
-                                <input
-                                name="item"
-                                    type="radio"
-                                    class="popup__radio-input checkbox"
-                                />
-                                <span
-                                    class="checkbox-fake popup__radio-fake"
-                                ></span>
-                            </label>
-                        </div>
-                        <div class="popup__card">
-                            <img
-                                src="./images/card-mir.svg"
-                                alt="Карта Мир"
-                                class="popup__card-img"
-                                
-                            />
-                            <p class="popup__card-number">
-                                1234 56•• •••• 1234
-                            </p>
-                        </div>
-                    </li>
-                    <li class="popup-pay__item">
-                        <div
-                            class="popup__radio-container checkbox-container"
-                        >
-                            <label
-                                class="popup__radio-label checkbox-label"
-                            >
-                                <input
-                                name="item"
-                                    type="radio"
-                                    class="popup__radio-input checkbox"
-                                />
-                                <span
-                                    class="checkbox-fake popup__radio-fake"
-                                ></span>
-                            </label>
-                        </div>
-                        <div class="popup__card">
-                            <img
-                                src="./images/card-mir.svg"
-                                alt="Карта Мир"
-                                class="popup__card-img"
-                            />
-                            <p class="popup__card-number">
-                                1234 56•• •••• 1234
-                            </p>
-                        </div>
-                    </li>
-                    <li class="popup-pay__item">
-                        <div
-                            class="popup__radio-container checkbox-container"
-                        >
-                            <label
-                                class="popup__radio-label checkbox-label"
-                            >
-                                <input
-                                name="item"
-                                    type="radio"
-                                    class="popup__radio-input checkbox"
-                                />
-                                <span
-                                    class="checkbox-fake popup__radio-fake"
-                                ></span>
-                            </label>
-                        </div>
-                        <div class="popup__card">
-                            <img
-                                src="./images/card-mir.svg"
-                                alt="Карта Мир"
-                                class="popup__card-img"
-                            />
-                            <p class="popup__card-number">
-                                1234 56•• •••• 1234
-                            </p>
-                        </div>
-                    </li>
+                                <label
+                                    class="popup__radio-label checkbox-label"
+                                >
+                                    <input
+                                        type="radio"
+                                        class="popup__radio-input checkbox"
+                                        name="item"
+                                    />
+                                    <span
+                                        class="checkbox-fake popup__radio-fake"
+                                    ></span>
+                                </label>
+                            </div>
+                            <div class="popup__card">
+                                <img alt="Карта" class="popup__card-img" />
+                                <p class="popup__card-number"></p>
+                            </div>
+                        </li>
+                    </template>                    
                 </ul>
                 <button class="popup-pay__button popup__button">Выбрать</button>
+            </div>
+        </div>
+        <div class="popup popup-delivery">
+            <div class="popup-delivery__container popup__container">
+                <div class="popup__header">
+                    <h3 class="popup__title">Способ доставки</h3>
+                    <button class="popup__button-close">
+                        <img src="./images/close.svg" alt="кнопка закрыть" />
+                    </button>
+                </div>
+                <div class="popup-delivery__buttons">
+                    <button class="popup-delivery__point popup-delivery__button popup-delivery__button-disabled">Пункт выдачи</button>
+                    <button class="popup-delivery__courier popup-delivery__button">Курьером</button>                    
+                </div>
+                <p class="popup-delivery__adresses-title">Мои адреса</p>
+                <ul class="popup-delivery__list popup-delivery__list-courier">
+                   
+                        <li class="popup-delivery__item">
+                            <div
+                                class="popup__radio-container checkbox-container"
+                            >
+                                <label
+                                    class="popup__radio-label checkbox-label"
+                                >
+                                    <input
+                                        type="radio"
+                                        class="popup__radio-input checkbox"
+                                        name="item"
+                                    />
+                                    <span
+                                        class="checkbox-fake popup__radio-fake"
+                                    ></span>
+                                    
+                                </label>
+                            </div>
+                            <div class="popup__adress">                                
+                                <p class="popup__adress-text">Бишкек, улица Табышалиева, 57</p>
+                                <button class="popup__delete"></button>
+                            </div>
+                        </li>
+                                     <li class="popup-delivery__item">
+                            <div
+                                class="popup__radio-container checkbox-container"
+                            >
+                                <label
+                                    class="popup__radio-label checkbox-label"
+                                >
+                                    <input
+                                        type="radio"
+                                        class="popup__radio-input checkbox"
+                                        name="item"
+                                    />
+                                    <span
+                                        class="checkbox-fake popup__radio-fake"
+                                    ></span>
+                                    
+                                </label>
+                            </div>
+                            <div class="popup__adress">                                
+                                <p class="popup__adress-text">Бишкек, улица Табышалиева, 57</p>
+                                <button class="popup__delete"></button>
+                            </div>
+                        </li>
+                        <li class="popup-delivery__item">
+                            <div
+                                class="popup__radio-container checkbox-container"
+                            >
+                                <label
+                                    class="popup__radio-label checkbox-label"
+                                >
+                                    <input
+                                        type="radio"
+                                        class="popup__radio-input checkbox"
+                                        name="item"
+                                    />
+                                    <span
+                                        class="checkbox-fake popup__radio-fake"
+                                    ></span>
+                                    
+                                </label>
+                            </div>
+                            <div class="popup__adress">                                
+                                <p class="popup__adress-text">Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1</p>
+                                <button class="popup__delete"></button>
+                            </div>
+                        </li>   
+                </ul>
+                <button class="popup-delivery__button-submit popup__button">Выбрать</button>
             </div>
         </div>
         <script src="./scripts/index.js"></script>
         <script type="module" src="./scripts/cart.js"></script>
         <script src="./scripts/validation.js"></script>
-        <script src="./scripts/pay.js"></script>
+        <script  src="./scripts/popups.js"></script>
+        <script type="module" src="./scripts/pay.js"></script>
     </body>
 </html>

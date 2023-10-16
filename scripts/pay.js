@@ -1,23 +1,63 @@
-const popupPay = document.querySelector('.popup-pay');
-const buttonPayChange = document.querySelector('.pay__title-change');
-const buttonClosePopupPay = popupPay.querySelector('.popup__button-close');
-const page = document.querySelector('.page');
-const buttonTotalChange=document.querySelector('.total__pay .total__delivery-img')
+import { debets } from "./data.js";
+document.addEventListener('DOMContentLoaded', function () {
+   const popupPay = document.querySelector('.popup-pay');
+   const payTemplate = popupPay.querySelector('.popup-pay__template').content;
+   const payList = popupPay.querySelector('.popup-pay__list');
 
-function handleClickChangePay() {
-   popupPay.classList.add('popup-opened');
-   page.classList.add('popup-opened-body')
-}
-function handleClickClosePopupPay() {
-   popupPay.classList.remove('popup-opened');
-   page.classList.remove('popup-opened-body')
-}
-buttonPayChange.addEventListener('click', handleClickChangePay)
-buttonClosePopupPay.addEventListener('click', handleClickClosePopupPay)
+   
+   const totalNumber = document.querySelector('.total .total__card-number');
+   const totalImg = document.querySelector('.total .total__card-img');
+   const payNumber = document.querySelector('.pay .pay__card-number');
+   const payImg = document.querySelector('.pay .pay__card-img');
+   const payDate = document.querySelector('.pay .pay__card-date');
+   
 
-popupPay.addEventListener('click', function (event) {
-   if (event.target === popupPay) {
-      handleClickClosePopupPay();
+   const buttonSubmitPopup = popupPay.querySelector('.popup-pay__button');
+
+
+   function createElementCard(cardItem) {
+      const cardElement = payTemplate.querySelector('.popup-pay__item').cloneNode(true);
+      const cardElementNumber = cardElement.querySelector('.popup__card-number');
+      const cardElementImg = cardElement.querySelector('.popup__card-img');
+      const cardElementRadio = cardElement.querySelector('.popup__radio-input');
+      
+      cardElementNumber.textContent = cardItem.number;
+      cardElementImg.src = cardItem.img;
+      cardElementRadio.checked = cardItem.checked;
+
+      function updatePage() {
+         if (cardItem.checked === true) {
+            totalNumber.textContent = cardItem.number;
+            totalImg.src = cardItem.img;
+            payNumber.textContent = cardItem.number;
+            payImg.src = cardItem.img;
+            payDate.textContent = cardItem.date;            
+         }
+      }
+
+      cardElementRadio.addEventListener('change', function () {       
+         debets.forEach(function (item) {
+            item.checked = false;
+         })
+         cardItem.checked = true;         
+      });
+      
+      buttonSubmitPopup.addEventListener('click', function () {
+         updatePage();
+      });
+
+      updatePage();      
+      return cardElement;
    }
-});
-buttonTotalChange.addEventListener('click', handleClickChangePay);
+
+   debets.forEach(function (cardItem) {
+      const cardElement = createElementCard(cardItem);
+      payList.append(cardElement);
+   })
+
+
+ 
+
+   
+
+})

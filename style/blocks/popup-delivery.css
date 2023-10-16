@@ -1,0 +1,68 @@
+.popup-delivery__container{
+   width: 500px;
+   height: 408px;
+}
+.popup-delivery__buttons{
+   width: 100%;
+   display: flex;
+   gap:8px;
+   justify-content: space-between;
+}
+.popup-delivery__button{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 2px;
+   background-color: inherit;
+   height: 34px;
+width: 100%;
+border-radius: 24px;
+border: 2px solid #CB11AB;
+font-size: 13px;
+font-weight: 700;
+line-height: 16px; 
+}
+.popup-delivery__button-disabled{
+   border: 2px solid rgba(203, 17, 171, 0.15);
+
+}
+.popup-delivery__adresses-title
+{
+   font-size: 13px;
+font-weight: 700;
+line-height: 16px; 
+margin-top: 24px;
+margin-bottom: 8px;
+}
+.popup-delivery__list{
+   display: flex;
+   flex-direction: column;
+   gap:20px;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+.popup-delivery__item{
+   display: flex;
+   align-items: center;
+   gap:8px;
+}
+.popup__adress{
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+   gap:8px;
+}
+.popup__delete {
+    background-image: url("../../images/delete-popup.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+.popup__delete:hover{
+     background-image: url("../../images/delete-active.svg");
+}
