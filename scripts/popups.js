@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const buttonDeliveryChange= document.querySelector('.delivery__title-change');
    const buttonClosePopupDelivery = popupDelivery.querySelector('.popup-delivery .popup__button-close');
    const buttonTotalChangeDelivery = document.querySelector('.total__delivery .total__delivery-img')
-   const buttonSubmitPopupDelivery = popupDelivery.querySelector('.popup-delivery__button');
+   const buttonSubmitPopupDelivery = popupDelivery.querySelector('.popup-delivery__button-submit');
 
    function handleClickChangePay() {
       popupPay.classList.add('popup-opened');

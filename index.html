@@ -404,10 +404,7 @@
                             </button>
                         </div>
                         <div class="pay__card">
-                            <img
-                                alt="Карта"
-                                class="pay__card-img"
-                            />
+                            <img alt="Карта" class="pay__card-img" />
                             <p class="pay__card-number"></p>
                             <p class="pay__card-date"></p>
                         </div>
@@ -589,12 +586,8 @@
                             />
                         </div>
                         <div class="total__card">
-                            <img
-                                alt="Карта"
-                                class="total__card-img"
-                            />
-                            <p class="total__card-number">
-                            </p>
+                            <img alt="Карта" class="total__card-img" />
+                            <p class="total__card-number"></p>
                         </div>
                         <div class="total__payment">
                             <div
@@ -705,7 +698,7 @@
                                 <p class="popup__card-number"></p>
                             </div>
                         </li>
-                    </template>                    
+                    </template>
                 </ul>
                 <button class="popup-pay__button popup__button">Выбрать</button>
             </div>
@@ -719,12 +712,20 @@
                     </button>
                 </div>
                 <div class="popup-delivery__buttons">
-                    <button class="popup-delivery__point popup-delivery__button popup-delivery__button-disabled">Пункт выдачи</button>
-                    <button class="popup-delivery__courier popup-delivery__button">Курьером</button>                    
+                    <button
+                        class="popup-delivery__point popup-delivery__button popup-delivery__button-disabled"
+                    >
+                        Пункт выдачи
+                    </button>
+                    <button
+                        class="popup-delivery__courier popup-delivery__button"
+                    >
+                        Курьером
+                    </button>
                 </div>
                 <p class="popup-delivery__adresses-title">Мои адреса</p>
                 <ul class="popup-delivery__list popup-delivery__list-courier">
-                   
+                    <template class="popup-delivery__template popup-delivery__template-courier">
                         <li class="popup-delivery__item">
                             <div
                                 class="popup__radio-container checkbox-container"
@@ -740,68 +741,26 @@
                                     <span
                                         class="checkbox-fake popup__radio-fake"
                                     ></span>
-                                    
                                 </label>
                             </div>
-                            <div class="popup__adress">                                
-                                <p class="popup__adress-text">Бишкек, улица Табышалиева, 57</p>
+                            <div class="popup__adress">
+                                <p class="popup__adress-text">
+                                </p>
                                 <button class="popup__delete"></button>
                             </div>
                         </li>
-                                     <li class="popup-delivery__item">
-                            <div
-                                class="popup__radio-container checkbox-container"
-                            >
-                                <label
-                                    class="popup__radio-label checkbox-label"
-                                >
-                                    <input
-                                        type="radio"
-                                        class="popup__radio-input checkbox"
-                                        name="item"
-                                    />
-                                    <span
-                                        class="checkbox-fake popup__radio-fake"
-                                    ></span>
-                                    
-                                </label>
-                            </div>
-                            <div class="popup__adress">                                
-                                <p class="popup__adress-text">Бишкек, улица Табышалиева, 57</p>
-                                <button class="popup__delete"></button>
-                            </div>
-                        </li>
-                        <li class="popup-delivery__item">
-                            <div
-                                class="popup__radio-container checkbox-container"
-                            >
-                                <label
-                                    class="popup__radio-label checkbox-label"
-                                >
-                                    <input
-                                        type="radio"
-                                        class="popup__radio-input checkbox"
-                                        name="item"
-                                    />
-                                    <span
-                                        class="checkbox-fake popup__radio-fake"
-                                    ></span>
-                                    
-                                </label>
-                            </div>
-                            <div class="popup__adress">                                
-                                <p class="popup__adress-text">Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1</p>
-                                <button class="popup__delete"></button>
-                            </div>
-                        </li>   
+                    </template>                    
                 </ul>
-                <button class="popup-delivery__button-submit popup__button">Выбрать</button>
+                <button class="popup-delivery__button-submit popup__button">
+                    Выбрать
+                </button>
             </div>
         </div>
         <script src="./scripts/index.js"></script>
         <script type="module" src="./scripts/cart.js"></script>
         <script src="./scripts/validation.js"></script>
-        <script  src="./scripts/popups.js"></script>
+        <script src="./scripts/popups.js"></script>
         <script type="module" src="./scripts/pay.js"></script>
+        <script type="module" src="./scripts/delivery.js"></script>
     </body>
 </html>
