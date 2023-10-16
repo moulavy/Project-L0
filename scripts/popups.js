@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const buttonSubmitPopupPay = popupPay.querySelector('.popup-pay__button');
 
    const popupDelivery = document.querySelector('.popup-delivery');
-   const buttonDeliveryChange= document.querySelector('.delivery__title-change');
+   const buttonDeliveryChange = document.querySelector('.delivery__title-change');
    const buttonClosePopupDelivery = popupDelivery.querySelector('.popup-delivery .popup__button-close');
    const buttonTotalChangeDelivery = document.querySelector('.total__delivery .total__delivery-img')
    const buttonSubmitPopupDelivery = popupDelivery.querySelector('.popup-delivery__button-submit');

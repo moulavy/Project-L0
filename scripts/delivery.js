@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const deliveryListCourier = popupDelivery.querySelector('.popup-delivery__list-courier');
    const deliveryListPoint = popupDelivery.querySelector('.popup-delivery__list-point');
    const totalAddress = document.querySelector('.total .total__address');
-   const deliveryAddress = document.querySelector('.delivery__point-address');   
+   const deliveryAddress = document.querySelector('.delivery__point-address');
    const buttonSubmitPopup = popupDelivery.querySelector('.popup-delivery__button-submit');
 
    function deleteAddress(element, array) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
          deliveryListPoint.append(addressElement);
       })
    }
-   function createElementAddress(addressItem,template,array) {
+   function createElementAddress(addressItem, template, array) {
       const addressElement = template.querySelector('.popup-delivery__item').cloneNode(true);
       const addressElementName = addressElement.querySelector('.popup__adress-text');
       const addressElementRadio = addressElement.querySelector('.popup__radio-input');
@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', function () {
       addressElementRadio.checked = addressItem.checked;
       function updatePage() {
          if (addressItem.checked === true) {
-            totalAddress.textContent = addressItem.name;            
-            deliveryAddress.textContent = addressItem.name;            
+            totalAddress.textContent = addressItem.name;
+            deliveryAddress.textContent = addressItem.name;
          }
       }
       addressElementDelete.addEventListener('click', function () {
          deleteAddress(addressItem, array);
          updateAdress();
-      })     
+      })
       addressElementRadio.addEventListener('change', function () {
          addressCourier.forEach(function (item) {
             item.checked = false;
@@ -64,12 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 
    addressCourier.forEach(function (addressItem) {
-      const addressElement = createElementAddress(addressItem,deliveryTemplateCourier,addressCourier);
+      const addressElement = createElementAddress(addressItem, deliveryTemplateCourier, addressCourier);
       deliveryListCourier.append(addressElement);
    })
 
    addressPoint.forEach(function (addressItem) {
-      const addressElement = createElementAddress(addressItem,deliveryTemplatePoint,addressPoint);
+      const addressElement = createElementAddress(addressItem, deliveryTemplatePoint, addressPoint);
       deliveryListPoint.append(addressElement);
    })
 })

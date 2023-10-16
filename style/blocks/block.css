@@ -27,15 +27,15 @@
     background-color: inherit;
 }
 @media screen and (max-width: 695px) {
-.block{
-    max-width: 100%;
-    padding:16px 16px 24px;
-}
-.block-title{
-    margin-bottom: 8px;
-}
-.block-title__text{
-    font-size: 20px;
-line-height: 28px;
-}
+    .block {
+        max-width: 100%;
+        padding: 16px 16px 24px;
+    }
+    .block-title {
+        margin-bottom: 8px;
+    }
+    .block-title__text {
+        font-size: 20px;
+        line-height: 28px;
+    }
 }

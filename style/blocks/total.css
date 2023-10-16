@@ -81,9 +81,9 @@
     gap: 8px;
     margin-bottom: 12px;
 }
-.total__card-number{
+.total__card-number {
     font-size: 13px;
-line-height: 24px;
+    line-height: 24px;
 }
 
 .total__payment {
@@ -95,12 +95,12 @@ line-height: 24px;
     margin-bottom: 24px;
 }
 .total__payment-text {
-    margin-top:8px;
+    margin-top: 8px;
     font-size: 13px;
     line-height: 16px;
 }
-.total__checkbox-text{
-       font-size: 13px;
+.total__checkbox-text {
+    font-size: 13px;
     line-height: 22px;
 }
 .total__submit {
@@ -115,7 +115,7 @@ line-height: 24px;
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
-    cursor:pointer;
+    cursor: pointer;
 }
 .total__agreement {
     display: flex;
@@ -134,53 +134,53 @@ line-height: 24px;
 .total__agreement-underline {
     border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
 }
-.total__delivery-img{
+.total__delivery-img {
     cursor: pointer;
 }
 @media screen and (max-width: 1010px) {
-.total{
-    max-width: none;
-    margin-left: 0;
-    background-color:#F6F6FA;
-    border:none;
-    box-shadow: none;
-    padding: 8px 16px 16px;
+    .total {
+        max-width: none;
+        margin-left: 0;
+        background-color: #f6f6fa;
+        border: none;
+        box-shadow: none;
+        padding: 8px 16px 16px;
+    }
 }
-} 
 @media screen and (max-width: 695px) {
-.total__delivery-title{
-    display: none;
-}
-.total__address{
-    display: none;
-}
-.total__date{
-    display: none;
-}
-.total__delivery{
-    margin-top:16px;
-}
-.total__back{
-    background-color:#F0ECF4;
-    margin-bottom: 16px;
-}
-.total__pay-title{
-    display: none;
-}
-.total__card{
-    display: none;
-}
-.total__payment{
-    background-color:#F0ECF4;
-}
-.total__price{
-    font-size: 20px;
-line-height: 28px;
-letter-spacing: -0.2px;
-}
-.total__title-value{
-    font-size: 20px;
-line-height: 28px;
-letter-spacing: -0.2px; 
-}
+    .total__delivery-title {
+        display: none;
+    }
+    .total__address {
+        display: none;
+    }
+    .total__date {
+        display: none;
+    }
+    .total__delivery {
+        margin-top: 16px;
+    }
+    .total__back {
+        background-color: #f0ecf4;
+        margin-bottom: 16px;
+    }
+    .total__pay-title {
+        display: none;
+    }
+    .total__card {
+        display: none;
+    }
+    .total__payment {
+        background-color: #f0ecf4;
+    }
+    .total__price {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -0.2px;
+    }
+    .total__title-value {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -0.2px;
+    }
 }

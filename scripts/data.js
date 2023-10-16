@@ -2,7 +2,7 @@
 export let initialProducts = [
    {
       id: 1,
-      checked:true,
+      checked: true,
       name: 'Футболка UZcotton мужская',
       color: 'белый',
       size: '56',
@@ -45,13 +45,13 @@ export let initialProducts = [
       infoCompany: {
          name: 'OOO «МЕГАПРОФСТИЛЬ»',
          ogrn: 'ОГРН: 5167746237148',
-         address:'129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
+         address: '129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34'
       },
       sale: {
          percentDefault: 55,
          valueDefault: 300,
          percentBuyer: 10,
-         valueBuyer:30
+         valueBuyer: 30
       }
    },
    {
@@ -114,7 +114,7 @@ export let debets = [
       number: '1234 56•• •••• 1234',
       date: '01/30',
       img: '/images/card-mir.svg',
-      checked:true
+      checked: true
    },
    {
       id: 2,
@@ -141,7 +141,7 @@ export let debets = [
 export let addressCourier = [
    {
       id: 1,
-      name: 'Бишкек, улица Табышалиева, 57', 
+      name: 'Бишкек, улица Табышалиева, 57',
       checked: true
    },
    {
@@ -154,7 +154,7 @@ export let addressCourier = [
       name: 'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1',
       checked: false
    }
-   
+
 ]
 export let addressPoint = [
    {

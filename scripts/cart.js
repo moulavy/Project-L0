@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
    const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
 
    const headerCount = document.querySelector('.header__cart-count');
+   let products78 = [];
+
    function updateTotalButton() {
       if (totalDebitCheckbox.checked === true) {
          totalSubmit.textContent = 'Оплатить ' + document.querySelector('.total__title-value-text').textContent + ' сом';
@@ -33,29 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
          totalSubmit.textContent = 'Заказать'
       }      
    }
-   totalDebitCheckbox.addEventListener('change',updateTotalButton)
-  
-   let products78 = [];
-   function createArrayProducts78(){
-      products78 = initialProducts.filter(product => product.count > 184);
-   }
-   createArrayProducts78();
-   hideActiveProductsButton.addEventListener('click', function () {
-      productsListActive.classList.toggle('hide');
-      hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
-      hideActiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
-      chooseAllText.classList.toggle('hide');
-      choosePriceCountText.classList.toggle('hide');
-      checkboxMark.classList.toggle('hide');
-
-   })
-   hideInactiveProductsButton.addEventListener('click', function () {
-      productsListInactive.classList.toggle('hide');
-      hideInactiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
-      hideInactiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
-
-   })
-   missCountText.textContent = missingProducts.length + ' ' + declensionOfWord(missingProducts.length, 'товар', 'товара', 'товаров');
    function clearActiveProducts() {
       productsListActive.innerHTML = '';
       productsListDelivery56.innerHTML = '';
@@ -65,6 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
    }
    function clearInactiveProducts() {
       productsListInactive.innerHTML = '';
+   }  
+   function createArrayProducts78(){
+      products78 = initialProducts.filter(product => product.count > 184);
    }
    function updateActiveProducts() {
       clearActiveProducts();
@@ -82,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
          delivery78.querySelector('.delivery__date-key').textContent = '7—8 февраля'
          products78.forEach(function (element) {
             const productDelivery = createDeliveryProduct(element, deliveryTemplate78);
-            productsListDelivery78.append(productDelivery); 
+            productsListDelivery78.append(productDelivery);
          })
       }
    }
@@ -92,23 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       return flag;
    }
-   totalCheckbox.checked = checkboxAll();
-   totalCheckbox.addEventListener('change', function () {
-      if (totalCheckbox.checked === true) {
-         initialProducts.forEach(function (item) {
-            item.checked = true;
-         })
-      }
-      else {
-         initialProducts.forEach(function (item) {
-            item.checked = false;
-         })
-      }
-      updateTotalPrice();
-      updateCheckboxPrice();
-      updateActiveProducts();
-   })
-
    function toPrice(value) {
       let arr = value.split('');
       let initialLength = arr.length;
@@ -128,14 +93,13 @@ document.addEventListener('DOMContentLoaded', function () {
          return many;
       }
    }
-
    function deleteProductActive(element, array) {
       const index = array.findIndex(item => item.id === element.id);
       if (index !== -1) {
          array.splice(index, 1);
          updateActiveProducts();
       }
-   }     
+   }
    function deleteProductInactive(element, array) {
       const index = array.findIndex(item => item.id === element.id);
       if (index !== -1) {
@@ -161,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = '0';
          totalSalePrice.textContent = '0';
          totalCount.textContent = '0 товаров';
-         headerCount.textContent='0'
+         headerCount.textContent = '0'
       }
       else {
          arrActivePrice = initialProducts.map(product => {
@@ -204,8 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
          totalActivePrice.textContent = toPrice(sumActive.toString());
          totalOldPrice.textContent = toPrice(sumOld.toString());
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
-         totalCount.textContent = sumCount + ' ' + countWord;         
-         headerCount.textContent =initialProducts.length ;
+         totalCount.textContent = sumCount + ' ' + countWord;
+         headerCount.textContent = initialProducts.length;
       }
       updateTotalButton();
    }
@@ -295,8 +259,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const productElementSaleDefaultValue = productElement.querySelector('.product__sale-default-value');
       const productElementSaleBuyerPercent = productElement.querySelector('.product__sale-buyer-key');
       const productElementSaleBuyerValue = productElement.querySelector('.product__sale-buyer-value');
-     
-      productElementSaleDefaultPercent.textContent = 'Скидка ' + productItem.sale.percentDefault+'%';
+
+      productElementSaleDefaultPercent.textContent = 'Скидка ' + productItem.sale.percentDefault + '%';
       productElementSaleDefaultValue.textContent = '−' + productItem.sale.valueDefault + ' сом';
       productElementSaleBuyerPercent.textContent = 'Скидка покупателя ' + productItem.sale.percentBuyer + '%';
       productElementSaleBuyerValue.textContent = '−' + productItem.sale.valueBuyer + ' сом';
@@ -354,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
          updateTotalPrice();
          updateCheckboxPrice();
          updateActiveProducts();
-         
+
       })
 
       productElementButtonMinus.addEventListener('click', function () {
@@ -372,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function () {
          }
          updateTotalPrice();
          updateCheckboxPrice();
-         updateActiveProducts();         
+         updateActiveProducts();
       })
 
       productElementCheckbox.checked = productItem.checked;
@@ -392,8 +356,8 @@ document.addEventListener('DOMContentLoaded', function () {
          else {
             delivery56.querySelector('.delivery__date-key').textContent = '5—6 февраля';
          }
-         
-         
+
+
       })
 
       productElementTitle.textContent = productItem.name;
@@ -427,7 +391,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       return productElement;
    }
-
    function createElementInactive(productItem) {
       const productElement = productTemplateInactive.querySelector('.product').cloneNode(true);
       const productElementTitle = productElement.querySelector('.product__title');
@@ -436,7 +399,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const productElementSize = productElement.querySelector('.product__size');
       const productElementDeleteButton = productElement.querySelector('.product__delete');
       const productElemementLikeButton = productElement.querySelector('.product__like');
-
 
       productElementTitle.textContent = productItem.name;
       productElementImg.src = productItem.img;
@@ -457,20 +419,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       return productElement;
    }
-
-
-   initialProducts.forEach(function (productItem) {
-      const productElement = createElementActive(productItem);
-      const productDelivery = createDeliveryProduct(productItem, deliveryTemplate56);
-      productsListActive.append(productElement);
-
-      productsListDelivery56.append(productDelivery);
-      delivery56.querySelector('.delivery__date-key').textContent = '5—6 февраля'
-      updateTotalPrice();
-      updateCheckboxPrice();
-   })
-
-
    function createTemplateDelivery78() {
       createArrayProducts78();
       if (products78.length > 0) {
@@ -486,8 +434,50 @@ document.addEventListener('DOMContentLoaded', function () {
          delivery78.querySelector('.delivery__date-key').textContent = ''
       }
    }
-   createTemplateDelivery78();
 
+   totalDebitCheckbox.addEventListener('change', updateTotalButton);  
+   createArrayProducts78();
+   hideActiveProductsButton.addEventListener('click', function () {
+      productsListActive.classList.toggle('hide');
+      hideActiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
+      hideActiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
+      chooseAllText.classList.toggle('hide');
+      choosePriceCountText.classList.toggle('hide');
+      checkboxMark.classList.toggle('hide');
+   })
+   hideInactiveProductsButton.addEventListener('click', function () {
+      productsListInactive.classList.toggle('hide');
+      hideInactiveProductsButton.querySelector('.cart-main__hide-img').classList.toggle('hide');
+      hideInactiveProductsButton.querySelector('.cart-main__hide-img-down').classList.toggle('hide');
+   })
+   missCountText.textContent = missingProducts.length + ' ' + declensionOfWord(missingProducts.length, 'товар', 'товара', 'товаров');  
+   totalCheckbox.checked = checkboxAll();
+   totalCheckbox.addEventListener('change', function () {
+      if (totalCheckbox.checked === true) {
+         initialProducts.forEach(function (item) {
+            item.checked = true;
+         })
+      }
+      else {
+         initialProducts.forEach(function (item) {
+            item.checked = false;
+         })
+      }
+      updateTotalPrice();
+      updateCheckboxPrice();
+      updateActiveProducts();
+   })
+   initialProducts.forEach(function (productItem) {
+      const productElement = createElementActive(productItem);
+      const productDelivery = createDeliveryProduct(productItem, deliveryTemplate56);
+      productsListActive.append(productElement);
+
+      productsListDelivery56.append(productDelivery);
+      delivery56.querySelector('.delivery__date-key').textContent = '5—6 февраля'
+      updateTotalPrice();
+      updateCheckboxPrice();
+   })   
+   createTemplateDelivery78();
    missingProducts.forEach(function (productItem) {
       const productElement = createElementInactive(productItem);
       productsListInactive.append(productElement)

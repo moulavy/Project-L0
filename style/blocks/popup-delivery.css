@@ -1,81 +1,78 @@
 #popup-delivery__container {
-   width: 500px;
-   height: 408px;
+    width: 500px;
+    height: 408px;
 }
 #popup-delivery__container ::-webkit-scrollbar {
-    width: 5px; 
+    width: 5px;
 }
 #popup-delivery__container ::-webkit-scrollbar-thumb {
-    background-color: #CB11AB; 
-    border-radius: 10px; 
+    background-color: #cb11ab;
+    border-radius: 10px;
 }
 
 #popup-delivery__container ::-webkit-scrollbar-track {
-    background-color: #e0dfdf; 
+    background-color: #e0dfdf;
 }
-.popup-delivery__buttons{
-   width: 100%;
-   display: flex;
-   gap:8px;
-   justify-content: space-between;
+.popup-delivery__buttons {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
 }
-.popup-delivery__button{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding-bottom: 2px;
-   background-color: inherit;
-   height: 34px;
-width: 100%;
-border-radius: 24px;
-border: 2px solid #CB11AB;
-font-size: 13px;
-font-weight: 700;
-line-height: 16px; 
+.popup-delivery__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2px;
+    background-color: inherit;
+    height: 34px;
+    width: 100%;
+    border-radius: 24px;
+    border: 2px solid #cb11ab;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
 }
-.popup-delivery__button-disabled{
-   border: 2px solid rgba(203, 17, 171, 0.15);
-
+.popup-delivery__button-disabled {
+    border: 2px solid rgba(203, 17, 171, 0.15);
 }
-.popup-delivery__adresses-title
-{
-   font-size: 13px;
-font-weight: 700;
-line-height: 16px; 
-margin-top: 24px;
-margin-bottom: 8px;
+.popup-delivery__adresses-title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    margin-top: 24px;
+    margin-bottom: 8px;
 }
-.popup-delivery__list{
-   display: flex;
-   flex-direction: column;
-   overflow: auto; 
-   gap:20px;
-   list-style: none;
-   padding: 0;
-   margin: 0;
+.popup-delivery__list {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-.popup-delivery__list-point{
-   gap:0;
+.popup-delivery__list-point {
+    gap: 0;
 }
-.popup-delivery__item{   
-   display: flex;
-   gap:8px;
+.popup-delivery__item {
+    display: flex;
+    gap: 8px;
 }
-.popup-delivery__point-block{
-   display: flex;
-   gap:8px;
+.popup-delivery__point-block {
+    display: flex;
+    gap: 8px;
 }
-.popup-delivery__item-point{
-  
-   display: flex;
-   flex-direction: column;
-   gap:0;
+.popup-delivery__item-point {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
-.popup__adress{
-   display: flex;
-   width: 100%;
-   justify-content: space-between;
-   gap:8px;
+.popup__adress {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
 }
 .popup__delete {
     background-image: url("../../images/delete-popup.svg");
@@ -87,38 +84,37 @@ margin-bottom: 8px;
     background-color: inherit;
     cursor: pointer;
 }
-.popup__delete:hover{
-     background-image: url("../../images/delete-active.svg");
+.popup__delete:hover {
+    background-image: url("../../images/delete-active.svg");
 }
-.popup__point-description{   
-   display: flex;
-   align-items:center;
-   align-self:start;
-   gap:8px;
-   margin-left: 23px;
-   margin-bottom: 8px;
+.popup__point-description {
+    display: flex;
+    align-items: center;
+    align-self: start;
+    gap: 8px;
+    margin-left: 23px;
+    margin-bottom: 8px;
 }
-.popup__rating-img{
-   width: 12px;
-   height: 12px;
+.popup__rating-img {
+    width: 12px;
+    height: 12px;
 }
-.popup__rating-number{
-   font-size: 13px;
-font-weight: 400;
-line-height: 16px;
+.popup__rating-number {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
 }
-.popup__point-title{
-   color: var(--light-system-gray, #A0A0A4);
-font-size: 13px;
-font-weight: 400;
-line-height: 16px;
+.popup__point-title {
+    color: var(--light-system-gray, #a0a0a4);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
 }
 @media screen and (max-width: 695px) {
-   #popup-delivery__container{
-      width: 100%;
-      height: 100%;
-      border-radius:0;
-      padding:16px;
-   }
-   
+    #popup-delivery__container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        padding: 16px;
+    }
 }
