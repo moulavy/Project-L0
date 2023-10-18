@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const productsListDelivery78 = document.querySelector('.delivery__date-two .delivery__value-img');
 
    const headerCount = document.querySelector('.header__cart-count');
+   const menuCount=document.querySelector('.menu__cart-count')
    let products78 = [];
 
    function updateTotalButton() {
@@ -125,7 +126,11 @@ document.addEventListener('DOMContentLoaded', function () {
          totalOldPrice.textContent = '0';
          totalSalePrice.textContent = '0';
          totalCount.textContent = '0 товаров';
-         headerCount.textContent = '0'
+         headerCount.textContent = '';
+         headerCount.classList.add('hide')
+         menuCount.textContent = '';
+         menuCount.classList.add('hide')
+
       }
       else {
          arrActivePrice = initialProducts.map(product => {
@@ -170,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
          totalSalePrice.textContent = '−' + toPrice(sumSale.toString());
          totalCount.textContent = sumCount + ' ' + countWord;
          headerCount.textContent = initialProducts.length;
+         menuCount.textContent = initialProducts.length;
       }
       updateTotalButton();
    }
