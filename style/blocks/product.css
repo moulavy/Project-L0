@@ -70,7 +70,7 @@
     gap: 8px;
     box-sizing: border-box;
     width: 280px;
-    height: 104px;
+    height: 112px;
     background-color: #fff;
     border-radius: 8px;
     z-index: 10;
@@ -228,7 +228,7 @@
     position: absolute;
     width: 100%;
     border-bottom: 1px solid #9797af;
-    top: 9px;
+    top: 7px;
     left: 0;
 }
 .product__old-price::before {
