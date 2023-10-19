@@ -5,7 +5,6 @@
 .cart__container {
     display: flex;
     padding: 24px;
-    justify-content: center;
     margin: 0 auto;
     max-width: 1400px;
     align-items: stretch;
