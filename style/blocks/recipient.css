@@ -17,7 +17,6 @@
 .recipient__input {
     width: 100%;
     border: none;
-    height: 24px;
     line-height: 24px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
@@ -36,7 +35,7 @@
     display: flex;
     flex-direction: column;
 }
-.recipient__label {
+.recipient__label {    
     height: 16px;
     color: #9797af;
     font-size: 13px;
