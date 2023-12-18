@@ -139,12 +139,13 @@
 }
 @media screen and (max-width: 1010px) {
     .total {
-        max-width: none;
+        max-width: 891px;
         margin-left: 0;
         background-color: #f6f6fa;
         border: none;
         box-shadow: none;
         padding: 8px 16px 16px;
+        align-self:auto;
     }
 }
 @media screen and (max-width: 695px) {
