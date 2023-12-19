@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
    })
 
    function handleClickChangePay() {
+      const checkboxes = popupPay.querySelectorAll('.popup__radio-input');
+      checkboxes.forEach(checkbox => {
+         checkbox.checked = false;
+      });
+
       popupPay.classList.add('popup-opened');
       page.classList.add('popup-opened-body')
    }
@@ -49,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
    buttonTotalChangePay.addEventListener('click', handleClickChangePay);
 
    function handleClickChangeDelivery() {
+      const checkboxes = popupDelivery.querySelectorAll('.popup__radio-input');
+      checkboxes.forEach(checkbox => {
+         checkbox.checked = false;
+      });
+
       popupDelivery.classList.add('popup-opened');
       page.classList.add('popup-opened-body')
    }
