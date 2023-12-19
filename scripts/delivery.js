@@ -1,6 +1,7 @@
 import { addressCourier, addressPoint } from "./data.js";
 document.addEventListener('DOMContentLoaded', function () {
-   const popupDelivery = document.querySelector('.popup-delivery');
+   const popupDelivery = document.querySelector('.popup-delivery')
+   const popupDeliveryButtonCourier = document.querySelector('.popup-delivery__courier');
    const deliveryTemplateCourier = popupDelivery.querySelector('.popup-delivery__template-courier').content;
    const deliveryTemplatePoint = popupDelivery.querySelector('.popup-delivery__template-point').content;
    const deliveryListCourier = popupDelivery.querySelector('.popup-delivery__list-courier');
@@ -8,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
    const totalAddress = document.querySelector('.total .total__address');
    const deliveryAddress = document.querySelector('.delivery__point-address');
    const buttonSubmitPopup = popupDelivery.querySelector('.popup-delivery__button-submit');
+   const totalDeliveryTitle = document.querySelector('.total__delivery-text');
+   const deliveryTitleAdress = document.querySelector('.delivery__point-key');
 
    function deleteAddress(element, array) {
       const index = array.findIndex(item => item.id === element.id);
@@ -41,6 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
          if (addressItem.checked === true) {
             totalAddress.textContent = addressItem.name;
             deliveryAddress.textContent = addressItem.name;
+            if (!popupDeliveryButtonCourier.classList.contains('popup-delivery__button-disabled')) {
+               deliveryTitleAdress.textContent = 'Курьером';
+               totalDeliveryTitle.textContent = 'Доставка курьером';
+            }
+            else {
+               deliveryTitleAdress.textContent = 'Пункт выдачи';
+               totalDeliveryTitle.textContent = 'Доставка в пункт выдачи';
+            }
          }
       }
       addressElementDelete.addEventListener('click', function () {
