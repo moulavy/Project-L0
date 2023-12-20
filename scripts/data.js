@@ -1,4 +1,6 @@
 
+export const MAX_COUNT = 184;
+
 export let initialProducts = [
    {
       id: 1,

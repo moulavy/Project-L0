@@ -1,4 +1,4 @@
-import { initialProducts, missingProducts } from "./data.js";
+import { initialProducts, missingProducts,MAX_COUNT } from "./data.js";
 document.addEventListener('DOMContentLoaded', function () {
    const totalCheckbox = document.querySelector('.cart-main__checkbox');
    const totalDebitCheckbox = document.querySelector('.total .total__checkbox');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
       productsListInactive.innerHTML = '';
    }  
    function createArrayProducts78(){
-      products78 = initialProducts.filter(product => product.count > 184);
+      products78 = initialProducts.filter(product => product.count > MAX_COUNT);
    }
    function updateActiveProducts() {
       clearActiveProducts();
@@ -207,16 +207,16 @@ document.addEventListener('DOMContentLoaded', function () {
          productDeliveryImg.src = productItem.img;
          if (productItem.count > 1) {
             if (deliveryTemplate === deliveryTemplate56) {
-               if (productItem.count > 184) {
-                  productDeliveryCount.textContent = 184;
+               if (productItem.count > MAX_COUNT) {
+                  productDeliveryCount.textContent = MAX_COUNT;
                }
                else {
                   productDeliveryCount.textContent = productItem.count;
                }
             }
             else {
-               if (productItem.count > 184) {
-                  productDeliveryCount.textContent = productItem.count - 184;
+               if (productItem.count > MAX_COUNT) {
+                  productDeliveryCount.textContent = productItem.count - MAX_COUNT;
                }
                else {
                   delivery78.querySelector('.delivery__date-key').textContent = ''
