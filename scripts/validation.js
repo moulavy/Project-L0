@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const totalSubmitButton = document.querySelector('.total__submit')
 
    function showError(input, errorElement, errorMessage) {
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
       errorElement.textContent = errorMessage;
       input.classList.add('recipient__input-error');
    }
